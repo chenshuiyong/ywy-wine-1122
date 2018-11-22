@@ -25,7 +25,7 @@ body {
 }
 
 .tab {
-    margin-top: 2rem;
+    margin-top: 2.8rem;
 }
 
 .tab div {
@@ -34,6 +34,7 @@ body {
     width: 50%;
     line-height: 2rem;
     height: 2rem;
+    font-size: 15px;
 }
 
 .tab div:first-child {
@@ -41,11 +42,12 @@ body {
 }
 
 .tab div:last-child img {
-    width: 1rem;
+    width: 1.8rem;
 }
 
 .content {
-    margin-top: 2rem;
+    margin-top: 4rem;
+    margin-right: 2rem;
 }
 
 .content li {
@@ -62,5 +64,6 @@ body {
 }
 
 .content li img {
-    width: 30%;
+    width: 35px;
+    height: 35px;
 }
