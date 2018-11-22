@@ -1,0 +1,247 @@
+body {
+	font-family: "Microsoft yahei", "微软雅黑", "Tahoma", "Verdana", "Arial",
+		"sans-serif";
+	font-size: 12px;
+	min-width: 320px;
+	max-width: 640px;
+	margin: auto;
+	background: #f8f8f8;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+ul {
+	padding: 0;
+}
+
+ul li {
+	list-style: none;
+}
+
+.clear {
+	clear: both;
+}
+
+/*文字位置*/
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+/*浮动*/
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+.header {
+	font-family: verdana, arial, sans-serif;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	z-index: 1000;
+}
+
+.header ul li a,.menu ul li a:visited {
+	display: block;
+	text-decoration: none;
+	height: 98px;
+	text-align: center;
+	color: #000;
+	padding-left: 10px;
+	background: rgba(0, 0, 0, 0.9);
+	color: #FFF;
+	border-top: 1px solid white;
+	font-size: 11px;
+	line-height: 98px;
+	font-size: 25px;
+}
+
+.header ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.header ul li {
+	float: left;
+	position: relative;
+	width: 50%;
+	color: #FFF;
+}
+
+.header ul li ul {
+	display: none;
+}
+
+.header ul li ul li:hover a {
+	background-color: rgb(51, 51, 51);
+	color: #FFF;
+	border-bottom: solid rgb(253, 253, 253) 1px;
+}
+/*.menu ul li:hover a {background-color: rgb(85, 93, 104); color:#FFF;
+border-bottom: solid rgb(253, 253, 253) 1px;} */
+.header ul li:hover ul {
+	display: block;
+	position: absolute;
+	bottom: 52px;
+	left: 0;
+	width: 100%;
+}
+
+.header ul li:hover ul li {
+	width: 100%;
+	color: #FFF;
+}
+/*.header ul li:hover ul li a.hide {background-color: rgb(85, 93, 104); color:#FFF;
+border-bottom: solid rgb(253, 253, 253) 1px;} */
+.header ul li:hover ul li {
+	display: block;
+	background: #fff;
+	color: #000;
+	width: 100%;
+	clear: both;
+}
+/*.header ul li:hover ul li:hover a.hide {background:#dfc184; color:#000;} */
+/*导航结束*/
+.header ul li a p {
+	width: 1px;
+	height: 30px;
+	float: right;
+	position: fixd;
+	display: initial;
+	vertical-align: middle;
+}
+
+#content {
+	width: 100%;
+	overflow: hidden;
+}
+
+#content_list {
+	padding: 10px 0px;
+}
+
+#content_list .cl_item {
+	border: 1px solid rgb(223, 223, 223);
+	position: relative;
+	/* margin-top: 1em; */
+	overflow: hidden;
+	background: white;
+}
+
+#content_list .cl_item div.item_content {
+	width: 45%;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#content_list .cl_item div.item_buttom {
+	float: left;
+	background: #00b7ee;
+	border-radius: 0.5em;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+
+#content_list .cl_item div.item_buttom p {
+	font-size: 24px;
+	color: #FFF;
+	margin: 0.5em 0;
+	padding: 0px 0.7em;
+}
+
+.item_buttom.fn-btn:hover {
+	color: #fff;
+	background-color: #2387CC;
+}
+
+#content_list .cl_item div.item_content ul {
+	padding-top: 20px;
+}
+
+#content_list .cl_item div.item_content ul li {
+	width: 100%;
+	font-size: 30px;
+	color: #000;
+	font-family: "Microsoft yahei", "微软雅黑";
+	/* margin-left: 2%; */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#content_list .cl_item div.item_content ul li a {
+	font-size: 24px;
+	color: #646464;
+}
+
+#content_list .cl_item div.item_content1 {
+	float: left;
+}
+
+#content_list .cl_item div.item_right {
+	background: url(../images/right_chuzhi.png) no-repeat;
+	background-position: 98% 25%;
+	padding-top: 140px;
+	float: left;
+	position: absolute;
+	padding-left: 95%;
+}
+
+#content_list .cl_item div.item_img {
+	padding: 40px 30px;
+	top: 0;
+	width: 154px;
+	height: 110px;
+	float: left;
+}
+
+#content_list .cl_item div.item_img p img {
+	width: 154px;
+	height: 110px;
+}
+
+#content_list .cl_item div.item_img a {
+	border: 1px solidrgb(204, 204, 204);
+	display: block;
+	text-align: center;
+}
+
+.Check {
+	height: 43px;
+}
+
+.float_left {
+	font-size: 1.2em;
+}
+
+.float_right {
+	font-size: 1.2em;
+	padding-top: 13px;
+	padding-right: 15px;
+}
+
+.float_left img {
+	padding-top: 10px;
+	padding: 12px;
+	vertical-align: middle;
+}

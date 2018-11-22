@@ -1,0 +1,288 @@
+/*导航开始*/
+body{font-family: "Microsoft yahei","微软雅黑","Tahoma","Verdana","Arial","sans-serif"; }
+#nav{ position: relative;}
+#nav ul.nav_list{ background-color: #ccc;}
+#nav ul.nav_list li{
+    float: left; width: 20%; padding: 1em 0;
+    position: relative;
+}
+#nav ul.nav_list li.search{ width: 78%;}
+
+#nav ul.nav_list li a{
+    width: 100%; text-align: center;
+    height: 100%; display: block;
+    color: #727172;
+    font-weight: bolder;
+}
+#nav ul.nav_list li a:hover{ color: #9900cc; }
+#nav ul.nav_list li.nl_current a{ color: #9900CC;}
+
+#nav ul.nav_list li a.border{ border-right: 1px solid #747172;}
+#nav ul.nav_list li span.icon{ display: none;}
+#nav ul.nav_list li.nl_current span.icon{
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 1em;
+    background: url("/Public/images/bottom.gif") center center no-repeat;
+}
+
+/*导航结束*/
+
+/*表单是搜索开始*/
+
+#search_form table tr td{ text-align: center;}
+#search_form table tr td.search{ width: 70%; padding-left: 1em;}
+#search_form table tr td input{ padding: 0.4em;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid #808080;
+}
+#search_form table tr td input.btn{width: 80%;
+
+    background: #EFEFF0 url("/Public/images/search.gif") no-repeat center center;
+}
+/*表单是搜索结束*/
+
+/*列表页开始*/
+
+#content_list .cl_item{
+    position: relative;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    overflow: hidden;
+
+    border-bottom: 1px solid #808080;
+}
+#content_list .cl_item div.item_content{
+    width: 70%;
+    margin-left: 30%;
+    padding-left: 1.5em;
+}
+#content_list .cl_item div.item_img{
+    position: absolute;
+    left: 1em;
+    top:0;
+    width: 30%;
+}
+
+#content_list .cl_item div.item_img a{
+    display: block;
+    text-align: center;
+}
+
+/*列表页结束*/
+/*查找框*/
+		.search {
+			padding: 0 0.3em 0.71em;
+			
+		}
+		.search .input-box {
+			border: 1px solid #C4C2C3;
+			/* border-radius: 0.3em 0.3em 0.3em 0.3em; */
+			display: block;
+			/* padding: 0 2.5em 0px 0.3em; */
+			position: relative;
+			background: #fff;
+			/* height: 100%; */
+		}
+		.new-input {
+			background: #FFFFFF;
+			border: 0 none;
+			border-radius: 0 0 0 0;
+			color: #BDBDBD;
+			font-size: 1.5em;
+			font-weight: 400;
+			height: 2.14em;
+			line-height: 1.5em;
+			text-indent: 10px;
+			vertical-align: top;
+			width: 100%;
+			color: #333;
+			height: 1.5em;
+		}
+		.btn-search {
+		border-left: 1px solid #CCCCCC;
+		/* height: 2.5em; */
+		/* line-height: 2.28em; */
+		/* margin-bottom: 0.5em; */
+		position: absolute;
+		right: 0;
+		text-align: center;
+		top: 0;
+		width: 3.5em;
+		}
+		.btn-search span {
+			background: url(../images/icon_search.png) no-repeat;
+		background-size: cover;
+		display: inline-block;
+		height: 2.2em;
+		margin-top: 0.1em;
+		text-indent: -9999px;
+		width: 2.2em;
+		}
+		#query{
+			background:rgba(0,0,0,0);
+		}
+		/*查找框*/
+		
+#nav .sub-nav-list{ display: inline-block;
+			width:30%;
+			text-align: center;
+			float: left;
+			height: 30px;
+			line-height:30px;
+			/* border-radius: 5px; */
+			/* border: 1px solid #747172; */
+        }
+        #nav #current-select-tenant { 
+			position: relative;
+			display: block;
+			/* margin-top: 1em; */
+			cursor: pointer;
+        }
+        #nav #current-select-tenant ul.select-tentant{
+            width: 100%;
+			position: absolute;
+			display: none;
+			left: 0;
+			bottom: 40px;
+			z-index: 999;
+			height: 120px;
+        }
+        #nav #current-select-tenant ul.select-tentant li
+        {  color:#333; background-color: rgb(19, 19, 18);}
+        #nav #current-select-tenant ul.select-tentant li a{ display:block; height:30px; line-height:30px; }
+        #nav #current-select-tenant ul.select-tentant li:hover{ background-color:rgb(62, 55, 51);}
+
+
+        /*导航开始*/
+
+        #nav ul.nav_list{ background-color: #ccc;}
+        #nav ul.nav_list li{
+            float: left; width: 20%; padding: 1em 0;
+            position: relative;
+        }
+
+        #nav ul.nav_list li a{
+            width: 100%; text-align: center;
+            height: 100%; display: block;
+            color: #727172;
+            font-weight: bolder;
+        }
+        #nav ul.nav_list li a:hover{ color: #9900cc; }
+        #nav ul.nav_list li.nl_current a{ color: #9900CC;}
+
+        #nav ul.nav_list li a.border{ border-right: 1px solid #747172;}
+        #nav ul.nav_list li span.icon{ display: none;}
+        #nav ul.nav_list li.nl_current span.icon{
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 1em;
+            background: url("../images/bottom.gif") center center no-repeat;
+        }
+
+        /*导航结束*/
+
+        #content{ width:100%; }
+        /*表单是搜索开始*/
+        #search_form{ float: left; width: 70%;}
+        #search_form table tr td{ text-align: center;}
+        #search_form table tr td.search{ width: 70%; padding-left: 1em;}
+        #search_form table tr td input{ padding: 0.4em;
+            width: 90%;
+            border-radius: 5px;
+            border: 1px solid #808080;
+        }
+        #search_form table tr td input.btn{width: 80%;
+
+            background: #EFEFF0 url("../images/search.gif") no-repeat center center;
+        }
+        /*表单是搜索结束*/
+
+        /*列表页开始*/
+
+        #content_list .cl_item{
+            position: relative;
+            margin-top: 1em;
+            padding-bottom: 1em;
+
+            border-bottom: 1px solid #808080;
+        }
+        #content_list .cl_item div.item_content{
+            width: 70%;
+            margin-left: 30%;
+
+        }
+        #content_list .cl_item div.item_img{
+            position: absolute;
+            /*left: 1em;*/
+           /* border: 1px solid #F7EAEA;
+            background-color: #F7EAEA;
+            border-radius: 5px;*/
+            top:0;
+            width: 30%;
+            height: 110px;
+        }
+        #content_list .cl_item div.item_img a{
+            display: block;
+            text-align: center;
+            color: #000000;
+            width: 100%;
+            height: 100%;
+        }
+        /*列表页结束*/
+		/*查找框*/
+		.search {
+			padding: 0 0.3em 0.71em;
+			
+		}
+		.search .input-box {
+			border: 1px solid #C4C2C3;
+			/* border-radius: 0.3em 0.3em 0.3em 0.3em; */
+			display: block;
+			/* padding: 0 2.5em 0px 0.3em; */
+			position: relative;
+			background: #fff;
+			/* height: 100%; */
+		}
+		.new-input {
+			background: #FFFFFF;
+			border: 0 none;
+			border-radius: 0 0 0 0;
+			color: #BDBDBD;
+			font-size: 14px;
+			font-weight: 400;
+			height: 30px;
+			line-height: 30px;
+			text-indent: 10px;
+			vertical-align: top;
+			width: 100%;
+			color: #333;
+			height: 30px;
+		}
+		.btn-search {
+		border-left: 1px solid #CCCCCC;
+		/* height: 2.5em; */
+		/* line-height: 2.28em; */
+		/* margin-bottom: 0.5em; */
+		position: absolute;
+		right: 0;
+		text-align: center;
+		top: 0;
+		width: 3.5em;
+		}
+		.btn-search span {
+			background: url(../images/icon_search.png) no-repeat;
+		background-size: cover;
+		display: inline-block;
+		height: 2.2em;
+		margin-top: 0.1em;
+		text-indent: -9999px;
+		width: 2.2em;
+		}
+		#query{
+			background:rgba(0,0,0,0);
+		}
+		/*查找框*/

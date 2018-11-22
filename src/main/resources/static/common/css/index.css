@@ -1,0 +1,66 @@
+
+/*内容*/
+.ui-block-a,.ui-block-b{
+    /*padding: 5px 5px 0 5px;*/
+    height: 60px;
+    line-height: 50px;
+    text-align: center;
+}
+.ui-block-a a.a,.ui-block-b a.a{
+    font-size: 1.2em;
+    color: #595757;
+    margin: 5px ;
+    text-decoration: none;
+    border: 1px solid #ABCD06;
+    background-color: #ABCD06;
+    display: block;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+.ui-block-a a.b,.ui-block-b a.b{
+    font-size: 1.2em;
+    margin: 5px ;
+    color: #595757;
+    text-decoration: none;
+    border: 1px solid #5BC2DA;
+    background-color: #5BC2DA;
+    display: block;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+/*底部*/
+.ui-block-a a.c{
+    font-size: 1.2em;
+    margin: 10px auto ;
+    color: #595757;
+    text-decoration: none;
+    border: 1px solid #5BC2DA;
+    background-color: #5BC2DA;
+    display: block;
+    width: 50%;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+/*图片轮播开始*/
+theme-bar.slider-wrapper{ padding: 0 1em; }
+.theme-bar:hover .nivo-controlNav,.theme-bar .nivo-controlNav{
+    left: 0;
+    bottom: -30px;
+    background: none;
+    opacity: 1;
+    border: 0;
+}
+.theme-bar a.nivo-nextNav,.theme-bar a.nivo-nextNav:hover { display: none; }
+.theme-bar a.nivo-prevNav,.theme-bar a.nivo-prevNav:hover {display: none;}
+/*图片轮播结束*/
+
+/*顶部下拉框*/
+.selectHouse{
+    max-width: 60%;
+    min-width: 50%;
+    margin: 0 auto;
+
+}
+/*顶部下拉框结束*/

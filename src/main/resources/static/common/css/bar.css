@@ -1,0 +1,247 @@
+ul li {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+li {
+	padding: 0px;
+	margin: 0px;
+}
+#user_have .Choice div.color {
+	width: 16%;
+	padding-top: 10px;
+	float: left;
+	font-size: 30px;
+	color: #606060;
+}
+#user_have .Model {
+	width: 16%;
+	padding-top: 10px;
+	float: left;
+	font-size: 30px;
+	color: #606060;
+}
+#user_have {
+	padding: 0px 30px;
+	overflow: hidden;
+}
+#user_have .Choice {
+	border-top: 1px solid #dedfe0;
+	padding: 30px 0px 0px 0px;
+	overflow: hidden;
+}
+#user_have .Choice div.list_Choice {
+	width: 75%;
+	float: left;
+}
+#user_have .Choice1 div.list_Model {
+	width: 83%;
+	float: left;
+}
+#user_have .Choice div.list_Choice ul li {
+	height: 64px;
+	width: 152px;
+	float: left;
+	margin: 10px;
+	background: #f1f1f1;
+	border: 1px solid #606060;
+	border-radius: 6px;
+}
+#user_have .Choice1 div.list_Model ul li {
+	height: 64px;
+	width: 142px;
+	float: left;
+	margin: 10px 0px 10px 10px;
+	background: #f1f1f1;
+	border: 1px solid #606060;
+	border-radius: 6px;
+}
+#user_have .Choice div.list_Choice ul li p {
+	font-size: 30px;
+	color: #000;
+	line-height: 64px;
+	text-align: center;
+}
+#user_have .Choice1 div.list_Model ul li a {
+	display: block;
+}
+#user_have .Choice1 div.list_Choice ul li a {
+	display: block;
+}
+#user_have .Choice div.list_Choice ul li:hover {
+	background: #ffffff;
+}
+#user_have .Choice1 div.list_Choice ul li:visited {
+	background: #ffffff;
+}
+#user_have .Choice1 div.list_Model ul li:hover {
+	background: #ffffff;
+}
+#user_have .Choice1 div.list_Model ul li:visited {
+	background: #ffffff;
+}
+#user_have .Choice1 div.list_Model ul li p {
+	font-size: 30px;
+	color: #000;
+	line-height: 58px;
+	text-align: center;
+}
+#user_have .Choice1 {
+	overflow: hidden;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #dedfe0;
+}
+.Addto {
+	padding: 0px 30px 10px 30px;
+	border-bottom: 1px solid #dedfe0;
+	background: #fff;
+}
+#content div.user_have ul li {
+	padding: 1em;
+	position: relative;
+	border-top: 1px solid #ccc;
+}
+#content div.user_have ul li a {
+	color: #747172;
+	display: block;
+	width: 100%;
+}
+#content div.user_have ul li.position span {
+	position: absolute;
+	padding: 1em;
+	top: 0;
+	right: 1em;
+}
+#content {
+	background: #FFF;
+	width: 100%;
+}
+.Addto p {
+	background: #ee0000;
+	text-align: center;
+	color: #FFF;
+	height: 40px;
+	border-radius: 5px;
+	vertical-align: middle;
+	font-size: 30px;
+	padding: 20px 0px;
+}
+#content_list .cl_item div.item_content ul li {
+	font-size: 30px;
+	color: #000;
+}
+#content_list .cl_item div.item_content ul li.mane {
+	color: #606060;
+	font-size: 24px;
+}
+#content_list .cl_item div.item_content ul li.mane1 {
+	font-size: 30px;
+	color: #000;
+	padding: 0.25em 0;
+}
+#content_list .cl_item div.item_content ul li span.left {
+	color: #F00;
+	font-size: 36px;
+}
+#article {
+	background: #fff;
+	margin: 20px 0px;
+}
+#article .article-list {
+	padding: 0px 30px;
+	border-top: 1px solid #dedfe0;
+	border-bottom: 1px solid #dedfe0;
+}
+#article .article-list p {
+	font-size: 24px;
+	color: #606060;
+	line-height: 62px;
+}
+#article .article-list ul {
+	padding: 30px 0px;
+	border-top: 1px solid #dedfe0;
+}
+#article .article-list ul li {
+	font-size: 24px;
+	color: #606060;
+	line-height: 40px;
+}
+#specifics {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 20px;
+}
+#specifics #specifics-list {
+	padding: 20px 114px;
+	background: #FFF;
+	border: 1px solid #dedfe0;
+	width: 100%;
+	overflow: hidden;
+}
+/*#specifics .specifics-list ul li{  height:64px;display:inline;padding: 20px 39px; }
+#specifics .specifics-list ul li.nema1{ background:#0ba934; color:#FFF; font-size:30px; line-height:64px; border-top-left-radius:10px;border-bottom-left-radius:10px; border:1px solid#0ba934;}
+#specifics .specifics-list ul li.nema{ background:#fff; color:#0ba934;font-size:30px; line-height:64px;border-top-right-radius:10px;border-bottom-right-radius:10px; border:1px solid#0ba934;}
+*/
+#specifics #specifics-list .nema1 {
+	background: #0ba934;
+	color: #FFF;
+	font-size: 30px;
+	line-height: 64px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border: 1px solid#0ba934;
+	width: 200px;
+	float: left;
+}
+#specifics #specifics-list .nema1 p {
+	text-align: center;
+}
+#specifics #specifics-list .nema {
+	background: #fff;
+	color: #0ba934;
+	font-size: 30px;
+	line-height: 64px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 1px solid#0ba934;
+	width: 200px;
+	float: left;
+}
+#specifics #specifics-list .nema p {
+	text-align: center;
+}
+#specifics .specifics_list_p {
+	padding: 30px 30px 0px 30px;
+	font-size: 24px;
+	color: #525252;
+	line-height: 50px;
+}
+#section {
+	overflow: hidden;
+}
+#section {
+	margin: 30px;
+	border-top: 1px solid #dedfe0;
+}
+#section .section-list ul li {
+	font-size: 24px;
+	color: #525252;
+	line-height: 50px;
+	color: #525252;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#section .section-list ul li a {
+	padding-left: 138px;
+	color: #525252;
+	font-size: 24px;
+}
+#section_img {
+	overflow: hidden;
+	margin: 30px;
+}
+#section_img .section-list ul li {
+	padding-bottom: 10px;
+	height: 412px;
+}
