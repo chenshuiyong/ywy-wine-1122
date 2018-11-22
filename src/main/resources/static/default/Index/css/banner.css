@@ -1,0 +1,83 @@
+/*想要图片出现重叠的效果*/
+#banner_content.banner_content{
+    width: 100%;
+    height: 2.7rem;
+    position: relative;
+    display: flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+}
+#banner_content .banner_list{
+    width: 7.5rem;
+    height:2.3rem;
+    /*overflow: hidden; */  /*溢出的隐藏掉，默认的是：内容不会被修剪，会呈现在元素框之外。*/
+    position: relative;
+    padding-bottom: 0.2rem;
+}
+#banner_content .banner_list li{
+    list-style: none;
+    position: absolute;   /*一定要设置这个*/
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+#banner_content .banner_list li img{
+    border: none;
+    width: 6.6rem;
+    height: 2.3rem;
+    float: left;
+    border-radius: 0.25rem;
+}
+
+#banner_content .banner_list li.previous_img{
+    transform: translate3d(-8%,0,0) scale(0.9);
+    transform-origin: right 50%;
+    opacity: 0.8;
+    z-index: 2;
+}
+#banner_content .banner_list li.current_img{
+    transform:translate3d(7%,0,0) scale(1);
+    z-index: 3;
+    opacity: 1;
+}
+#banner_content .banner_list li.current_img img{
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.3);
+}
+#banner_content .banner_list li.next_img{
+    transform: translate3d(12%,0,0) scale(0.9);
+    transform-origin: right 50%; /*改变基准点*/
+    opacity: 0.8;
+    z-index: 2;
+}
+#banner_content .banner_list li.no_show{
+    z-index:0 ;
+}
+
+#banner_content .banner_buttons{
+    width: 100%;
+    height: 0.34rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+#banner_content .banner_buttons span{
+    width: 0.08rem;
+    height: 0.08rem;
+    background: #e6e6e6;
+    border-radius: 50%;
+    margin: 0 0.06rem;
+}
+#banner_content .banner_buttons span.blue{
+    width: 0.14rem;
+    background: #c4c0c0;
+    border-radius: 0.08rem;
+}

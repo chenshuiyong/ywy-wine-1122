@@ -1,0 +1,211 @@
+div, span, input {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: #f1f1f1;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+    display: inline-block;
+}
+
+/*顶部输入框 s*/
+.top_input_section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 115px;
+    line-height: 115px;
+    padding: 0 25px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.top_input_section form {
+    width: 100%;
+}
+
+.top_input_section .input_box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+    width: 100%;
+}
+
+.top_input_section .img_box {
+    width: 10%;
+    height: 70px;
+    background: #e7e7e7;
+    padding-right: 13px;
+    margin-right: -12px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    align-items: center;
+    -webkit-align-items: center;
+    border-radius: 50px 0 0 50px;
+}
+
+.top_input_section .img_box img {
+    width: 36px;
+    height: 35px;
+}
+
+.top_input_section input {
+    outline: none;
+    padding-left: 10px;
+    height: 70px;
+    line-height: 70px;
+    border: none;
+    font-size: 24px;
+    background: #e7e7e7;
+    width: 90%;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    -webkit-appearance:none;
+}
+input::-webkit-search-cancel-button{
+    display: none;
+}
+
+/*顶部输入框 e*/
+/*定位城市 s*/
+.local_city {
+    margin-top: 115px;
+}
+
+.local_city .title {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 25px;
+    font-size: 20px;
+    color: #666;
+}
+
+.local_city .city_line {
+    width: 100%;
+    height: 100px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 0 25px;
+    font-size: 30px;
+    color: #333;
+    background: #fff;
+}
+
+.local_city .city_line img {
+    margin-left: 10px;
+    width: 33px;
+    height: 33px;
+}
+
+/*定位城市 e*/
+
+/*右侧字母导航 s*/
+
+#letter_navigation {
+    position: fixed;
+    right: 0;
+    top: 115px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+    font-size: 20px;
+    color: #333;
+    display: none !important;
+}
+
+#letter_navigation a {
+    height: 38px;
+    line-height: 38px;
+    width: 40px;
+    text-align: center;
+}
+
+/*右侧字母导航 e*/
+
+/*城市列表 s*/
+.city_list {
+    width: 100%;
+}
+
+.city_list .title {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 25px;
+    font-size: 20px;
+    color: #666;
+}
+
+.city_list .city-item {
+    background: #fff;
+}
+
+.city_list .city-item .item {
+    height: 100px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+    font-size: 30px;
+    color: #333;
+    width: 93%;
+    margin: 0 auto;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/*城市列表 e*/
+
+/*提示弹框 s*/
+#tips_pop_container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 65%;
+    text-align: center;
+    display: none;
+}
+
+#tips_pop_container span {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 30px;
+    height: 55px;
+    line-height: 55px;
+    padding: 0 20px;
+    border-radius: 5px;
+}
