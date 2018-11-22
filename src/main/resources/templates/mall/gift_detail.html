@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta th:include="common/header :: header('礼品详情')"></meta>
+    <script type="text/javascript"  th:inline="javascript">
+        var basePicPath=[[${BASE_PIC_PATH}]];
+        var BASE_SERVER_URL=[[${BASE_SERVER_URL}]];
+    </script>
+    <script type="text/javascript" src="/common/js/jweixin-detial.js" th:src="@{/common/js/jweixin-detial.js?v=1.2.1}"></script>
+    <script src="/common/js/TouchSlide.1.1.js" th:src="@{/common/js/TouchSlide.1.1.js}"></script>
+    <link rel="stylesheet" type="text/css" href="/common/js/weui-1.1.2/dist/style/weui.css" th:href="@{/common/js/weui-1.1.2/dist/style/weui.css}">
+    <link rel="stylesheet" type="text/css" href="/default/mall/css/gift-detail.css" th:href="@{'/default/mall/css/gift-detail.css?dt='+${DT}}">
+
+</head>
+<body>
+<div id="top_section">
+    <div class="user_info">
+        <img th:src="@{ (${headimgUrl == '' ? '/default/Index/img/integral/sdw.png': headimgUrl}) }">
+        <div class="current_integral" th:if="${memberInfo!=null}">当前积分 <span th:text="${memberInfo!=null ? memberInfo.totalEffectivePoints: 0}"></span></div>
+        <div class="current_integral" th:if="${memberInfo ==null}">未登录</div>
+    </div>
+        <div class="exchange_record" id="exchange_record">
+        <a id="to_index"><img  th:src="@{/default/Index/img/integral/to_index.png}"  class="to_index"></a>
+        <a id="to_record"><img  th:src="@{/default/Index/img/integral/to_record.png}" class="to_record"></a>
+    </div>
+</div>
+
+<div id="header" class='slideBox'>
+    <div class='bd' id="banner">
+        <ul>
+            <li>
+                <img th:src="${BASE_PIC_PATH+ gift.itemPicPath}"  class="gift_img" />
+            </li>
+        </ul>
+
+    </div>
+    <div class='hd' style="display: none;">
+        <ul></ul>
+    </div>
+</div>
+<div class="gift_info" id="gift_info">
+    <input type="hidden" id="title" value="礼品详情">
+    <div class="imgUrl" style="display: none;" th:text="${gift.itemPic}"></div>
+    <div class="linkUrl" style="display: none;" th:text="${linkUrl}"></div>
+
+    <div class="name" id="descName" th:text="${gift.itemGiftName}"></div>
+    <div class="integral_num">
+        <div class="integral" th:if="${gift.itemIfflag=='2'}"><span class="b_red" th:text="${#numbers.formatInteger(gift.itemIntegral,0)}"></span>积分</div>
+        <div class="integral" th:if="${gift.itemIfflag=='1'}"><span class="b_red" id="itemPayMoney"></span>元</div>
+        <div>
+                市场参考价<span class="red" th:inline="text" id="itemSelPrice"></span>元
+        </div>
+    </div>
+    <div class="price">
+       <div class="expire_date">
+         <img th:src="@{/default/Index/img/integral/time.png}">
+         <span th:text="${#strings.substring(gift.itemStime,0,10) +'至'+#strings.substring(gift.itemEtime,0,10)}"></span>
+       </div>
+     <div class="num">已兑<span class="red" th:text="${(gift.itemCount-gift.itemSurplusQuantity)}"></span>件  库存
+     <span class="red" th:text="${gift.itemSurplusQuantity}"></span>件</div>
+    </div>
+    <div>
+	        <span class="tag">
+	            <span id="vipLevel">会员专享</span>
+	        </span>
+            <span class="tag" th:if="${gift.itemPostWay == '1'}">免费邮寄</span>
+    </div>
+</div>
+<div class="receive_info" id="receive_info" th:unless="${#strings.isEmpty(gift.itemReceiveAddr)}">
+    <div class="title">领取信息</div>
+    <div class="detail" th:utext="${gift.itemReceiveAddr}">
+    </div>
+</div>
+<if condition="$info.ITEM_GIFT_INTR neq ''">
+    <div class="detail_desc" id="detail_desc">
+        <div class="title">礼品详情</div>
+        <div class="desc" th:utext="${gift.itemGiftIntr}">
+            {$info.ITEM_GIFT_INTR}
+        </div>
+    </div>
+</if>
+
+<div class="bottom_logo">
+    <div class="tips">本礼品解释权归建发房地产所有</div>
+    <img  src="/default/Index/img/logo.png"  th:src="@{/default/Index/img/logo.png}" class="log_img">
+</div>
+
+<div class="exchange" id="exchange">
+        <div class="exchange_price" th:if="${gift.itemIfflag=='2'}" th:text="${#numbers.formatInteger(gift.itemIntegral,0)+'积分'}"></div>
+        <div class="exchange_price" th:if="${gift.itemIfflag=='1'}" id="itemPayMoneyTxt"></div>
+        <a href="javascript:;" class="exchange_btn"  id="btn_exchange" th:if="${gift.itemSurplusQuantity > 0 }">立即下单</a>
+        <a href="javascript:;" class="no_gift" th:if="${gift.itemSurplusQuantity ==0 }">抢完了</a>
+</div>
+
+<div class="page__bd" style="background: #f5f5f5;padding-bottom: 50px;">
+
+</div>
+
+<!--确认提交投诉遮罩-->
+<div id="submit_mask">
+    <div class="pop_container">
+        <div class="title_line">温馨提示</div>
+        <div class="tips_container">
+            <p style="text-align:left;">您好，这个礼品是金钻专享哦</p>
+        </div>
+        <div class="submit_btn">确定</div>
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript" th:inline="javascript">
+
+    var itemSelPrice=[[${gift.itemSelPrice}]];
+    var itemPayMoney=[[${gift.itemPayMoney}]];
+    var payFlg =[[${gift.itemIfflag}]];
+    var vipLevel=[[${gift.itemViplevelName}]];
+    $(function(){
+        /*按比例放大缩小*/
+        var currClientWidth, fontValue, originWidth;originWidth = 750;//ui设计稿的宽度，一般750或640
+        __resize();
+        window.addEventListener('resize', __resize, false);
+        function __resize() {
+            currClientWidth = document.documentElement.clientWidth;
+            if (currClientWidth > 768){
+                currClientWidth = 768;
+            }
+            if (currClientWidth < 320){
+                currClientWidth = 320;
+            }
+            fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+            document.documentElement.style.fontSize = fontValue + '%';
+        }
+        $("#vipLevel").html(getVipLevel(vipLevel));//加载会员等级
+        
+        $("#btn_exchange").click(function(){
+          //  location.href='/gift/exchange?itemHactId='+[[${gift.itemHactId}]]+"&dt="+(new Date()).getTime();
+            location.href = commonChangeDtUrl('/gift/exchange?itemHactId='+[[${gift.itemHactId}]]);
+        });
+
+        //我的兑换记录跳转
+        $('#to_record').click(function () {
+            location.href = commonChangeDtUrl('/playIntegral/myGifts');
+        });
+        //积分首页
+        $('#to_index').click(function () {
+            location.href = commonChangeDtUrl('/index');
+        });
+        
+        var width=$('.gift_img').width();
+        $('.gift_img').css('height',width);
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 115) {
+                $('#top_section').css('opacity','0.5')
+            }
+            if($(window).scrollTop() <=115){
+                $('#top_section').css('opacity','1')
+            }
+        });
+
+        /*顶部轮播图 start*/
+        TouchSlide({
+            slideCell: "#slideBox",
+            titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+            mainCell: ".bd ul",
+            effect: "leftLoop",
+            interTime: "3000",
+            autoPage: true //自动分页
+        });
+
+        if ($("#header").find("li").length > 1) {
+            TouchSlide({
+                slideCell: "#header",
+                titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell: ".bd ul",
+                effect: "leftLoop",
+                autoPlay: true,
+                interTime: "3000",
+                autoPage: true //自动分页
+            });
+        }
+        $("#itemSelPrice").html(itemSelPrice);
+        if(payFlg=='1'){
+          $("#itemPayMoney").html(itemPayMoney);
+          $("#itemPayMoneyTxt").html("￥"+itemPayMoney);
+        }
+    });
+</script>
+</html>

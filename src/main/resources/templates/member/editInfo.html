@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta th:include="common/header :: header('个人资料修改')"></meta>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/common/js/weui-1.1.2/dist/style/weui.css" th:href="@{/common/js/weui-1.1.2/dist/style/weui.css}">
+    <link rel="stylesheet" type="text/css" href="/default/member/css/edit.css" th:href="@{/default/member/css/edit.css?v=1.1}">
+    <link rel="stylesheet" href="/default/member/css/city.css" th:href="@{/default/member/css/city.css?v=1.1.1}">
+    <script type="text/javascript" src="/common/js/Date/datePicker.js" th:src="@{/common/js/Date/datePicker.js}"></script>
+    <script type="text/javascript" src="/default/member/js/edit.js" th:src="@{/default/member/js/edit.js?v=1.1.7}"></script>
+    <script type="text/javascript" src="/default/member/js/city.js" th:src="@{/default/member/js/city.js?v=1.1}"></script>
+</head>
+<body>
+
+
+<!--城市筛选遮罩-->
+<div class="screen_mask" id="city_screen_mask">
+    <div class="city_screen_box" id="city_screen_box">
+        <div class="container" style="width: 100%">
+            <div  class="city_item"  onclick="click_city_item(this)"   th:each="item :${citys}"  th:name="${item.ITEM_CITY_NAME}"  th:text="${item.ITEM_CITY_NAME}" ></div>
+        </div>
+    </div>
+    <div class="city_bottom_line">
+        <span>不在上述城市范围？</span>
+        <span class="show_add_city_input" >点击可新增城市</span>
+    </div>
+</div>
+
+<div th:if="${!isSend}" class="title_top">
+    <img src="/default/member/img/personCenter/title_logo.png" class="close_pop_btn" th:src="@{/default/member/img/personCenter/title_logo.png}">
+    <div>为了让钻石会更懂您，以至于能够准确提供给您所需要的服务，在您首次完成如下资料补全后，我们将赠送您<samp th:text="${completeIntegral}"></samp>钻石会积分，另外生日当天还可以得到官微的贺礼哦！</div>
+</div>
+<div class="change_phone_mask" id="change_phone_mask">
+    <div class="container">
+        <div class="title">修改手机号码</div>
+        <div class="input_box">
+            <div class="new_phone_line">
+                <input type="text" id="new_phone" placeholder="请输入您的新手机号码">
+            </div>
+            <div class="verify_line">
+                <input type="text" id="new_verify_code" placeholder="请输入验证码">
+                <div class="get_verify_btn" id="get_verify_btn">获取验证码</div>
+            </div>
+        </div>
+        <div class="submit_btn" id="submit_new_phone_btn">提交</div>
+    </div>
+    <img src="/default/member/img/personCenter/close_btn.png" class="close_pop_btn" th:src="@{/default/member/img/personCenter/close_btn.png}">
+</div>
+<div class="page__bd">
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd" style="font-size:12px;color: #333">
+            <p>姓名</p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="editName" required maxlength="15" th:value="${userInfo.itemCompellation}" name="info[ITEM_COMPELLATION]" type="text" placeholder="请输入您的名字">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd">
+            <p>生日</p>
+        </div>
+        <div class="weui-cell__ft"
+             style="flex: 1;-webkit-flex:1;justify-content: flex-end;-webkit-justify-content: flex-end;">
+            <div id="birthday" th:style="${userInfo.itemBirthday!=null?'width:100%':''}" th:text="${userInfo.itemBirthday!=null?userInfo.itemBirthday:'请选择日期'}"></div>
+            <input id="birthday_value" type='hidden' name="birthday" th:value="${userInfo.itemBirthday}">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd">
+            <p>邮寄地址</p>
+        </div>
+        <div class="weui-cell__ft">
+            <input class="weui-input" th:value="${userInfo.itemHomeAddr}"  id="post_addr" type="text" placeholder="请填写">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height:50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd">
+            <p>邮箱</p>
+        </div>
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="editEmail" th:value="${userInfo.itemEmail}" name="info[ITEM_EMAIL]"
+                   type="text" placeholder="请填写">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd">
+            <p>性别</p>
+        </div>
+        <div class="weui-cell__ft"
+             style="height: 25px;line-height: 25px;display: flex; display: -webkit-box;display: -webkit-flex;align-items: center;-webkit-align-items: center;">
+            <select class="weui-select" name="ITEM_SEX" style="height: 25px;line-height:25px;font-size: 15px;direction: rtl;color: #333333">
+                <option value="" style="font-size: 15px" >请选择</option>
+                <option value="1" th:selected="${userInfo.itemSex == '1'}" style="font-size: 15px">男</option>
+                <option value="2" th:selected="${userInfo.itemSex == '2'}" style="font-size: 15px">女</option>
+            </select>
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access phone" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd">
+            <p>手机号码</p>
+        </div>
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="editMobile" th:value="${userInfo.itemMobile}" name="info[ITEM_MOBILE]"
+                   type="text" placeholder="请输入您的手机号码" readonly="readonly" style="width:100px;">
+            <span class="show_change_phone_pop">换一个</span>
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd">
+            <p>常住城市</p>
+        </div>
+        <div class="" style="color: #333;text-align: right;line-height: 25px;font-size: 15px;height: 25px;">
+            <!--<input class="weui-input" id="" value="" name="" type="text" placeholder="请选择">-->
+            <div class="show_city_mask" >
+                <div class="city_screen">
+                    <span th:if="${cityName==''}" id="choose_city_name" style="margin-right:5px">全国</span>
+                    <span th:if="${cityName!=''}" id="choose_city_name" th:text="${cityName}" style="margin-right:5px"></span>
+                    <input th:value="${cityName}"  type="hidden" id="city_name" value="">
+                    <img th:if="${cityName ==''}"  id="cityImg" src="/default/Index/img/integral/ff5.png" th:src="@{/default/Index/img/integral/ff5.png}">
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <div class="add_complain" id="add_complain">
+        <div class="add_ident_title">
+            <div class="add_ident_left" onclick="gotoPolicy()">
+                <div><img  src="/default/member/img/personCenter/add_ident_privacy.png" class="close_pop_btn" th:src="@{/default/member/img/personCenter/add_ident_privacy.png}" ></div>
+                <p>钻石会用户隐私协议</p>
+            </div>
+        </div>
+        <div class="add_ident_btn" onclick="submit()">
+            <a href="javascript:;" id="submit" style="color: #ffffff;" >保存修改</a>
+        </div>
+    </div>
+
+    <!--提示遮罩2-->
+    <div id="submit_mask2">
+        <div class="pop_container2">
+            <div class="title_line2">温馨提示</div>
+            <div class="tips_container2">
+                <p style="text-align:center;">您的问题已提交，请等待受理，如有疑问请拨打400-846-3636</p>
+            </div>
+            <!--<input type="submit" class="submit_btn" id="submit_btn" value="确认"/>-->
+            <div class="submit_btn2" onclick="close_mask2()">确定</div>
+        </div>
+        <!--<div class="close_mask_btn"><span class="close_btn">X</span></div>-->
+    </div>
+</div>
+<div id="loading_gif">
+    <div class="loading_gif" id="loading_gif_container">
+        <img src="/default/Index/img/loading.gif" th:src="@{/default/Index/img/loading.gif}">
+    </div>
+</div>
+<div class="close_div">
+</div>
+<div id="city_input_mask">
+    <div class="container">
+        <div class="add_city_name_line" style ="width: 80%">
+            <input type="text" id="add_city_name" placeholder="请输入城市名">
+        </div>
+        <div class="confirm_add_city" onclick="add_city_name()">确认</div>
+    </div>
+    <img src="/default/member/img/personCenter/close_btn.png" id="close_add_city_mask">
+</div>
+<div id="tips_pop_container">
+    <span>发送成功</span>
+</div>
+</body>
+
+<script th:inline="javascript">
+    var city_scroll;
+    var ifHaveBirthday = [[${userInfo.itemIfHaveBirthday}]];
+    var initCity = [[${cityName}]];
+    (function(){
+        var currClientWidth, fontValue, originWidth;originWidth = 750;//ui设计稿的宽度，一般750或640
+        __resize();
+        window.addEventListener('resize', __resize, false);
+        function __resize() {
+            currClientWidth = document.documentElement.clientWidth;
+            if (currClientWidth > 768){
+                currClientWidth = 768;
+            }
+            if (currClientWidth < 320){
+                currClientWidth = 320;
+            }
+            fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+            document.documentElement.style.fontSize = fontValue + '%';
+        }
+
+    })();
+</script>
+</html>

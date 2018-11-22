@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5, user-scalable=no">
+    <title>订单完成</title>
+    <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+	<link rel="stylesheet" href="/default/mall/css/pay_success.css?dt=123" th:href="@{'/default/mall/css/pay_success.css?dt='+${DT}}">
+</head>
+<body>
+<div class="page_main">
+    <div class="top_logo">
+        <img  src="/default/Index/img/logo.png"  th:src="@{/default/Index/img/logo.png}" class="log_img">
+    </div>
+    <a id="link" style="text-decoration: none;">
+        <div id="gotoLink" style="display: none;" th:text="${link}"></div>
+      <div class="gift_info_box b_c_flex">
+        <img th:src="${BASE_PIC_PATH + picPath}" alt="">
+        <div class="gift_name" th:text="${giftName}"></div>
+      </div>
+    </a>
+    <div class="receive_info" th:if="${postWay == '1'}">
+        <div class="name_phone_line a_c_flex">
+            <div class="name" th:text="${itemConsignee}"></div>
+            <div class="phone" th:text="${itemConsigneePhone}"></div>
+        </div>
+        <div class="address_detail" th:text="${itemConsigneeAddr}"></div>
+    </div>
+
+    <div class="back_to_index">
+         <a  class="to_index_btn">返回商城</a>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+<script th:inline="javascript">
+    var currWeixinId = [[${session.currWeixinId}]];
+</script>
+<script>
+window.onload = function () {
+    /*按比例放大缩小*/
+    var currClientWidth, fontValue, originWidth;originWidth = 750;//ui设计稿的宽度，一般750或640
+    __resize();
+    window.addEventListener('resize', __resize, false);
+    function __resize() {
+        currClientWidth = document.documentElement.clientWidth;
+        if (currClientWidth > 768){
+            currClientWidth = 768;
+        }
+        if (currClientWidth < 320){
+            currClientWidth = 320;
+        }
+        fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+        document.documentElement.style.fontSize = fontValue + '%';
+    }
+};
+
+$(function(){
+    $(".to_index_btn").click(function(){
+    	 var dt=(new Date()).getTime();
+    	 location.href = commonChangeDtUrl("/mall/index");
+    });
+    var link = $("#gotoLink").text();
+    $('#link').attr('href', commonChangeDtUrl(link));
+});
+
+</script>
+
+</html>

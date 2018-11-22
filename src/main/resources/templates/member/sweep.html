@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta th:replace="common/header :: header('扫码积分')"></meta>
+    <script>
+
+        $(function(){
+            ajax_post("/common/weixinInfo?uri="+encodeURIComponent(getRequestUrl()),initWeixinInfo);
+            wx.ready(function(){
+                qrCode();
+            });
+        })
+        function qrCode(){
+            wx.scanQRCode({
+                needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                success: function (res) {
+                    var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                    var arr = result.split('?');
+                    var tArr = arr[1];
+                    if(arr.length > 2){
+                        tArr = arr[2];
+                    }
+                    var strArr =  tArr.split("&");
+                    var temp = [], resultData=[];
+                    for(var i=0; i<strArr.length; i++){
+                        temp = strArr[i].split("=");
+                        resultData[temp[0]] = temp[1];
+                    }
+                    var url = "/member/sweepCode";
+                    url += "?type=1&mid="+resultData['_mid']+"&d="+resultData['d'];
+                    window.location.href = commonChangeDtUrl( url);
+                },
+                fail:function(){
+                    layer.msg("扫描失败，请稍候重试!")
+                    //  window.history.back();
+                }
+/*                ,
+                cancel:function(){
+                    wx.closeWindow();
+                }*/
+            });
+        }
+        function wxreload(){
+            window.location.href =  commonChangeDtUrl('/member/sweepCodeIntegration');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

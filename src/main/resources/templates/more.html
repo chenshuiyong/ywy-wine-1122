@@ -1,0 +1,31 @@
+<html lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta th:include="common/header :: header('')"></meta>
+    <link rel="stylesheet" href="/default/Index/css/public.css" th:href="@{/default/Index/css/public.css}">
+    <link rel="stylesheet" href="/default/Index/css/more.css" th:href="@{/default/Index/css/more.css}">
+</head>
+<body id="body">
+<!--弹框提示-->
+<div id="tips_pop_container">
+    <span></span>
+</div>
+
+
+<!--流量统计
+<script src="https://s19.cnzz.com/z_stat.php?id=1271457604&amp;web_id=1271457604" language="JavaScript"></script>
+<script src="https://c.cnzz.com/core.php?web_id=1271457604&amp;t=z" charset="utf-8" type="text/javascript"></script>
+<a href="http://www.cnzz.com/stat/website.php?web_id=1271457604" target="_blank" title="站长统计">站长统计</a>-->
+<script th:inline="javascript" >
+
+    var moduleName = [[${param.moduleName[0]}]];
+    $("title").html(moduleName);
+    var BASE_PIC_PATH = [[${BASE_PIC_PATH}]];
+    $(function(){
+        var url = commonChangeDtUrl("/wechatlink/list/"+ [[${param.classLevel[0]}]]+"?pageSize=20&pageNo=1");
+        ajax_post(url,parseWebLink);
+    });
+</script>
+<script type="text/javascript" src="/default/Index/js/more.js" th:src="@{/default/Index/js/more.js}"></script>
+</body></html>

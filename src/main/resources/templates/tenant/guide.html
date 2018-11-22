@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta th:replace="common/header :: header('商家指南')"></meta>
+
+    <link rel="stylesheet" href="/common/css/html5.css"  th:href="@{/common/css/html5.css}"/>
+    <link rel="stylesheet" href="/common/css/basic.css" th:href="@{/common/css/basic.css}"/>
+    <link rel="stylesheet" href="/common/css/CommercialGuide/header.css" th:href="@{/common/css/CommercialGuide/header.css}"/>
+    <link rel="stylesheet" href="/common/css/CommercialGuide/all.css"  th:href="@{/common/css/CommercialGuide/all.css}"/>
+    <link rel="stylesheet" href="/default/tenant/css/guide.css" th:href="@{/default/tenant/css/guide.css}" />
+
+    <script type="text/javascript" src="/common/js/touchy/jquery.touchy.js" th:src="@{/common/js/touchy/jquery.touchy.js}"></script>
+    <!--<script src="http://www.abelcode.com/js/enlarge.touch.min.js"></script>-->
+    <script type="text/javascript">
+     /*   window.onload = function () {
+            // 参数：元素ID，大图宽度，大图高度
+            //enlarge("demo", 1000, 1180);
+            width=$(window).width();
+            scale=width/parseFloat(640*2);
+            viewPort='<meta name="viewport" content="width=640, initial-scale='+scale+',minimum-scale='+scale+',maximum-scale='+scale+'" />';
+            $("meta[name='viewport']").remove();
+            $('head').append(viewPort);
+            $("#demo").on("touchy-pinch",function(event,$taget,data){
+
+                //alert(JSON.stringify(data))
+                width=$("#demo").width()*data.scale;
+                height=$("#demo").height()*data.scale;
+                if(width>1800){
+                    width=1800;
+                }
+                if(width<640){
+                    width=$(window).width();
+                    $("#demo").css({top:60,left:0});
+                }
+                $("#demo").width(width);
+
+            });
+            $("#demo").on("touchy-swipe",function(event,$taget,data){
+                //alert(JSON.stringify(data))
+
+                switch (data.direction){
+                    case "up":
+                    case "down":
+                        //alert(data.movePoint.y-data.startPoint.y);
+                        $("#demo").css("top",$("#demo").offset().top+(data.movePoint.y-data.lastMovePoint.y));
+                        break;
+                    case "left":
+                    case "right":
+                        $("#demo").css("left",$("#demo").offset().left+(data.movePoint.x-data.lastMovePoint.x));
+                        break;
+                }
+                console.log(data,$taget);
+            });
+        }*/
+    </script>
+        <style>
+            body{
+                max-width: 100%;
+            }
+            li{
+                height:30px;
+                padding-top:5px;
+            }
+            .selfloor{
+                height:90px;
+            }
+        </style>
+</head>
+<body style="background-color:  rgb(230, 230, 230);">
+<div id="wrap-main">
+    <!-- 头部开始-->
+
+    <header id="header">
+        <nav id="nav">
+            <span class="sub-nav-list" id="current-select-tenant">
+            <i class="Arrow"></i>
+            <span   id="currentFloor" class="current"></span>
+
+            	<ul id="show-select" class="select-tentant">
+                    <li th:each="item :${floors}"   th:id="${item.ITEM_FLOOR_ID}" class="selfloor" >
+                        <a  class="typeClass"  th:text="${item.ITEM_FLOOR_NAME}" th:id="${item.ITEM_FLOOR_ID}"></a>
+                    </li>
+                </ul>
+
+			<span id="split">
+            </span> </span>
+                <span id="floor_list" style=" float:left;color: #555555;width:45%;position: relative;text-align: center;">
+                    地图
+                </span>
+            <a class="btn-search" id="query" href="javascript:void(0);"><span class="search-icon" ></span></a>
+            <div class="clear"></div>
+        </nav>
+    </header>
+
+    </header>
+
+    <!-- 头部结束-->
+
+    <link rel="stylesheet" href="/default/CommercialGuide/storeyGuide.css" th:href="@{/default/CommercialGuide/storeyGuide.css}"/>
+
+    <div id="content">
+
+        <div class="plane center" style="margin:10px;" id="map">
+            <img  th:each="item :${floors}"
+                  th:id="${'map-'+item.ITEM_FLOOR_ID}" th:src="${BASE_PIC_PATH + item.ITEM_FLOOR_MAP}"
+                 style="max-width: 300%;width:100%;top:60px;left:0;position: absolute; display: none "/>
+        </div>
+
+        <div id="floor" >
+            <div class="list" id="dynamicAdd" style="margin: 0px;">
+            </div>
+            <div class="tips">
+                加载中 …
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div id="blank"></div>
+</body>
+<script type="text/javascript"  th:inline="javascript">
+
+    var url ='/tenant/list?guide=true&pageSize=5&itemShopId='+[[${itemShopId}]]
+    var basePicPath=[[${BASE_PIC_PATH}]];
+</script>
+
+<script src="/default/tenant/js/guide.js" type="text/javascript" th:src="@{/default/tenant/js/guide.js}"></script>
+</html>

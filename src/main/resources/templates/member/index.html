@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta th:include="common/header :: header('个人中心')"></meta>
+    <!--通过卡号生成二维码-->
+    <script src="/common/js/qrcode/qrcode.js" th:src="@{/common/js/qrcode/qrcode.js}"></script>
+    <link rel="stylesheet" href="/default/member/css/index.css" th:href="@{/default/member/css/index.css?v=1.1}">
+    <script th:inline="javascript">
+
+        var BASE_PIC_PATH = [[${BASE_PIC_PATH}]];
+      //  var game=[[${game}]];
+    </script>
+</head>
+<body style="display: none;">
+<!-- 头部开始-->
+
+<div class="member-main">
+    <img class="lev-card-img" src="/default/member/img/userCenter/bg_sy.png" th:src="@{/default/member/img/userCenter/bg_sy.png}">
+    <div class="member-header">
+        <div class="top_line">
+            <div class="vip_help">
+                <img src="/default/member/img/userCenter/ico_dj.png" th:src="@{/default/member/img/userCenter/ico_dj.png}">
+                <span><a href="http://site.chinawans.com/zuanshihui/vip/intro.html" style="color: #4f4e4d;">点击查看会员升降等级规则</a></span>
+            </div>
+            <div class="qrcode_section">
+                <a th:href="@{/member/sweepCodeIntegration}"><span class="sao_ma">扫码积分</span></a>
+                <img src="/default/member/img/userCenter/ico_ewm.png" class="show_qrcode" th:src="@{/default/member/img/userCenter/ico_ewm.png}">
+            </div>
+        </div>
+        <div class="card_section">
+            <div class="img_box">
+                <div th:switch="${levelName}">
+                    <img th:case="普卡" src="/default/member/img/userCenter/bg_puka.png" th:src="@{/default/member/img/userCenter/bg_puka.png}" class="card_bg"/>
+                    <img th:case="银卡" src="/default/member/img/userCenter/bg_yinka.png" th:src="@{/default/member/img/userCenter/bg_yinka.png}" class="card_bg"/>
+                    <img th:case="金卡" src="/default/member/img/userCenter/bg_jinka.png" th:src="@{/default/member/img/userCenter/bg_jinka.png}" class="card_bg"/>
+                    <img th:case="钻石卡" src="/default/member/img/userCenter/bg_zuanshi.png" th:src="@{/default/member/img/userCenter/bg_zuanshi.png}" class="card_bg"/>
+                    <img th:case="金钻卡" src="/default/member/img/userCenter/bg_jinzuan.png" th:src="@{/default/member/img/userCenter/bg_jinzuan.png}" class="card_bg"/>
+                </div>
+            </div>
+            <div class="info_section">
+                <div class="change_name">
+                    <a href="/member/editInfoIndex" th:href="@{/member/editInfoIndex}">
+                        <img src="/default/member/img/userCenter/ico_bj.png" th:src="@{/default/member/img/userCenter/ico_bj.png}">
+                    </a>
+                </div>
+                <div class="user_line">
+                    <img class="header_img" th:src="${head_url}">
+                    <div class="user_name">
+                        <span th:text="${user_name!=null ? user_name : vip_name}"></span>
+                    </div>
+                </div>
+                <div class="card_line">
+                    <div class="card_type" th:text="${levelName}"></div>
+                    <div class="integral">
+                        剩余积分<span class="num" th:text="${integral}"></span>
+                    </div>
+                </div>
+                <div class="logo_line">
+                    <img src="/default/member/img/userCenter/logo.png" th:src="@{/default/member/img/userCenter/logo.png}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top_navigation">
+        <div class="vip_ident b_right">
+            <img src="/default/member/img/userCenter/ico_rz.png" th:src="@{/default/member/img/userCenter/ico_rz.png}">
+            <div>
+                <span th:if="${userInfo.itemVipLevel == '29e88330-74ba-403b-9b97-cafbf38a62cf' || ( userInfo.itemIfdengji=='1')}">已通过身份认证</span>
+                <span th:if="${userInfo.itemVipLevel != '29e88330-74ba-403b-9b97-cafbf38a62cf' && userInfo.itemIfdengji!='1'}"><a href="/member/levPage">会员身份认证</a></span>
+            </div>
+        </div>
+        <div class="house_bind">
+            <img src="/default/member/img/userCenter/ico_fw.png" th:src="@{/default/member/img/userCenter/ico_fw.png}">
+            <a href="/ownerEnjoy/houseList" th:href="@{/ownerEnjoy/houseList}">房屋绑定</a>
+        </div>
+    </div>
+
+    <div class="into_game" style="margin-bottom: 20px;">
+        <a id="remote" href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2c1e97f9bc3f8d77&redirect_uri=https%3A%2F%2Fjffcwx.cndrealty.com%2Fauth%2Fauthorize%3Flogin_code%3D1%26weixin_id%3DWXI2016052400001%26mod_id%3D180792161%26shop_id%3Dx9oAAADM3gXM567U&response_type=code&scope=snsapi_base&state=123">
+            <img id="game" style="width: 100%" src="/default/member/img/personCenter/screenshot-1.png">
+        </a>
+    </div>
+
+    <div class="my_navigation">
+        <div class="item_line m_bottom">
+            <a href="/playIntegral/myGifts"  th:href="@{/playIntegral/myGifts}" class="b_right">
+                <div class="btn_item">
+                    <div style="height: 72px; margin-bottom: 20px;">
+                        <img src="/default/member/img/personCenter/my_gift.png">
+                        <div class="my_gift">
+                            <div th:if="${my_gift!=''}"  class="num_line" id="num_line1">
+                                <span th:text="${my_gift}" id="num1" ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title" >我的礼品</div>
+                </div>
+            </a>
+            <a href="/CollectFolder/card"  th:href="@{/CollectFolder/card}" class="b_right">
+                <div class="btn_item">
+                    <div style="height: 72px; margin-bottom: 20px;">
+                        <img src="/default/member/img/personCenter/my_coupons.png">
+                        <div class="my_coupons">
+                            <div  th:if="${my_card!=''}" class="num_line" id="num_line2">
+                                <span id="num2" th:text="${my_card}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title"  >我的电子券</div>
+                </div>
+            </a>
+            <a href="/activity/myActivityPage" th:href="@{/activity/myActivityPage}">
+                <div class="btn_item">
+                    <div style="height: 72px; margin-bottom: 20px;">
+                        <img src="/default/member/img/personCenter/my_active.png">
+                        <div class="my_active">
+                            <div class="num_line" th:if="${my_activity!=''}"  id="num_line3">
+                                <span id="num3" th:text="${my_activity}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="title" >我的报名活动</div>
+                </div>
+            </a>
+        </div>
+        <div class="item_line">
+            <a href="/playIntegral/expireGifts"  th:href="@{/playIntegral/expireGifts}" class="b_right">
+                <div class="btn_item">
+                    <div class="num" th:text="${my_gift_will_expire}"></div>
+                    <div class="title">即将过期礼品</div>
+                </div>
+            </a>
+            <a href="/CollectFolder/expireCard"  th:href="@{/CollectFolder/expireCard}" class="b_right">
+                <div class="btn_item">
+                    <div class="num" th:text="${my_card_will_expire}"></div>
+                    <div class="title">即将过期电子券</div>
+                </div>
+            </a>
+            <a href="/member/expireIntegral" th:href="@{/member/expireIntegral}">
+                <div class="btn_item">
+                    <div class="num" th:text="${will_expired_integral}"></div>
+                    <div class="title">即将到期积分</div>
+                </div>
+            </a>
+        </div>
+    </div>
+<!--    <div class="invitation">
+        <div class="invite_text">邀请好友注册双方都可获得积分哦！</div>
+        <div class="know">了解一下</div>
+    </div>-->
+    <div class="my_lev_rights">
+        <div class="title_line">我的等级权益</div>
+        <div class="right_box">
+            <div class="rights_item b_right">
+                <a href="/member/power" th:href="@{/member/power}">
+                    <img src="/default/member/img/userCenter/ico_01.png" th:src="@{/default/member/img/userCenter/ico_01.png}">
+                    <div class="rights_name">房地产相关权益</div>
+                </a>
+            </div>
+            <div class="rights_item">
+                <a href="/shop/index" th:href="@{/shop/index}">
+                    <img style="width: 132px;height: 132px;" src="/default/member/img/userCenter/quanyi.png" th:src="@{/default/member/img/userCenter/quanyi.png}">
+                    <div class="rights_name">商场权益</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="member-recorder">
+        <div class="member-recorder-title clearfix">我的积分记录
+        </div>
+        <div class="recorder-list">
+            <ul  style="padding: 40px 30px 0px 40px;">
+                <li th:each="vo, voStat : ${integralList.rows}" class="clear_fix" >
+                    <div class="status-msg left">
+                        <p class="status-name ft-size-26" th:text="${vo.pointsWayName}"></p>
+                        <p class="status-name-date" th:text="${vo.createTime}"></p>
+                    </div>
+                    <div class="status-time right" th:text="${vo.pointsVal}"></div>
+                </li>
+            </ul>
+        </div>
+        <div  th:if="${integralList.totalRows > 0}" id="point_more" class="more_lev">
+           查看更多
+        </div>
+        <!--   <div class="more_lev">查看更多</div>-->
+    </div>
+    <div class="no_more">- 没有更多啦 -</div>
+</div>
+
+<div class="qrcode_mask" id="qrcode_mask">
+    <div class="qrcode_box">
+        <div class="title">我的钻石会</div>
+        <div class="qrcode_container">
+            <div class="img_box">
+                <img id="qrcode" th:attr="data=@{${userInfo.itemEntityNo}}" src="">
+            </div>
+            <!-- <div class="code_num">NO.{$userInfo.ITEM_ENTITY_NO|default=$userInfo['ITEM_CARDNO']}</div>-->
+            <div th:if="${userInfo.itemEntityNo}" class="code_num" th:text="'NO.' + ${userInfo.itemEntityNo}"></div>
+            <div th:if="!${userInfo.itemEntityNo}" class="code_num" th:text="'NO.' + ${userInfo.itemCardNo}"></div>
+            <div class="tips">将二维码展示扫描即可</div>
+        </div>
+    </div>
+    <div class="close_btn"><span>X</span></div>
+</div>
+<!--弹出二维码 e-->
+<div th:replace="common/footer :: footer('user_center')"></div>
+</body>
+<script>
+
+
+    $(function(){
+/*        if(game){
+            var imgUrl = game.img;
+            var img = BASE_PIC_PATH + JSON.parse(imgUrl)[0].path;
+            $('#game').attr('src', img);
+            $('#remote').attr('href', game.remoteUrl);
+            $('.into_game').show();
+        }*/
+        /*判断是否是会员*/
+        var isVip = "{$userInfo.ITEM_MOBILE}";
+        /*生成二维码*/
+        setQrCode('qrcode');
+        /*点击显示二维码弹窗*/
+        $(".show_qrcode").click(function(){
+            $('#qrcode_mask').show();
+        });
+
+        $('.close_btn span').click(function(){
+            $('#qrcode_mask').hide();
+        });
+    });
+    window.onload=function(){
+        /*按比例放大缩小*/
+        scale = $(document).width()/(640*2);
+        viewport = "<meta name='viewport' content='width=640, initial-scale="+scale+",minimum-scale=0.5, maximum-scale=0.5, user-scalable=no'>";
+        $("meta[name='viewport']").remove();
+        $("head").prepend(viewport);
+        $('body').css({width:"100%",margin:"auto",background:"#fff !important"});
+        var currClientWidth, fontValue, originWidth;originWidth = 750;//ui设计稿的宽度，一般750或640
+        __resize();
+        window.addEventListener('resize', __resize, false);
+        function __resize() {
+            currClientWidth = document.documentElement.clientWidth;
+            if (currClientWidth > 768){
+                currClientWidth = 768;
+            }
+            if (currClientWidth < 320){
+                currClientWidth = 320;
+            }
+            fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+            document.documentElement.style.fontSize = fontValue + '%';
+        }
+        $("body").show();
+    }
+    $("#point_more").click(function(){
+        window.location.href= commonChangeDtUrl("/member/getExpenseAndScoreRecordData");
+    });
+</script>
+</html>

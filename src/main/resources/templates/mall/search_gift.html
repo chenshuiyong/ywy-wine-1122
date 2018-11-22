@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head  >
+		<meta th:include="common/header :: header('搜索礼品')"> </meta>
+		<link rel="stylesheet" href="/default/mall/css/search.css" th:href="@{'/default/mall/css/search.css?dt='+${DT}}">
+		<script src="/default/mall/js/func.js" th:src="@{'/default/mall/js/func.js?dt='+${DT}}"></script>
+		<script src="/default/mall/js/search.js" th:src="@{'/default/mall/js/search.js?dt='+${DT}}"></script>
+		<script type="text/javascript" src="/common/js/common.js" th:src="@{'/common/js/common.js?dt='+${DT}}"></script>
+	</head>
+	<body>
+	<div class="top_input_section">
+		<form action="" method="post" id="searchForm">
+			<div class="input_box">
+				<div class="img_box">
+					<img src="/default/Index/img/vip/s.png" th:src="@{/default/Index/img/vip/s.png}">
+				</div>
+				<input id="search_key" type="search" placeholder="搜索您要查找的商场/商户/礼品" name="search">
+			</div>
+		</form>
+	</div>
+	<div id="page_container">
+		<div style="width:100%;">
+			<input type="hidden" id="has_load" value="2">
+			<div id="pullDown">
+				<span class="pullDownLabel">下拉刷新</span>
+			</div>
+		   <div id="gifts_container">
+		            <div id="thelist">
+		            </div>
+		    </div>
+			<div id="pullUp">
+				<span class="pullUpLabel">上拉加载更多</span>
+			</div>
+		</div>
+	</div>
+	<div th:replace="common/common :: loading"></div>
+	</body>
+	<script th:inline="javascript">
+
+		var pageNo = 1,city=[[${city}]],orderBy=[[${orderBy}]];
+		var basePicPath = [[${BASE_PIC_PATH}]]
+
+		function get_search_result(){
+			var search_key= $("#search_key").val();
+			var postUrl = '/gift/list?pageNo='+pageNo+"&pageSize=6&orderBy="+orderBy+"&itemGiftName="+search_key+"&itemShopName="+search_key;
+			ajax_post(postUrl,parse_gift_list);
+		}
+
+	</script>
+</html>

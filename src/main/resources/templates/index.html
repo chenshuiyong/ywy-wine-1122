@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta th:include="common/header :: header('建发房产钻石会')"></meta>
+    <link rel="stylesheet" href="/default/Index/css/public.css" th:href="@{/default/Index/css/public.css}">
+    <link rel="stylesheet" href="/default/Index/css/swiper.min.css" th:href="@{/default/Index/css/swiper.min.css}">
+    <link rel="stylesheet" href="/default/Index/css/home.css"  th:href="@{'/default/Index/css/home.css?v=1.1.0&dt='+${DT}}">
+    <link rel="stylesheet" href="/default/Index/css/banner.css"  th:href="@{'/default/Index/css/banner.css?dt='+${DT}}">
+    <script type="text/javascript" src="/default/Index/js/banner.js" th:src="@{/default/Index/js/banner.js?dt=123}"></script>
+    <script src="/default/Index/js/swiper.min.js" th:src="@{/default/Index/js/swiper.min.js}"></script>
+    <script src="/default/Index/js/TouchSlide.1.1.js" th:src="@{/default/Index/js/TouchSlide.1.1.js}"></script>
+
+    <script th:inline="javascript">
+
+        var BASE_PIC_PATH = [[${BASE_PIC_PATH}]];
+    </script>
+    <script type="text/javascript" src="/default/Index/js/main.js" th:src="@{'/default/Index/js/main.js?v=1.1.0&dt='+${DT}}"></script>
+</head>
+<body style="background: #f4f4f4;">
+<div id="allmap" style="display: none;"></div>
+<div id="page_container"  >
+    <div>
+        <div id="pullDown">
+            <span class="pullDownLabel"></span>
+        </div>
+        <div id="content">
+            <!--定位信息-->
+            <div id="location_box" class="location_box">
+                    <a href="/commom/chooseCity" th:href="@{/common/chooseCity}">
+                        <img src="/default/Index/img/temp/local.png" th:src="@{/default/Index/img/temp/local.png}">
+                        <span>厦门市</span>
+                    </a>
+            </div>
+            <!--轮播图-->
+            <header id="header" class='slideBox'>
+                <div class="banner_content" id="banner_content">
+                    <div class="banner_list">
+ <!--                       <ul>
+                            <li><a href="#"><img th:src="@{/default/UnionShops/img/img.jpg}"></a></li>
+                        </ul>-->
+                    </div>
+                    <!--下面的横线导航点-->
+                    <div class="banner_buttons" id="banner_buttons">
+                    </div>
+                </div>
+                <!--钻石头条-->
+                <div class="hot-box" id="vip_topic">
+                    <div class="hot_container">
+                        <div class="hot-title">
+                            <img th:src="@{default/Index/img/temp/top_news.png}">
+                        </div>
+                        <div class="hot-article">
+                            <div class="hot-msg msg-vertical">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper topic_content">
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination" style="display: none;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--导航条-->
+            <div id="nav_bar">
+                <div class="top_slider_bar_box" id="top_slider_bar_box">
+                    <div class="top_slider_bar" onclick="choose_nav(event)">
+                        <div class="nav_item active" tabId="170000001">
+                            <span class="nav_name">热门服务</span>
+                            <span class="bottom_line"></span>
+                        </div>
+                        <div class="nav_item" tabId="174366360">
+                            <span class="nav_name">购房服务</span>
+                            <span class="bottom_line"></span>
+                        </div>
+                        <div class="nav_item" tabId="173991080">
+                            <span class="nav_name">业主尊享</span>
+                            <span class="bottom_line"></span>
+                        </div>
+                        <div class="nav_item" tabId="170000000">
+                            <span class="nav_name">商场优惠</span>
+                            <span class="bottom_line"></span>
+                        </div>
+                        <div class="nav_item" tabId="174757436">
+                            <span class="nav_name">增值服务</span>
+                            <span class="bottom_line"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav_detail_list" id="nav_detail_list">
+
+                </div>
+            </div>
+
+            <!--梦想邮筒-->
+            <div id="dream_mail">
+                <div class="title">
+                    <span class="vertical_red_line"></span><div id="activity_title">主题活动</div>
+                </div>
+                <div class="dream_detail_box">
+                </div>
+            </div>
+
+            <!--地区最新动态-->
+            <div id="area_dynamic">
+                <div class="title">
+                    <span class="vertical_red_line"></span>地区最新动态
+                </div>
+                <div id="news_container">
+                </div>
+            </div>
+
+            <!--本地商场品牌权益-->
+            <div id="market_rights" >
+                <div id="vertical_red_line" class="title">
+                    <span class="vertical_red_line"></span>本地商场品牌权益
+                </div>
+                <div id="shopList">
+                </div>
+            </div>
+
+            <!--最新礼品-->
+            <div id="new_gifts">
+                <div class="title">
+                    <span class="vertical_red_line"></span>最新礼品
+                </div>
+               <div id="new_gifts_list">
+
+               </div>
+            </div>
+
+            <!--我的积分余额-->
+            <div id="my_integral_section" class="bt_c_flex">
+                <input type="hidden" id="is_member" value="">
+                    <div class="num">我的积分余额<span>0</span>分</div>
+                <div class="a_c_flex">
+                     <img src="/default/Index/img/vip/help.png" th:src="@{/default/Index/img/vip/help.png}" style="margin-right:0.1rem;width:0.3rem;">
+                    <span>积分怎么挣，怎么花？</span>
+                </div>
+            </div>
+
+            <!--电子券-->
+            <div id="tickets">
+                <div class="title bt_c_flex">
+                    <div class="a_c_flex">
+                        <span class="vertical_red_line"></span>最新电子券
+                    </div>
+                    <a href="/mall/index?type=2" class="to_more_ticket">更多</a>
+                </div>
+                <div class="tickets_box">
+
+                </div>
+            </div>
+
+            <!--没有更多啦-->
+            <div id="bottom_no_more">
+                <img th:src="@{/default/Index/img/temp/no_more.png}" >
+            </div>
+        </div>
+        </div>
+        <div id="pullUp">
+            <span class="pullUpLabel">上拉加载更多</span>
+        </div>
+</div>
+</div>
+<!--广告弹框-->
+<div class="ad_mask" id="ad_mask">
+    <input type="hidden" id="advertId">
+    <a class="ad_container" href="#">
+        <img style="border-radius: 0.3rem;width:100%;height:100%;" src="" class="ad_img">
+    </a>
+    <img src="/default/Index/img/vip/close_ad.png" id="close_ad_mask" >
+</div>
+<!--底部导航-->
+<div th:include="common/footer :: footer('home')"></div>
+<div th:replace="common/common :: loading"></div>
+
+</body>
+<script>
+/**
+ * 导航栏点击
+ * @param  点击事件
+ */
+function choose_nav(e) {
+    //导航栏样式切换
+    $(e.target).parent().siblings().removeClass('active');
+    $(e.target).parent().addClass('active');
+    //获取相应内容放入nav_detail_list中
+    var classLevel=$(e.target).parent().attr("tabId");
+    if(typeof(classLevel)=="undefined"){//点击空白处
+    	return;
+    }else if(classLevel=='170000001'){
+    	return;
+    }else{
+    	  var moduleName='热门服务';
+         if(classLevel=='170000000'){//商场优惠
+        	  moduleName='商场优惠';
+        	  var url = commonChangeDtUrl('/shop/index');
+        	  location.href=url;
+        	  return ;
+    	 }else  if(classLevel=='174366360'){//购房服务
+    		  moduleName='购房服务';
+    	 }else  if(classLevel=='173991080'){//业主专享
+    		  moduleName='业主尊享';
+    	 }else  if(classLevel=='174757436'){//增值服务
+    		  moduleName='增值服务';
+    	 }
+        var url = commonChangeDtUrl("/wechatlink/more?classLevel="+classLevel+ '&moduleName=' +moduleName);
+        location.href=url;
+    }
+}
+    //下拉刷新和上拉加载更多
+    var myScroll, pullDownEl, pullDownOffset, pullUpEl, pullUpOffset;
+
+    function loaded() {
+        //动画部分
+        pullDownEl = document.getElementById('pullDown');
+        pullDownOffset = pullDownEl.offsetHeight;
+        pullUpEl = document.getElementById('pullUp');
+        pullUpOffset = pullUpEl.offsetHeight;
+        myScroll = new iScroll('page_container', {
+            useTransition: true,
+            topOffset: pullDownOffset,
+            onRefresh: function () {
+                if (pullDownEl.className.match('loading')) {
+                    pullDownEl.className = '';
+                    pullDownEl.querySelector('.pullDownLabel').innerHTML = '';
+                } else if (pullUpEl.className.match('loading')) {
+                    pullUpEl.className = '';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '';
+                }
+            },
+            onScrollMove: function () {
+
+                if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                    pullDownEl.className = 'flip';
+                    pullDownEl.querySelector('.pullDownLabel').innerHTML = '';
+                    this.minScrollY = 0;
+                } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+                    pullDownEl.className = '';
+                    pullDownEl.querySelector('.pullDownLabel').innerHTML = '';
+                    this.minScrollY = -pullDownOffset;
+                } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                    pullUpEl.className = 'flip';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '释放加载更多';
+                    this.maxScrollY = this.maxScrollY;
+                } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                    pullUpEl.className = '';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '';
+                    this.maxScrollY = pullUpOffset;
+                }
+            },
+            onScrollEnd: function () {
+                if (pullDownEl.className.match('flip')) {
+                    pullDownEl.className = 'loading';
+                    var html = '<img src="default/Index/img/loading.gif" style="width: 35px;height:35px">';
+                    pullDownEl.querySelector('.pullDownLabel').innerHTML = html;
+                    pullDownAction();   // Execute custom function (ajax call?)
+                } else if (pullUpEl.className.match('flip')) {
+                    pullUpEl.className = 'loading';
+                    var html = '<img src="default/Index/img/loading.gif" style="width: 35px;height: 35px">';
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = html;
+                    pullUpAction(); // Execute custom function (ajax call?)
+                }
+            }
+        });
+
+        loadAction();
+    };
+    //解析菜单栏目
+    parse_nav_bar();
+</script>
+</html>

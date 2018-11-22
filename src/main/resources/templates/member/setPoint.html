@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+     <title>商家积分生成</title>
+
+<!--    <link rel="stylesheet" href="/common/css/public.css" th:href="@{/common/css/public.css}">-->
+    <link rel="stylesheet" href="/common/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss" th:href="@{'/common/layer/skin/default/layer.css?v=3.0.330'}">
+    <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+    <script type="text/javascript"  src="/common/js/jquery.cookie.js" th:src="@{/common/js/jquery.cookie.js}"></script>
+    <script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
+    <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+    <script th:inline="javascript"  type="text/javascript">
+        var currWeixinId = [[${session.currWeixinId}]];
+        var pJsId = [[${#httpServletRequest.getSession().getId()}]];
+
+        if(getCookie("jsessionId") == null ||  ( getCookie("jsessionId")!=null && getCookie("jsessionId") != pJsId)){
+            ajax_post("../public/getJsId", function(res){
+                pJsId = res;
+                delCookie("jsessionId");
+                setCookie("jsessionId",pJsId,30);
+            });
+        }
+    </script>
+
+    <script type="text/javascript"  src="/common/js/public.js" th:src="@{/common/js/public.js?dt=111}"></script>
+      <script type="text/javascript" src="/common/js/iscroll_4.js" th:src="@{/common/js/iscroll_4.js}"></script>
+      <script type="text/javascript" src="/common/js/list-scroll.js" th:src="@{/common/js/list-scroll.js}"></script>
+      <script type="text/javascript" src="/common/js/jweixin-1.2.0.js"></script>
+      <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"> </script>
+      <script type="text/javascript" src="/common/js/jweixin-ext.js" th:src="@{/common/js/jweixin-ext.js}"></script>
+      <script type="text/javascript" src="/common/js/toast.js" th:src="@{/common/js/toast.js}"></script>
+      <script  type="text/javascript"  src="/common/js/dialog.js" th:src="@{/common/js/dialog.js}"></script>
+
+    <link rel="stylesheet" type="text/css" href="/common/js/weui-1.1.2/dist/style/weui.css" th:href="@{/common/js/weui-1.1.2/dist/style/weui.css}">
+    <link rel="stylesheet" href="/default/member/css/login.css" th:href="@{/default/member/css/login.css}">
+
+</head>
+<body>
+<div class="page" id="pointInfo">
+    <input type="hidden" id="memberNick" value="">
+    <input type="hidden" id="memberCardNo" value="">
+    <input type="hidden" id="shopName" th:value="${shopName }">
+    <input type="hidden" id="actionNo" th:value="${actionNo}">
+    <input type="hidden" id="shopsCode" th:value="${shopsCode}">
+    <input type="hidden" id="orgunitCode" th:value="${orgunitCode}">
+    <div class="page__bd">
+        <div class="weui-cell" style="padding: 0;height: 35px;">
+            <div class="weui-cell__bd" style="font-size: 15px" align="left">
+                商铺: <span  th:text="${shopName}"></span>
+            </div>
+        </div>
+        <div class="clear_line"></div>
+        <div class="weui-cell" style="padding: 0;height: 35px;">
+            <div class="weui-cell__bd" style="font-size: 15px" align="left" >
+                销售日期: <span  th:text="${saleDate}"></span>
+            </div>
+        </div>
+        <div class="clear_line"></div>
+        <div class="weui-cell" style="padding: 0;height: 35px;">
+            <div class="weui-cell__bd" style="font-size: 15px" align="left">
+                本单流水号: <span  align="left"  th:text="${actionNo}"></span>
+            </div>
+        </div>
+        <div class="clear_line"></div>
+
+
+
+        <div class="weui-cell" style="padding: 0;height: 35px;margin-top: 20px;">
+            <div class="weui-cell__bd" >
+                <input class="weui-input"  style="font-size: 15px"  placeholder="本单合计（元）" id='amount' onkeyup="priceFormat(this);" onkeydown="priceFormat(this);">
+            </div>
+        </div>
+
+        <div class="clear_line" style="margin-bottom: 40px"></div>
+
+        <div class="weui-cell" style="padding: 0;height: 35px;margin-top: 20px;">
+            <div class="weui-cell__bd"  align="left"  style="font-size: 15px" >
+                <div id="sacnCode">
+                    <img class="small_img" style="width: 40px;" id="home" src="/default/member/img/newMember/scode.png" > 点击扫描会员身份二维码，并确认以下信息 </div>
+                <div id="memberDiv" >  <span>会员微信信息确认：<samp id="memberCode"></samp> </span> </div>
+
+            </div>
+        </div>
+        <div class="clear_null" style="margin-bottom: 40px"></div>
+        <a href="###" class=" weui-btn_warn go_register" id="addPoint">生成积分</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/default/member/js/login.js" th:src="@{/default/member/js/setPoint.js}"></script>
+
+</html>
