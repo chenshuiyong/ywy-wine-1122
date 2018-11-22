@@ -1,0 +1,91 @@
+div{
+    box-sizing: border-box;
+}
+body{
+    background: #eaeaea;
+}
+body>a{
+    display: none;
+}
+a{
+    text-decoration: none;
+}
+/*顶部图片 s*/
+.top_img{
+    width: 100%;
+    text-align: center;
+    padding:0.25rem 0.15rem;
+    background: #fff;
+}
+.top_img img{
+    width: 100%;
+    height: 350px;
+    border-radius: 0.05rem;
+}
+/*顶部图片 e*/
+
+.local_section,.jf_section{
+    width: 100%;
+    background: #fff;
+    padding:0 0.15rem 0.25rem;
+    margin-top: -1px;
+}
+.local_section .title,.jf_section .title{
+    margin-bottom: 0.25rem;
+    font-size: 0.3rem;
+    color: #000;
+    display: flex;
+    display: flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.local_section .title .vertical_red_line,.jf_section .title .vertical_red_line{
+    display: inline-block;
+    height: 0.35rem;
+    width: 0.08rem;
+    background: #d14b4b;
+    border-radius: 0.08rem;
+    margin-right:0.1rem ;
+}
+.local_section .container,.jf_section .container{
+    background: url('/default/member/img/personCenter/letter_bg.png') no-repeat;
+    background-size: 100% auto;
+    padding: 0.35rem 0.3rem;
+    border-radius: 0.1rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    background-color: #f9f9f9;
+}
+.local_section .container>*,.jf_section .container>*{
+    width: 1.47rem;
+    height: 1.5rem;
+    border-radius: 0.05rem;
+    text-align: center;
+}
+.local_section .container .local_to_more,.jf_section .container .local_to_more{
+    border:0.02rem solid #bfbfbf;
+    line-height: 1.5rem;
+    color: #000;
+    font-size: 0.24rem;
+}
+.click_section{
+    padding: 0.9rem 0.15rem;
+    text-align: center;
+    margin-bottom: 0.95rem;
+}
+.click_section a .tips{
+    color: #aeaeae;
+    font-size: 28px;
+    margin-bottom: 0.2rem;
+
+}
+.click_section a .content{
+    font-size: 28px;
+    color: #dc5050;
+}

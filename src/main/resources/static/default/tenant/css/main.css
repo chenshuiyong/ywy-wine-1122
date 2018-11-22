@@ -1,0 +1,433 @@
+/**头部开始*/
+
+body {
+    font-family: "微软雅黑", "Tahoma", "Verdana", "Arial", "sans-serif";
+    font-size:28px;
+    color:#333;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+    color: #000;
+}
+.goHome {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.3em;
+    display: block;
+    color: #FFF
+}
+#content {
+    width: 640px;
+    padding: 0px;
+    margin: 0px;
+}
+#content h2.logo img {
+    width: 105px;
+    height: 105px;
+    background: 1px scroll #CCC;
+}
+#content div.list {
+    margin: 10px;
+    width: 55%;
+}
+/*   #content div.list  ul li{
+            position: relative;  padding-left:5px;
+
+        }
+*/
+#content div.list ul li a {
+    padding: 0.5em 5px;
+    color: #747172;
+    display: block;
+    width: 100%;
+}
+/*#content div.list ul li.position span{
+            position: absolute;
+            padding: 1em;
+            top: 0;
+            right: 1em;
+        }*/
+.introduce {
+    width:610px;
+    overflow: hidden;
+    padding: 0px 0px 0px 30px;
+    margin-top: 30px;
+    font-size: 24px;
+    /* color: black; */
+    background: #fff;
+    border-top: 1px solid #dedfe0;
+    border-bottom: 1px solid #dedfe0;
+}
+.intro-head{
+    height:88px;
+    line-height:88px;
+    border-bottom: 1px solid #dedfe0;
+    font-size:28px;
+    font-weight:300;
+}
+.introduce .intro-head + div{
+    padding-right:30px;
+    padding-bottom:30px;
+}
+/*span {
+	padding: 0.4em 1em;
+	background-color: #F00;
+	border: 1px solid #F00;
+	color: #fff;
+	margin-top: -35px;
+	position: absolute;
+}*/
+.content_top_left {
+    text-align: center;
+    padding: 10px;
+    border-bottom: none;
+    margin: 5px;
+    min-width: 115px;
+}
+.content_top_left img {
+    border: 1px solid #CCC;
+}
+.canntClick {
+    background: #fd192a;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid;
+    /* margin: 10px; */
+    text-align: center;
+    /* display: inline-block; */
+    position: absolute;
+    right: 30px;
+    top: 40%;
+    width: 100px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 50px;
+}
+.canClick {
+    color: #fd192a;
+    background:#fff;
+}
+.canClick:hover {
+    cursor: pointer;
+}
+/*列表结束*/
+
+/*介绍开始*/
+#content div.introduce {
+    padding: 1em 0;
+}
+#content div.introduce h3 {
+    border-bottom: solid 1px #747172;
+}
+#content div.introduce h3 span {
+    display: inline-block;
+    padding: 0.3em;
+}
+/*介绍结束*/
+
+/*底部导航开始*/
+#nav ul {
+    width: 100%;
+    font-size: 1.2em;
+    border-radius: 2px;
+}
+#nav ul li {
+    position: relative; /*border-bottom:solid 1px #747172;*/
+    border-radius: 2px;
+    list-style: none;
+    padding: 0.3em 0;
+    color: #000;
+    cursor: pointer;
+}
+#nav ul li .border {
+    display: block;
+}
+#nav ul li.current {
+    color: #000;
+}
+#nav ul li a {
+    color: #000;
+}
+#nav ul li span.icon {
+    display: none;
+}
+#nav ul li span.current {
+    display: block;
+    position: absolute;
+    left: 20px;
+    bottom: 1px;
+    background: url(/common/images/bottom.gif) no-repeat top;
+    -webkit-transform: rotate(-90deg);
+}
+/*底部导航结束*/
+
+/*图片居中开始*/
+#content div.floor {
+    margin-top: 1em;
+}
+#content div.floor dl dt { /*  display: table;*/
+    text-align: center;
+    vertical-align: middle;
+    width: 30%;
+}
+#content div.floor dl dt span {
+    display: table-cell;
+    vertical-align: middle;
+}
+/*图片居中结束*/
+#content div.floor dl dd { /* padding-left: 1em 0;*/
+    width: 70%;
+}
+#content div.floor dl dd ul li {
+    padding: 0.1em 0;
+}
+#content div.floor dl dd ul.special {
+    margin-top: 0.5em;
+}
+#content div.floor dl dd ul.special li {
+    color: #fff;
+    margin-left: 0.5em;
+    padding: 0.5em;
+}
+.floor img {
+    max-width: 100px;
+}
+#praise span {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: inline-block;
+    height: 23px;
+    line-height: 23px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+#praise span.praise {
+    opacity: 1;
+}
+#praise span.praise:hover {
+    cursor: pointer;
+}
+.content_top {
+    background: #FFF;
+    margin: 10px
+}
+#praise {
+    padding: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    right: 150px;
+}
+.man {
+    font-size: 13px;
+}
+#praise h6 span {
+}
+.sc {
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+.sc span {
+    background: #F00;
+    color: #FFF;
+    width: 70px;
+    text-align: center;
+    padding-top: 2px;
+}
+bgFf {
+    background-color: rgb(255, 255, 255);
+}
+.mod {
+    overflow: hidden;
+}
+.plr8 {
+    padding-left: 30px;
+    border-bottom: 1px solid #dedfe0;
+}
+.mt8 {
+    margin-top: 8px;
+    display: inline-block;
+    width: 610px;
+    position:relative;
+}
+.clearfix2 {
+    zoom: 1;
+}
+.mmlPic {
+    width: 105px;
+    height: 105px;
+}
+.bdr {
+    border: 1px solid rgb(223, 223, 223);
+}
+.fl {
+    float: left;
+}
+.f2 {
+    float: left;
+    margin:20px 20px 20px 0px;
+}
+.fl {
+    width: 55%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.child-page-right-intr {
+    position: absolute;
+    left: 30%;
+    top: 120px;
+    font-size: 13px;
+}
+.list>ul>li>.child-page-left-img {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+.top-head{
+    background:#fff;
+}
+.top-head .btnItem:first-child{
+    border-top: 1px solid rgb(223, 223, 223);
+}
+.btnItem,.item-to{
+    color: #000;
+    border-top: 1px solid rgb(223, 223, 223);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background:url(/default/CommercialGuide/arrow-right.png)97% 50% no-repeat;
+    height:88px;
+    line-height: 88px;
+    background-color: #FFF;
+}
+.btnItem img:first-child{
+    margin-right:10px;
+    margin-bottom: -5px;
+}
+.btnItem a{
+    text-decoration:none;
+    color:#333;
+}
+.item-to{
+    margin-top:30px;
+    border-bottom:1px solid rgb(223, 223, 223);
+    padding-left:20px;
+    position:relative;
+}
+.item-to span{
+    margin:0px 10px;
+}
+.score{
+    display:inline-block;
+    margin-top:10px;
+}
+.m-wrapper,#m-swipe-wrpper{
+    width:625px;
+    height:auto;
+    margin-left: 15px;
+    overflow-x:scroll;
+}
+
+.m-section{
+    border-bottom:1px solid #dedfe0;
+    position:relative;
+    background: #fff;
+}
+.m-section a{
+    position: absolute;
+    right: 20px;
+    margin-top: 20px;
+    text-decoration: underline;
+    color: #36f;
+    font-size: 22px;
+}
+.m-func {
+    display: inline-block;
+    background: #fff;
+    width:100%;
+}
+.m-swipe{
+    float:left;
+}
+.m-func-title {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    padding: 20px 0px 0px 20px;
+    border-left:6px solid #ff4bac;
+    display:inline-block;
+}
+.m-list{
+    display:inline-block;
+}
+.m-list-item{
+    float:left;
+    text-align:center;
+    padding:15px;
+    max-width: 240px;
+}
+
+.m-list-item img{
+    height:240px;
+    width:240px;
+}
+.m-list-item div{
+    text-align:left;
+    margin:20px 0px;
+}
+.price-spec{
+    font-weight:300;
+}
+.price-prim{
+    text-decoration:line-through;
+    font-size:16px;
+}
+.comment-list-item{
+    border-top:1px solid #dedfe0;
+    padding:20px 0px;
+}
+.comment-list-item  img:first-child{
+    float:left;
+}
+.comment-list-item span{
+    padding:5px;
+}
+.comment-list-item .date{
+    color:#aaa;
+    font-size:24px;
+    padding-left:60px;
+}
+.note-count{
+    display: inline-block;
+    position: absolute;
+    right: 5%;
+    top: 26px;
+    background: #C00;
+    color: #fff;
+    padding: 5px;
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/*图片滑动和放大*/
+.swiper-slide,
+.swiper-comment-img{height:300px; width:100%;}
+.mark-layer{position:absolute; top:0; left:0; width:100%; height:100%; z-index:2; background-color:#000; opacity:0.7; display:none;}
+.mark-layer img{padding:20px; width:10%; float:right;}
+.show-big-img{position:absolute; top:12%; left:0; width:100%; z-index:100; display:none;}
+.show-big-img img{width:100%; z-index:100;}
+.swiper-pagination-bullet{width:15px; height:15px;}
+
+

@@ -1,0 +1,378 @@
+div{
+    box-sizing: border-box;
+}
+/*顶部用户信息 s*/
+#top_section {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    height: 1.15rem;
+    padding: 0 0.45rem;
+    font-size: 0.24rem;
+    color: #000;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    box-shadow:4px 4px 80px rgba(0,0,0,0.1) ;
+}
+
+#top_section .user_info {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+    height: 1.15rem;
+}
+
+#top_section .user_info img {
+    margin-right: 0.2rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+}
+
+#top_section .user_info span {
+    color: #eb4c49;
+    font-size: 0.36rem;
+    margin-left: 0.2rem;
+}
+
+#top_section .user_info .current_integral {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+}
+#top_section .exchange_record  .to_record{
+    margin-left: 0.45rem;
+}
+#exchange_record{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+/*顶部用户信息 e*/
+
+/*轮播图 s*/
+#header{
+    margin-top: 1.15rem;
+}
+#banner img{
+    width: 100%;
+    border-bottom:1px solid #e1e1e1;
+}
+/*轮播图 e*/
+/*礼品信息 s*/
+.gift_info{
+    width: 100%;
+    background: #fff;
+    padding:0.4rem 0.3rem 0.4rem 0.4rem;
+    margin-top: -0.05rem;
+    border-bottom:1px solid #e1e1e1;
+}
+.gift_info .name{
+    font-size: 0.4rem;
+    color: #000;
+    line-height: 0.42rem;
+    width: 100%;
+    margin-bottom: 0.35rem;
+}
+.gift_info .integral_num{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    font-size: 0.24rem;
+    color: #787878;
+    line-height: 0.45rem;
+    margin-bottom: 0.3rem;
+}
+.gift_info .integral_num .b_red{
+    color: #eb4c48;
+    font-size: 0.45rem;
+    margin-right: 0.1rem;
+}
+.gift_info .integral_num .red{
+    color: #eb4c48;
+    font-size: 0.24rem;
+    margin: 0 0.1rem;
+}
+.gift_info .vip_level{
+    margin-bottom:0.2rem;
+}
+.gift_info .vip_level span{
+    display: inline-block;
+    padding:0 0.35rem;
+    height: 0.45rem;
+    line-height: 0.45rem;
+    border-radius:0.45rem;
+    background: #f19839;
+    color: #fff;
+    font-size: 0.26rem;
+}
+.gift_info .price{
+    color: #666;
+    font-size: 0.26rem;
+    margin-bottom: 0.3rem;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.gift_info .price .red{
+    font-size: 0.24rem;
+    color: #eb4c48;
+    margin:0 0.05rem;
+}
+.gift_info .tag{
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border-radius: 0.4rem;
+    color: #fff;
+    background: -webkit-linear-gradient(left,#e24f48,#e76b62);
+    background: linear-gradient(to right,#e24f48,#e76b62);
+    padding: 0 0.3rem;
+    margin-right: 0.1rem;
+    font-size: 0.24rem;
+    display: inline-block;
+}
+.gift_info .expire_date{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+    font-size: 0.24rem;
+    color: #787878;
+}
+.gift_info .expire_date img{
+    margin-right: 0.1rem;
+}
+/*礼品信息 e*/
+
+/*领取信息 s*/
+.receive_info .title{
+    width: 100%;
+    background:#f0f0f0;
+    height: 1rem;
+    line-height: 1rem;
+    font-size:0.34rem;
+    color: #000;
+    letter-spacing: 0.02rem;
+    border-bottom:1px solid #e1e1e1;
+    text-align: center;
+    letter-spacing: 0.06rem;
+}
+.receive_info .detail{
+    background: #fff;
+    padding: 0.6rem;
+    line-height: 0.6rem;
+    color: #c73a3a;
+    font-size: 0.3rem;
+    border-bottom:1px solid #e1e1e1;
+}
+/*领取信息 e*/
+
+/*详情介绍 s*/
+.detail_desc{
+    background: #fff;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e1e1e1;
+}
+.detail_desc .title{
+    width: 100%;
+    background:#f0f0f0;
+    height: 1rem;
+    line-height: 1rem;
+    font-size:0.34rem;
+    color: #000;
+    letter-spacing: 0.02rem;
+    border-bottom:1px solid #e1e1e1;
+    text-align: center;
+    letter-spacing: 0.06rem;
+}
+.detail_desc .desc{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    background: #fff;
+    color: #333;
+    padding: 25px;
+    font-size: 28px;
+}
+.detail_desc .desc p{
+    line-height: 28px !important;
+    font-size: 28px !important;
+    margin-bottom: 18px !important;
+    white-space: normal !important;
+}
+.detail_desc .desc p font{
+    font-size: 28px !important;
+    margin-bottom: 18px !important;
+    color: #333 !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+.detail_desc .desc strong{
+    font-size: 28px !important;
+    margin-bottom: 18px !important;
+    color: #333 !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+.detail_desc .desc :last-child{
+    margin-bottom: 0!important;
+}
+
+.detail_desc img{
+    width: 100%;
+}
+/*详情介绍 e*/
+
+/*底部logo s*/
+.bottom_logo{
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem 0;
+    background: #f0f0f0;
+}
+.bottom_logo .tips{
+    font-size: 0.22rem;
+    color: #c2c2c2;
+    letter-spacing: 0.02rem;
+}
+.bottom_logo img{
+    margin-top:0.4rem ;
+    width: 2.8rem;
+}
+/*底部logo e*/
+
+/*点击兑换 s*/
+.exchange{
+    background: #fff;
+    width: 100%;
+    height: 1.05rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    border-top: 1px solid #e5e5e5;
+}
+.exchange .exchange_price{
+    flex:1;
+    -webkit-flex: 1;
+    height: 1.05rem;
+    color:#cd4947 ;
+    background: #fff;
+    font-size: 0.32rem;
+    height: 1.05rem;
+    line-height: 1.05rem;
+    text-align: center;
+}
+.exchange .exchange_btn{
+    flex:1;
+    -webkit-flex: 1;
+    background:#ee5e54;
+    font-size: 0.32rem;
+    color: #fff;
+    height: 1.05rem;
+    line-height: 1.05rem;
+    text-align: center;
+}
+.exchange .no_gift{
+    flex:1;
+    -webkit-flex: 1;
+    background:#ff8c8a;
+    font-size: 0.32rem;
+    color: #fff;
+    height: 1.05rem;
+    line-height: 1.05rem;
+    text-align: center;
+    box-shadow: 1px 8px 10px rgba(0,0,0,0.1);
+}
+/*点击兑换 e*/
+
+/*确认提交遮罩 s*/
+#submit_mask{
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 50%;
+    background: rgba(0,0,0,0.5);
+    z-index: 300;
+}
+#submit_mask .pop_container{
+    width: 72%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    text-align: center;
+    padding-bottom:50px;
+}
+#submit_mask .pop_container .title_line{
+    text-align: left;
+    background: url("/default/Index/img/bg_tittle.png") no-repeat;
+    background-size: 100% 100%;
+    font-size: 30px;
+    color: #fff;
+    height:145px;
+    line-height: 145px;
+    padding-left: 34px;
+}
+#submit_mask .pop_container .tips_container{
+    padding: 20px 30px 24px 30px;
+    font-size:28px;
+    color: #333;
+    line-height: 32px;
+    text-align: center;
+}
+#submit_mask .pop_container .submit_btn{
+    display: inline-block;
+    height: 56px;
+    line-height: 56px;
+    font-size: 28px;
+    background: #db4a45;
+    color: #fff;
+    width: 50%;
+    margin: 0;
+    border-radius: 50px;
+    padding: 0;
+    border: none;
+}
+#submit_mask .close_mask_btn{
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-top:30px;
+}
+/*确认提交遮罩 e*/

@@ -1,0 +1,109 @@
+div{
+    box-sizing: border-box;
+}
+.page_main{
+    position: relative;
+}
+.page_main .top_section{
+    width: 100%;
+    background: url('/default/inviteReg/img/invitation_bg_new.png') no-repeat;
+    background-size: 100% 100%;
+    padding-bottom: 177.7%;
+}
+.page_main .top_1_img{
+    position: absolute;
+    top: 1.75rem;
+    left: 1.95rem;
+    width: 0.5rem;
+}
+.page_main .top_1_img img{
+    width: 100%;
+}
+.page_main .top_2_img{
+    text-align: center;
+    color: #454545;
+    position: absolute;
+    top: 1.7rem;
+    left: 0.9rem;
+    line-height:0.5rem;
+    width: 0.48rem;
+    font-size: 0.42rem;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.page_main .top_2_img .top_2_tips1{
+    margin: 0  auto;
+}
+.page_main .top_2_img .integral{
+    position: absolute;
+    top: 0.39rem;
+    display: inline-block;
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform-origin:0.24rem 50%;
+    /*font-family: FZ;*/
+    color: #b85b5b;
+}
+.page_main .user_info_line{
+    position: absolute;
+    top: 1.75rem;
+    left: 3rem;
+    width: 1rem;
+    font-size: 0.42rem;
+    color: #c1ad99;
+    text-align: center;
+}
+.page_main .user_info{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.page_main .user_info_line .user_img{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-bottom: 0.2rem;
+}
+/*底部二维码 s*/
+.page_main .qrcode_section {
+    position: absolute;
+    bottom: 1rem;
+    text-align: center;
+    width: 100%;
+}
+.page_main .qrcode_section img{
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 0.02rem solid #e3e3e3;
+}
+.page_main .qrcode_section .tips_1{
+    font-size: 0.30rem;
+    line-height: 0.4rem;
+    color: #cf534c;
+    letter-spacing: 0.01rem;
+    margin:0.3rem auto ;
+}
+.page_main .qrcode_section .tips_2{
+    font-size: 0.30rem;
+    letter-spacing: 0.02rem;
+    line-height: 0.42rem;
+    color: #a0a0a0;
+}
+.page_main .qrcode_section .tips_3{
+    font-size: 0.30rem;
+    letter-spacing: 0.02rem;
+    line-height: 0.42rem;
+    color: #cf534c;
+}
+/*底部二维码 e*/

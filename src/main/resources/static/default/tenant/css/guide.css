@@ -1,0 +1,294 @@
+a {
+    color: rgb(78, 72, 72);
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    color: rgb(0, 0, 0)
+}
+#floor-select ,#floor_list{
+    color: rgb(255, 255, 255);
+    width: 49.8%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 28px;
+    position: relative;
+    text-align: center;
+    /* padding: 0.5em 0em; */
+    border-right: 1px solid #dedfe0;
+    margin: 20px 0px;
+}
+#floor_list{
+    border: none;
+}
+/*.floor_list {
+    color: rgb(255, 255, 255);
+    width: 50%;
+    *//*	background: rgba(0, 0, 0, 0.8);*//*
+    position: relative;
+    text-align: center;
+    padding: 0.5em 0em;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}*/
+
+#floor-select span.current {
+    width: 100%;
+    display: inline-block;
+    color: #555555;
+}
+
+#floor-select ul {
+    position: absolute;
+    display: none;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    top: 60px;
+    color: #333;
+    border: 1px solid #dedfe0;
+    border-top: 2px solid #3af;
+    z-index: 100;
+}
+
+#floor-select ul li {
+    color: #555555;
+    background-color: #fff;
+    border-bottom: solid #dedfe0 1px;
+    padding: 5px 0px;
+}
+
+#floor-select ul li:active,#floor-select ul li:hover {
+    background-color: rgb(192, 192, 192);
+}
+
+#floor-select ul li a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #555555;
+}
+
+#content div.list div.floor dl dd ul li {
+    list-style-type: none;
+}
+
+#content div.list div.floor dl dt span img {
+    width: 80px;
+    height: 80px;
+}
+
+/*表单是搜索开始*/
+div.form {
+    width: 10% !important;
+    position: relative;
+    float: left;
+    display: none;
+}
+
+#brand {
+    position: absolute;
+    top: 77px;
+    right: 0px;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    border: #cecece solid 1px;
+    display: none;
+}
+
+div.form table tr td {
+    text-align: center;
+}
+
+div.form table tr td.search {
+    width: 70%;
+    padding-left: 1em;
+}
+
+div.form table tr td input {
+    padding: 0.4em;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid #747172;
+}
+
+div.form table tr td input.btn {
+    width: 80%;
+
+    background: #EFEFF0 url("/common/images/search.gif") no-repeat center center;
+}
+
+/*表单是搜索结束*/
+
+/*列表与平面图选择  开始*/
+#content div.list div.miniSearch, #content div.list div.plane {
+    /*padding: 0 0.7em;*/
+}
+
+#content div.list div.miniSearch {
+    margin: 10px 0;
+    background: rgb(243, 243, 243);
+    border: 1px solid rgb(223, 218, 218);
+}
+
+#content div.list div.miniSearch div.select {
+    width: 30%;
+    /* position: relative; */
+    /* margin-right: 0.4em; */
+    float: left;
+    background: rgb(104, 101, 101);
+    color: #FFF;
+    /* border: 1px solid #f00; */
+
+    margin: 1px;
+    padding: .9em;
+}
+
+#content div.list div.miniSearch div.select select {
+    padding: 0.7em;
+    border-radius: 5px;
+    border: 1px solid #747172;
+    width: 100%;
+}
+
+#content div.list div.miniSearch div.select span.icon {
+    position: absolute;
+    left: 70%;
+    top: 0;
+    height: 100%;
+    display: block;
+    width: 30%;
+    background: url(/common/images/bottom.gif) no-repeat left center;
+}
+
+#content div.list div.miniSearch span.floor_list {
+    padding: .9em;
+    font-size: 14px;
+    color: #000;
+
+}
+
+#content div.list div.miniSearch span.floor_list:hover {
+    cursor: pointer;
+    background: #333;
+    color: #FFF;
+}
+
+#content div.list div.plane {
+    margin-top: 10%;
+}
+
+/*列表与平面图选择  结束*/
+
+/*列表开始*/
+#content div.list div.floor {
+}
+
+#content div.list div.floor h3 {
+    padding: 0.4em 0;
+    color: #fff;
+    background-color: #87746B;
+}
+
+#content div.list div.floor dl {
+    /* margin-top: 1em;*/
+}
+
+/*图片居中开始*/
+#content div.list div.floor dl dt {
+    display: table;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+#content div.list div.floor dl dt span {
+    width: 80px;
+    height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/*图片居中结束*/
+
+#content div.list div.floor dl dd {
+    padding-left: 1em;
+}
+
+#content div.list div.floor dl dd ul li {
+    padding: 0.1em 0;
+}
+
+#content div.list div.floor dl dd ul.special {
+    padding-bottom: 10px;
+}
+
+#content div.list div.floor dl dd ul.special li {
+    color: #fff;
+    margin-left: 0.5em;
+    padding: 0.5em;
+}
+
+#content div.list div.floor dl dd ul.special li.huo {
+    margin-left: 0;
+}
+
+/*列表结束*/
+#content div.list div.floor {
+    background: white;
+    padding: 5px;
+    border-top: solid 1px #B9B9B9;
+}
+
+#float_left ul li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.floor {
+    background: rgb(255, 255, 255);
+    padding: 25px 10px;
+    border-top: solid 1px rgb(209, 209, 209)
+}
+
+ul, ol, li {
+    list-style-type: none
+}
+
+.plane center {
+    margin: 10px;
+}
+
+#header {
+    top: 0;
+    height: 80px;
+    border-bottom: 1px solid #dedfe0;
+}
+
+.btn-search span {
+    margin-top: 20px !important;
+}
+
+#floor-select {
+    background: #fff !important;
+}
+
+#content {
+    margin-top: 80px;
+}
+ul.introduce li:first-child{
+    color:#000;
+    font-weight: bold;
+}
+.floor .storey-list-mrg{
+    margin: 0 15px;
+}
+
+.selected{
+    background: #19e;color: #fff;
+}
