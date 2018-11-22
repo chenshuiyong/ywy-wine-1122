@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<span lang="en" xmlns:th="http://www.thymeleaf.org"  th:fragment="sign">
+    <link rel="stylesheet" href="/default/SignIn/css/sign.css" th:href="@{/default/SignIn/css/sign.css}">
+    <script src="/default/SignIn/js/sign.js" type="text/javascript" th:src="@{/default/SignIn/js/sign.js}"></script>
+    <script th:inline="javascript">
+        var BASE_PIC_PATH = [[${BASE_PIC_PATH}]];
+        var game=[[${game}]];
+    </script>
+<div id="sign_in_mask">
+    <div class="sign_in_box">
+        <img src="/default/SignIn/img/sign_in_bg.png" th:src="@{/default/SignIn/img/sign_in_bg.png}">
+        <div class="day_box">
+            <div class="day_line">
+            </div>
+            <div class="sign_in_tips">连续签到<span class="award_days"></span>天，即可领取<span class="award_integral"></span>积分！</div>
+        </div>
+        <div class="btn_box">
+            <span class="get_integral">立即签到</span>
+        </div>
+    </div>
+<!--    <div class="to_game_box">
+        <div class="bottom_section">
+        &lt;!&ndash;    <a id="remote" >
+                <img id="game" style="width: 100%">
+            </a>&ndash;&gt;
+        </div>
+        <img src="/default/SignIn/img/to_game.png" th:src="@{/default/SignIn/img/to_game.png}" style="width: 100%">
+        <div class="border_section">
+        </div>
+    </div>-->
+    <div class="to_game_box">
+        <div class="border_section">
+        </div>
+        <div class="bottom_section">
+            <a id="remote1" >
+                <img id="game1" style="width: 100%">
+            </a>
+        </div>
+    </div>
+    <div class="close_btn_box">
+        <img src="/default/SignIn/img/btn_closd.png" class="close_btn" th:src="@{/default/SignIn/img/btn_closd.png}">
+    </div>
+</div>
+</span>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<span lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="header(title)">
+
+        <title th:text="${title}"></title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--        <meta name="viewport"
+                      content="width=640, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5, user-scalable=no">-->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <!--        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="full-screen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="address=no">
+        <link rel="stylesheet" href="/common/css/public.css" th:href="@{'/common/css/public.css?dt='+${DT}}">
+        <!--        <link rel="stylesheet" href="/common/css/public.css" th:href="@{/common/css/public.css}">-->
+        <link rel="stylesheet" href="/common/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss" th:href="@{'/common/layer/skin/default/layer.css?v=3.0.330'}">
+        <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+        <script type="text/javascript"  src="/common/js/jquery.cookie.js" th:src="@{/common/js/jquery.cookie.js}"></script>
+        <script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
+        <script type="text/javascript" src="/common/js/common.js" th:src="@{'/common/js/common.js?dt='+${DT}}"></script>
+        <!--      <script th:inline="javascript"  type="text/javascript">
+                  var currWeixinId = [[${session.currWeixinId}]];
+                  var pJsId = [[${#httpServletRequest.getSession().getId()}]];
+       <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+              <script th:inline="javascript"  type="text/javascript">
+                          var currWeixinId = [[${session.currWeixinId}]];
+                          var pJsId = [[${#httpServletRequest.getSession().getId()}]];
+
+                          if(getCookie("jsessionId") == null ||  ( getCookie("jsessionId")!=null && getCookie("jsessionId") != pJsId)){
+                                  ajax_post("public/getJsId", function(res){
+                                          pJsId = res;
+                                          delCookie("jsessionId");
+                                          setCookie("jsessionId",pJsId,30);s
+                                  });
+                          }
+
+          </script>
+
+       <script type="text/javascript" src="/common/js/iscroll_4.js" th:src="@{/common/js/iscroll_4.js}"></script>
+       <script type="text/javascript" src="/common/js/list-scroll.js" th:src="@{/common/js/list-scroll.js}"></script>
+       <!-- <script type="text/javascript" src="/common/js/jweixin-1.2.0.js"></script>-->
+        <!--        <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"> </script>
+                <script type="text/javascript" src="/common/js/jweixin-ext.js" th:src="@{/common/js/jweixin-ext.js}"></script>
+                <script type="text/javascript" src="/common/js/toast.js" th:src="@{/common/js/toast.js}"></script>-->
+        <script  type="text/javascript"  src="/common/js/dialog.js" th:src="@{/common/js/dialog.js}"></script>
+
+        <!--        <script src="https://s19.cnzz.com/z_stat.php?id=1271457604&amp;web_id=1271457604" language="JavaScript"  ></script>
+                <script src="https://c.cnzz.com/core.php?web_id=1271457604&amp;t=z" charset="utf-8" type="text/javascript"></script>-->
+        <!-- <script src="https://s13.cnzz.com/z_stat.php?id=1274557709&web_id=1274557709" language="JavaScript"></script>-->
+
+<script>
+</script>
+</span>

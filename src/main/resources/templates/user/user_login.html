@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link>
+<meta th:include="common/header :: header('登陆')"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/common/js/weui-1.1.2/dist/style/weui.css" th:href="@{/common/js/weui-1.1.2/dist/style/weui.css}">
+<link rel="stylesheet" href="/default/user/css/user_register.css" th:href="@{/default/user/css/user_register.css}">
+</head>
+<body>
+<div class="page_container">
+    <div class="top_logo_section">
+        <img src="/default/user/img/personCenter/bottom_logo.png">
+        <div class="top_title">欢迎登陆钇旺亿</div>
+    </div>
+    <div class="input_section" id="dataForm">
+        <div class="input_name line">
+            <input  type="hidden" id="city_name" value="">
+            <input type="text"id="userName" placeholder="请输入您的用户名">
+        </div>
+        <div class="input_phone line">
+            <input type="password"  id="password" maxlength="20" placeholder="请输入您的密码" >
+        </div>
+        <div class="sign_btn active" onclick="user_login()">登陆</div>
+    </div>
+    <div class="bottom_zs"></div>
+</div>
+
+<div id="loading_gif">
+    <div class="loading_gif" id="loading_gif_container">
+        <img src="/default/Index/img/loading.gif" th:src="@{/default/Index/img/loading.gif}">
+    </div>
+</div>
+<div class="close_div">
+</div>
+
+</body>
+<script type="text/javascript" src="/default/user/js/user_login.js" th:src="@{/default/user/js/user_login.js}"></script>
+</html>

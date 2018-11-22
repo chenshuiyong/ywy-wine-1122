@@ -1,0 +1,76 @@
+<div th:fragment="home">
+<!--<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
+<script>
+    var appId="{$wxConfig.signPackage.appId}";
+//    var appId="WXI2016082200001";
+    var timestamp="{$wxConfig.signPackage.timestamp}";
+    var nonceStr="{$wxConfig.signPackage.nonceStr}";
+    var signature="{$wxConfig.signPackage.signature}";
+    var url="{$wxConfig.signPackage.url}";
+    if(typeof(jsApiList) == "undefined"){
+        jsApiList = [];
+    }
+    jsApiList.push("onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo","getLocation","previewImage","checkJsApi");
+    wx.config({
+        url:url,
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId:appId, // 必填，公众号的唯一标识
+        timestamp: timestamp, // 必填，生成签名的时间戳
+        nonceStr: nonceStr, // 必填，生成签名的随机串
+        signature: signature,// 必填，签名，见附录1
+        jsApiList: jsApiList // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    //拼接分享链接id
+    function getWxData(source){
+        var shareId = "{$shareId}";
+        var shop_id = "{$shop_id}";
+        if(shop_id.indexOf("+") >= 0){  //如果连接里含有+号
+            shop_id = encodeURIComponent(shop_id);
+        }
+
+        var urlArr = location.href.split("#")[0];
+        urlArr = urlArr.split("?");
+        var temp = [];
+        var str = "";
+        if(urlArr.length > 1){
+            var urlTemp = urlArr[1].split("&");
+            for(var i=0; i<urlTemp.length; i++){
+                temp = urlTemp[i].split("=");
+                if(temp[0]!="login_code" && temp[0]!="weixin_id" && temp[0]!="mod_id" && temp[0]!="shop_id" && temp[0]!="code" && temp[0]!="state"){
+                    str += urlTemp[i]+"&";
+                }
+            }
+        }
+        urlArr[0] = urlArr[0].replace('http://', 'https://');
+        url = urlArr[0];
+        url+="?"+str+"shop_id="+shop_id+"&weixin_id={$weixin_id}&appid={$appid}&shareId="+shareId+"&WxSource="+source;
+//        url = encodeURIComponent(url);
+//        url="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+appId+"&redirect_uri="+url+"&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+        var wxData = {
+            link:url,
+            imgUrl: "{$shareLogo|default=$shopLog}",
+            img:"{$shareLogo|default=$shopLog}",
+            desc:"{$shareDesc|default=$shareDesc}",
+            title:"{$shareTitle}"!='' ? "{$shareTitle}":$('title').html(),
+            success:function(){
+                $.get(
+                        "{:U('Index/createShareLink')}",
+                        {shareId:shareId, link: location.href,title:wxData.title},
+                        function(res){
+                        },
+                        'json'
+                );
+            },
+            cancel:function(){
+            }
+        };
+        return wxData;
+    }
+    wx.ready(function(){
+        wx.onMenuShareAppMessage(getWxData(50));    //分享给朋友
+        wx.onMenuShareTimeline(getWxData(60));      //分享到朋友圈
+        wx.onMenuShareQQ(getWxData(70));        //分享到qq
+        wx.onMenuShareWeibo(getWxData(80));     //分享到微博
+    });
+</script>
+</div>

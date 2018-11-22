@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<span lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="header(title)">
+
+        <title th:text="${title}"></title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--        <meta name="viewport"
+                      content="width=640, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5, user-scalable=no">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="full-screen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="address=no">
+        <link rel="stylesheet" href="/common/css/public.css" th:href="@{'/common/css/public.css?dt='+${DT}}">
+        <link rel="stylesheet" href="/common/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss" th:href="@{'/common/layer/skin/default/layer.css?v=3.0.330'}">
+        <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+        <script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
+        <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+<!--        <script type="text/javascript"  src="/common/js/public.js" th:src="@{/common/js/public.js?dt=111}"></script>-->
+        <script type="text/javascript" src="/common/js/iscroll_4.js" th:src="@{/common/js/iscroll_4.js}"></script>
+        <script type="text/javascript" src="/common/js/list-scroll.js" th:src="@{/common/js/list-scroll.js}"></script>
+        <script  type="text/javascript"  src="/common/js/dialog.js" th:src="@{/common/js/dialog.js}"></script>
+        <script type="text/javascript" th:inline="javascript">
+
+            (function(){
+                var currClientWidth, fontValue, originWidth;originWidth = 750;//ui设计稿的宽度，一般750或640
+                __resize();
+                window.addEventListener('resize', __resize, false);
+                function __resize() {
+                    currClientWidth = document.documentElement.clientWidth;
+                    if (currClientWidth > 768){
+                        currClientWidth = 768;
+                    }
+                    if (currClientWidth < 320){
+                        currClientWidth = 320;
+                    }
+                    fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+                    document.documentElement.style.fontSize = fontValue + '%';
+                }
+                /*按比例放大缩小*/
+                var scale = $(document).width() / (640 * 2);
+                $('.clear_line').css('transform','scaleY('+scale*2+')');
+                $("#bodya").css('height', $(window).height());
+            })();
+        </script>
+<script>
+</script>
+</span>

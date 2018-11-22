@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta th:include="common/header :: header('个人中心')"></meta>
+    <link rel="stylesheet" href="/default/member/css/index.css" th:href="@{/default/member/css/index.css}">
+</head>
+<body>
+<div class="member-main">
+    <img class="lev-card-img" src="/default/member/img/userCenter/bg_sy.png" th:src="@{/default/member/img/userCenter/bg_sy.png}">
+    <div class="member-header">
+        <div class="card_section">
+            <div class="img_box">
+                <img src="/default/member/img/userCenter/bg_jinzuan.png" th:src="@{/default/member/img/userCenter/bg_jinzuan.png}" class="card_bg"/>
+            </div>
+            <div class="info_section">
+                <div class="change_name">
+                    <a href="/member/editInfoIndex" th:href="@{/member/editInfoIndex}">
+                        <img src="/default/member/img/userCenter/ico_bj.png" th:src="@{/default/member/img/userCenter/ico_bj.png}">
+                    </a>
+                </div>
+                <div class="user_line">
+                    <img class="header_img" >
+                    <div class="user_name">
+                        <span th:text="${user.userName}"></span>
+                    </div>
+                </div>
+                <div class="card_line">
+                    <div class="integral">
+                        剩余积分<span class="num">100</span>
+                    </div>
+                </div>
+                <div class="logo_line">
+                    <img src="/default/member/img/userCenter/logo.png" th:src="@{/default/member/img/userCenter/logo.png}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   <!-- <div class="my_navigation">
+        <div class="item_line m_bottom">
+            <a href="/playIntegral/myGifts"  th:href="@{/playIntegral/myGifts}" class="b_right">
+                <div class="btn_item">
+                    <div style="height: 72px; margin-bottom: 20px;">
+                        <img src="/default/member/img/personCenter/my_gift.png">
+                        <div class="my_gift">
+                            <div th:if="${my_gift!=''}"  class="num_line" id="num_line1">
+                                <span th:text="${my_gift}" id="num1" ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title" >我的礼品</div>
+                </div>
+            </a>
+            <a href="/CollectFolder/card"  th:href="@{/CollectFolder/card}" class="b_right">
+                <div class="btn_item">
+                    <div style="height: 72px; margin-bottom: 20px;">
+                        <img src="/default/member/img/personCenter/my_coupons.png">
+                        <div class="my_coupons">
+                            <div  th:if="${my_card!=''}" class="num_line" id="num_line2">
+                                <span id="num2" th:text="${my_card}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title"  >我的电子券</div>
+                </div>
+            </a>
+            <a href="/activity/myActivityPage" th:href="@{/activity/myActivityPage}">
+                <div class="btn_item">
+                    <div style="height: 72px; margin-bottom: 20px;">
+                        <img src="/default/member/img/personCenter/my_active.png">
+                        <div class="my_active">
+                            <div class="num_line" th:if="${my_activity!=''}"  id="num_line3">
+                                <span id="num3" th:text="${my_activity}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="title" >我的报名活动</div>
+                </div>
+            </a>
+        </div>
+        <div class="item_line">
+            <a href="/playIntegral/expireGifts"  th:href="@{/playIntegral/expireGifts}" class="b_right">
+                <div class="btn_item">
+                    <div class="num" th:text="${my_gift_will_expire}"></div>
+                    <div class="title">即将过期礼品</div>
+                </div>
+            </a>
+            <a href="/CollectFolder/expireCard"  th:href="@{/CollectFolder/expireCard}" class="b_right">
+                <div class="btn_item">
+                    <div class="num" th:text="${my_card_will_expire}"></div>
+                    <div class="title">即将过期电子券</div>
+                </div>
+            </a>
+            <a href="/member/expireIntegral" th:href="@{/member/expireIntegral}">
+                <div class="btn_item">
+                    <div class="num" th:text="${will_expired_integral}"></div>
+                    <div class="title">即将到期积分</div>
+                </div>
+            </a>
+        </div>
+    </div>
+-->
+
+</div>
+
+</body>
+<script type="text/javascript" src="/default/user/js/user_index.js" th:src="@{/default/user/js/user_index.js}"></script>
+</html>

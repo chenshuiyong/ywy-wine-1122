@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link>
+<meta th:include="common/header :: header('信息提示')"></meta>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/common/css/msg.css" th:href="@{/common/css/msg.css}"></link>
+</head>
+<body>
+
+<!--提示遮罩2-->
+<div id="submit_mask2" style="display: block">
+    <input type="hidden" name="noJsId" id="noJsId" value="1">
+    <div class="pop_container2">
+        <div class="title_line2">温馨提示</div>
+        <div class="tips_container2">
+            <p style="text-align:center;" th:if="${!retMsg.success && retMsg.msg==null}" >您的问题已提交，请等待受理，如有疑问请拨打400-846-3636</p>
+            <p style="text-align:center;"  th:if="${retMsg.msg!=null }"  th:utext="${retMsg.msg}"></p>
+
+        </div>
+        <div class="submit_btn2"  onclick="returnBack()" th:if="${retMsg.returnUrl != null}"  >确定</div>
+        <div class="submit_btn2" id="btn_back"  th:if="${retMsg.returnUrl == null}" >确定</div>
+    </div>
+</div>
+
+
+</body>
+<script th:inline="javascript">
+    $("#btn_back").click(function(){
+        history.go(-1);
+    });
+
+    function returnBack(){
+        var url = [[${retMsg.returnUrl}]];
+        window.location.href = commonChangeDtUrl(url);
+    }
+</script>
+</body>
+</html>

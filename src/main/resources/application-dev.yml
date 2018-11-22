@@ -1,0 +1,26 @@
+common:
+   configs:
+    dt: 10088
+    memberUrl: http://172.22.240.90:8080/cdnrCRM
+    httpConnectTimeOut: 30000
+    httpReadTimeOut: 30000
+    httpSocketTimeOut: 30000
+    httpRequestTimeOut: 50000
+    httpMaxTotal: 20
+    httpMaxPerRote: 20
+
+   security:
+#    wxIncludeUrl: ''
+#    wxExcludeUrl: ''
+#    memberIncludeUrl: ''
+#    memberExcludeUrl: ''
+    wxIncludeUrl: '/*,/**'
+    wxExcludeUrl: '**/*.js,**/*css,/error,/common/info,/common/msg,/public/**,/ownerEnjoy/payCallback,/gift/payCallback,/gift/checkStore'
+    memberIncludeUrl: '/activity/**,/seckill/**,/gift/submitExchange/**,/gift/exchange/**,/preferentialCard/collect/**,/member/**,/playIntegral/**,/ownerEnjoy/**,houseBuyProcess/**,/houseBuyProcess/**'
+    memberExcludeUrl: '/member/registerPage,/member/register,/member/sendSms,/member/gotoPolicy,/druid/**,/shopSetPoint/**'
+    preformTestUrl: ''
+    preformTestExculdeUrl: ''
+   # 以下为性能测试使用
+    #preformTestUrl:   '/*,/**'
+    #preformTestExculdeUrl: '**/*.js,**/*css,/error,/common/info,/common/msg,/public/**,/druid/**'
+
