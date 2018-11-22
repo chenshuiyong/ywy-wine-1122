@@ -453,7 +453,7 @@ body,html{
     background: #ed5850;
 }
 .agree_section{
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     font-size: 0.22rem;
     display: flex;
     display: -webkit-flex;
@@ -466,10 +466,7 @@ body,html{
     color: #000;
     margin-bottom: 0.5rem;
 }
-.agree_section img{
-    width: 0.26rem;
-    margin-right: 0.1rem;
-}
+
 .agree_section span{
     font-size: 0.26rem;
     color: #ea4744;

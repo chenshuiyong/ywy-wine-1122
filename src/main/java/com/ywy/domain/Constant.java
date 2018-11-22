@@ -69,4 +69,5 @@ public class Constant {
      */
     public static final String USERNAME_SESSION = "username_session";
 
+    public final static String FIRST_TOKEN = "chensy27";
 }

@@ -34,7 +34,7 @@ function user_register(){
         commonMsg("两次密码不相同");
         return false;
     }
-    commonAjax("/user/regisgerInfo", data, function (result) {
+    commonAjax("/regisgerInfo", data, function (result) {
         if(result){
             if(result.code==1){
                 commonMsg(result.msg);
@@ -47,9 +47,6 @@ function user_register(){
     });
 }
 
-/*
-window.onload = function () {
-    /!*按比例放大缩小*!/
-    var scale = $(document).width() / (640 * 2);
-    $('.clear_line').css('transform','scaleY('+scale*2+')');
-};*/
+function gotoLogin() {
+    location.href = '/login';
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="/default/user/css/common.css" th:href="@{/default/user/css/index.css}">
+    <link rel="stylesheet" href="/default/user/css/user_index.css" th:href="@{/default/user/css/user_index.css}">
+</head>
+<body>
+<div class="box">
+    <div class="title">
+        <img class="left" src="/default/user/img/new/back.png" alt="">
+        <img class="right" src="/default/user/img/new/menu.png" alt="">
+    </div>
+    <div class="tab">
+        <div>今日销售</div>
+        <div><img class="" src="/default/user/img/new/header.png" alt=""></div>
+    </div>
+    <ul class="content">
+        <li>
+            <img class="right" src="/default/user/img/new/product.png" alt="">
+            <p>商品</p>
+        </li>
+        <li>
+            <img class="right" src="/default/user/img/new/customer.png" alt="">
+            <p>客户</p>
+        </li>
+        <li>
+            <img class="right" src="/default/user/img/new/camaro.png" alt="">
+            <p>拍照下单</p>
+        </li>
+        <li>
+            <img class="right" src="/default/user/img/new/order.png" alt="">
+            <p>销售单</p>
+        </li>
+        <li>
+            <img class="right" src="/default/user/img/new/purchase.png" alt="">
+            <p>采购单</p>
+        </li>
+        <li>
+            <img class="right" src="/default/user/img/new/data.png" alt="">
+            <p>报表</p>
+        </li>
+    </ul>
+</div>
+<!-- <script src=""></script> -->
+</body>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</html>
