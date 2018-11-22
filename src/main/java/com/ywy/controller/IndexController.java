@@ -37,6 +37,18 @@ public class IndexController {
       return "/user/index";
     }
   }
+
+  @RequestMapping(value = "/more")
+  public String more(HttpServletRequest request, Model model) {
+    UsrUser user = (UsrUser) request.getSession().getAttribute(Constant.USER_BY_USERNAME);
+    model.addAttribute("user", user);
+    if (user == null){
+      return "/user/user_login";
+    }else{
+      return "/user/more";
+    }
+  }
+
   @RequestMapping(value = "/login")
   public String login(HttpServletRequest request, Model model) {
     UsrUser user = (UsrUser) request.getSession().getAttribute(Constant.USER_BY_USERNAME);

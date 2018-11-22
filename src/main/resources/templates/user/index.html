@@ -11,10 +11,10 @@
 <body>
 <div class="box">
     <div class="title">
-        <img class="left" src="/default/user/img/new/back.png" alt="">
-        <img class="right" src="/default/user/img/new/menu.png" alt="">
+        <img class="left" onclick="back()" src="/default/user/img/new/back.png" alt="">
+        <img class="right" onclick="more()" src="/default/user/img/new/menu.png" alt="">
     </div>
-    <div class="tab"><div>今日销售  123.23</div><div><img class="" src="/default/user/img/new/header.png" alt=""></div>
+    <div class="tab"><div><span>今日销售</span> <span>123.23</span></div><div><img class="" src="/default/user/img/new/header.png" alt=""></div>
     </div>
     <ul class="content">
         <li>
@@ -40,18 +40,5 @@
 </div>
 <!-- <script src=""></script> -->
 </body>
-<script>
-    (function (doc, win) {
-        var docEl = doc.documentElement,
-            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-            recalc = function () {
-                var clientWidth = docEl.clientWidth;
-                if (!clientWidth) return;
-                docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
-            };
-        if (!doc.addEventListener) return;
-        win.addEventListener(resizeEvt, recalc, false);
-        doc.addEventListener('DOMContentLoaded', recalc, false);
-    })(document, window);
-</script>
+<script type="text/javascript" src="/default/user/js/index.js" th:src="@{/default/user/js/index.js}"></script>
 </html>

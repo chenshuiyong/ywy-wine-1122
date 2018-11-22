@@ -38,7 +38,7 @@ function user_register(){
         if(result){
             if(result.code==1){
                 commonMsg(result.msg);
-                location.href = '/user/index';
+                location.href = '/index';
             }else{
                 commonMsg(result.msg);
                 return false;

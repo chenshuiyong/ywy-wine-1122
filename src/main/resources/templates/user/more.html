@@ -1,0 +1,35 @@
+<html lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta th:include="common/header :: header('更多')"></meta>
+    <link rel="stylesheet" href="/default/Index/css/public.css" th:href="@{/default/Index/css/public.css}">
+    <link rel="stylesheet" href="/default/user/css/more.css" th:href="@{/default/user/css/more.css}">
+</head>
+<body id="body">
+    <div class="item">
+        <a href="">
+            <img src="/default/user/img/new/editpwd.png">
+            <p>修改密码</p>
+        </a>
+    </div>
+    <div class="item">
+        <a href="">
+            <img src="/default/user/img/new/editInfo.png">
+            <p>完善资料</p>
+        </a>
+    </div>
+    <div class="item">
+        <a href="">
+            <img src="/default/user/img/new/out.png">
+            <p>退出登陆</p>
+        </a>
+    </div>
+
+
+<div id="tips_pop_container">
+    <span></span>
+</div>
+</body>
+<script type="text/javascript" src="/common/js/more.js" th:src="@{/common/js/more.js}"></script>
+</html>
