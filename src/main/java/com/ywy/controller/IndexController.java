@@ -40,13 +40,7 @@ public class IndexController {
 
   @RequestMapping(value = "/more")
   public String more(HttpServletRequest request, Model model) {
-    UsrUser user = (UsrUser) request.getSession().getAttribute(Constant.USER_BY_USERNAME);
-    model.addAttribute("user", user);
-    if (user == null){
-      return "/user/user_login";
-    }else{
-      return "/user/more";
-    }
+    return "/user/more";
   }
 
   @RequestMapping(value = "/login")
@@ -115,11 +109,17 @@ public class IndexController {
     //  会员信息
     UsrUser user = (UsrUser) request.getSession().getAttribute(Constant.USER_BY_USERNAME);
     model.addAttribute("user", user);
-    if (user == null){
-      return "/user/user_login";
-    }else{
-      return "/user/index";
-    }
+    return "/user/index";
   }
-
+  /**
+   * 退出登录
+   * @return
+   */
+  @RequestMapping("/logout")
+  public String logout(HttpServletRequest request) {
+    // 移除session
+    request.getSession().removeAttribute(Constant.USER_BY_USERNAME);
+    request.getSession().removeAttribute(Constant.USERNAME_SESSION);
+    return "redirect:/login";
+  }
 }

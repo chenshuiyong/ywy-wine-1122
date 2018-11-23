@@ -10,17 +10,6 @@ common:
     httpMaxPerRote: 20
 
    security:
-#    wxIncludeUrl: ''
-#    wxExcludeUrl: ''
-#    memberIncludeUrl: ''
-#    memberExcludeUrl: ''
-    wxIncludeUrl: '/*,/**'
-    wxExcludeUrl: '**/*.js,**/*css,/error,/common/info,/common/msg,/public/**,/ownerEnjoy/payCallback,/gift/payCallback,/gift/checkStore'
-    memberIncludeUrl: '/activity/**,/seckill/**,/gift/submitExchange/**,/gift/exchange/**,/preferentialCard/collect/**,/member/**,/playIntegral/**,/ownerEnjoy/**,houseBuyProcess/**,/houseBuyProcess/**'
-    memberExcludeUrl: '/member/registerPage,/member/register,/member/sendSms,/member/gotoPolicy,/druid/**,/shopSetPoint/**'
-    preformTestUrl: ''
-    preformTestExculdeUrl: ''
-   # 以下为性能测试使用
-    #preformTestUrl:   '/*,/**'
-    #preformTestExculdeUrl: '**/*.js,**/*css,/error,/common/info,/common/msg,/public/**,/druid/**'
+    includeUrl: '/*,/**'
+    excludeUrl: '**/*.js,**/*css,/error,/login,/register'
 

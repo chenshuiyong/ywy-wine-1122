@@ -1,22 +1,21 @@
-window.onload=function(){
-    /*按比例放大缩小*/
-    scale = $(document).width()/(640*2);
-    viewport = "<meta name='viewport' content='width=640, initial-scale="+scale+",minimum-scale=0.5, maximum-scale=0.5, user-scalable=no'>";
-    $("meta[name='viewport']").remove();
-    $("head").prepend(viewport);
-    $('body').css({width:"100%",margin:"auto",background:"#fff !important"});
-    var currClientWidth, fontValue, originWidth;originWidth = 750;//ui设计稿的宽度，一般750或640
-    __resize();
-    window.addEventListener('resize', __resize, false);
-    function __resize() {
-        currClientWidth = document.documentElement.clientWidth;
-        if (currClientWidth > 768){
-            currClientWidth = 768;
-        }
-        if (currClientWidth < 320){
-            currClientWidth = 320;
-        }
-        fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
-        document.documentElement.style.fontSize = fontValue + '%';
-    }
+
+/*
+function logout() {
+    location.href = '/logout';
+}
+*/
+
+// 弹窗内容
+function logout(){
+    // 确认框
+    var index = layer.confirm('确认退出', {
+        btn : [ '确定', '取消' ]
+        // 按钮
+    }, function() {
+        // 关闭弹窗
+        parent.layer.close(index);
+        location.href = '/logout';
+    }, function() {
+
+    });
 }

@@ -20,3 +20,4 @@ window.onload=function(){
         document.documentElement.style.fontSize = fontValue + '%';
     }
 }
+
