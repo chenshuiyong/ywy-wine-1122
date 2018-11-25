@@ -18,3 +18,7 @@ function back() {
 function more() {
     location.href = '/more';
 }
+$("#product").click(function(){
+    location.href = '/goods/goods_list';
+
+});

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywy.mapper.ProGoodsMapper" >
+    <resultMap id="BaseResultMap" type="com.ywy.domain.ProGoods" >
+        <id column="goods_id" property="goodsId" jdbcType="INTEGER" />
+        <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+        <result column="goods_no" property="goodsNo" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="bid" property="bid" jdbcType="DECIMAL" />
+        <result column="price" property="price" jdbcType="DECIMAL" />
+        <result column="category_type" property="categoryType" jdbcType="TINYINT" />
+        <result column="inventory" property="inventory" jdbcType="INTEGER" />
+        <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="DATE" />
+        <result column="update_time" property="updateTime" jdbcType="DATE" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    goods_id, goods_name, goods_no, user_id,bid,price,category_type,inventory,img_url,create_time,update_time
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from pro_goods
+        where goods_id = #{goodsId,jdbcType=INTEGER}
+    </select>
+    <select id="selectByGoodsName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from pro_goods
+        where goods_name = #{goodsName,jdbcType=VARCHAR}
+    </select>
+    <!-- 这个方法是我自己加的 -->
+    <select id="selectAllGoods" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from pro_goods
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pro_goods
+    where  goods_id = #{goodsId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.ywy.domain.ProGoods" >
+    insert into pro_goods (
+    goods_id,
+    goods_name,
+    goods_no,
+    user_id,
+    bid,
+    price,
+    category_type,
+    inventory,img_url,
+    create_time,update_time
+    )values (
+    #{goodsId,jdbcType=INTEGER},
+     #{goodsName,jdbcType=VARCHAR},
+     #{goodsNo,jdbcType=VARCHAR},
+     #{userId,jdbcType=INTEGER},
+     #{bid,jdbcType=DECIMAL},
+     #{price,jdbcType=DECIMAL},
+     #{categoryType,jdbcType=TINYINT},
+     #{inventory,jdbcType=INTEGER},
+     #{imgUrl,jdbcType=VARCHAR},
+      now(),
+      now())
+  </insert>
+ <!--   <insert id="insertSelective" parameterType="com.ywy.domain.ProGoods" >
+        insert into pro_goods
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="userId != null" >
+                user_id,
+            </if>
+            <if test="userName != null" >
+                user_name,
+            </if>
+            <if test="password != null" >
+                password,
+            </if>
+            <if test="phone != null" >
+                phone,
+            </if>
+            create_time,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="userId != null" >
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="userName != null" >
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null" >
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            now()
+        </trim>
+    </insert>-->
+<!--    <update id="updateByPrimaryKeySelective" parameterType="com.ywy.domain.ProGoods" >
+        update pro_goods
+        <set >
+            <if test="userName != null" >
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null" >
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>-->
+    <update id="updateByPrimaryKey" parameterType="com.ywy.domain.ProGoods" >
+    update pro_goods
+    set
+    goods_name = #{goodsName,jdbcType=VARCHAR},
+    goods_no = #{goodsNo,jdbcType=VARCHAR},
+    bid  = #{bid,jdbcType=DECIMAL},
+    price  = #{price,jdbcType=DECIMAL},
+    inventory = #{inventory,jdbcType=INTEGER},
+    update_time = now()
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+</mapper>

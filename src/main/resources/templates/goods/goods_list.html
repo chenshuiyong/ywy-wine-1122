@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta th:include="common/header :: header('商品列表')"></meta>
+    <link rel="stylesheet" href="/default/Index/css/home.css"  th:href="@{'/default/Index/css/home.css?v=1.1.0&dt='+${DT}}">
+</head>
+<body style="background: #f4f4f4;">
+<div id="page_container"  >
+    <div>
+        <div id="content">
+            <!--电子券-->
+            <div id="tickets">
+                <div class="title bt_c_flex">
+                    <div class="a_c_flex">
+                        <span class="vertical_red_line"></span>商品列表
+                    </div>
+                </div>
+                <div class="tickets_box">
+
+                </div>
+            </div>
+        </div>
+        </div>
+    <div id="exchange_btn">
+        <a href="javascript:;"  class=" weui-btn_warn change_btn"> + </a>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="/default/goods/js/goods_list.js" th:src="@{/default/goods/js/goods_list.js}"></script>
+</html>

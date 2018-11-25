@@ -806,3 +806,16 @@ header .bd img {
     align-items: flex-start;
     -webkit-align-items: flex-start;
 }
+#exchange_btn .change_btn{
+    background:#D6403F;
+    border-radius: 50px;
+    font-size: 32px;
+    color: #fff;
+    width: 530px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    box-shadow: 5px 8px 10px rgba(0,0,0,0.3);
+    margin: 0;
+    padding: 0;
+}

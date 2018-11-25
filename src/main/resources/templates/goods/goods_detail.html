@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--	<meta th:include="preferentialCard/header :: header('电子券兑换详情')"></meta>-->
+    <meta th:include="common/header :: header('电子券兑换详情')"></meta>
+<!--    <script type="text/javascript"  th:inline="javascript">
+        var basePicPath=[[${BASE_PIC_PATH}]];
+        var BASE_SERVER_URL=[[${BASE_SERVER_URL}]];
+    </script>-->
+    <link rel="stylesheet" type="text/css" href="/default/goods/css/goods_detail.css" th:href="@{/default/goods/css/goods_detail.css}">
+</head>
+<body>
+<div class="page__bd" style="background: #f1f1f1;overflow: hidden;padding-bottom: 30px;">
+    <div class="top">
+        <div>
+            <div class="company_name" th:text="${goods.goodsNo}"></div>
+        </div>
+
+        <input class="weui-input" id="goodsId" th:value="${goods.goodsId}"  type="text" >
+        <div class="price" id="descName"  th:text="${goods.goodsName}"></div>
+        <div class="can_use" th:text="'售价'+${goods.price}"></div>
+        <p class="expire_date" th:text="'进价'+${goods.bid}"></p>
+
+    </div>
+    <div id="exchange_btn">
+        <a href="javascript:;"  class=" weui-btn_warn change_btn"> 修改</a>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="/common/js/mobile_more.js" th:src="@{/common/js/mobile_more.js}"></script>
+<script type="text/javascript" src="/default/goods/js/goods_detail.js" th:src="@{/default/goods/js/goods_detail.js}"></script>
+
+</html>

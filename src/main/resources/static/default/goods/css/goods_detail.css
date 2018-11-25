@@ -1,0 +1,590 @@
+.weui-cell__bd p {
+    font-size: 20px;
+    color: #000;
+}
+
+.weui-cells {
+    padding: 0;
+    background: none;
+    color: #666;
+    font-size: 14px;
+}
+
+.weui-cell {
+    background: #fff;
+    margin-top: 5px;
+    padding: 6px 15px;
+}
+
+.weui-cells:after {
+    border-bottom: none;
+}
+
+.weui-cells:before {
+    border-top: none;
+}
+
+.weui-media-box.weui-media-box_appmsg {
+    padding: 8px 12px;
+    margin-top: 6px;
+    background: #fff;
+}
+
+.weui-media-box__title {
+    font-size: 14px;
+}
+
+.weui-media-box__desc {
+    margin-top: 6px;
+    height: 26px;
+    font-size: 16px
+}
+
+.weui-media-box_appmsg .weui-media-box__hd {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px
+}
+
+.weui-btn_warn {
+    border-radius: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.weui-cell__ft {
+    font-size: 20px;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 75%;
+}
+
+.title {
+    background: none;
+    margin: 0;
+    height: 40px;
+}
+
+.title:before {
+    border-top: none;
+}
+
+.weui-cell:before {
+    border-top: none;
+}
+
+.quanyi {
+    background: #fff;
+}
+
+.quanyi:before, .quan:before {
+    border-top: none;
+}
+
+.details {
+    background: #fff;
+    padding: 18px 6px;
+}
+
+.details .weui-cell {
+    padding: 2px 10px;
+    font-size: 16px
+}
+
+.code {
+    margin-top: 8px;
+    background: #fff;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.erweima {
+    margin-top: 20px;
+}
+
+.tiao {
+    width: 90%;
+}
+
+.red {
+    color: #cd1a1a;
+
+}
+
+.line {
+    display: block;
+    width: 140px;
+    height: 1px;
+    background: #fff;
+    margin: 15px 0;
+}
+
+.top .effect {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.weui-cell__hd img {
+    width: 17px;
+    margin-right: 8px;
+    display: block
+}
+
+.tia img {
+    width: 15rem;
+    margin-top: 10px;
+}
+
+.top p {
+    font-size: 16px;
+    line-height: 34px;
+}
+
+/*二维码弹窗*/
+.my-ewm-bg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0B0202;
+    opacity: 0.6;
+    z-index: 999;
+}
+
+.my-ewm-box {
+    display: none;
+    position: absolute;
+    z-index: 9991;
+    top: 21%;
+    left: 9%;
+    width: 82%;
+    height: 32%;
+    border-radius: 15px;
+    color: #fff;
+    background: #fff;
+    /*overflow: hidden;*/
+
+}
+
+.ewm_top {
+    height: 210px;
+    width: 100%;
+    background:url(/default/Index/img/bg_tittle.png)no-repeat;
+    font-size: 26px;
+    background-size: 100% 100%;
+    text-indent: 10px;
+    border-radius: 15px 15px 0 0;
+    padding: 50px 280px 15px 30px;
+    box-sizing: border-box
+}
+
+.ewm_body {
+    text-align: center;
+    color: #333;
+}
+
+.ewm_wrap {
+    padding: 30px 15px;
+}
+
+.sure {
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -55px;
+    height: 30px;
+    width: 110px;;
+    cursor: pointer;
+    line-height: 30px;
+    background: #f15050;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.close {
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    margin-left: -15px;
+    background: url("/default/Index/img/close.png") center no-repeat;
+    background-size: 100% 100%;
+}
+
+#msg {
+    display: inline-block;
+    width: 100%;
+}
+
+div{
+    box-sizing: border-box;
+}
+body{
+    background: #f1f1f1;
+}
+/*顶部电子券信息 s*/
+.top {
+    padding: 45px 0 30px 30px;
+    width: 100%;
+    text-align: left;
+    background: #d64343 url(/default/Index/img/bg_sy.png) center right no-repeat;
+    background-size: 350px 100%;
+    font-size: 14px;
+    color: #fff;
+    height: 415px;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+}
+
+.top .company_name {
+    font-size: 30px;
+    line-height: 30px;
+}
+.top .price {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: center;
+    -webkit-align-items: center;
+    font-size: 38px;
+    line-height: 53px;
+    max-width: 50%;
+    min-height: 150px;
+    border-bottom: 3px solid #fff;
+}
+
+.top .can_use{
+    font-size: 30px;
+    line-height: 30px;
+}
+.top .expire_date{
+    font-size: 30px;
+    line-height: 30px;
+}
+/*顶部电子券信息 e*/
+
+/*顶部电子券信息 s*/
+.weui-cell{
+    height: 85px;
+    line-height: 85px;
+    font-size: 30px;
+    margin-top: 15px;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+.weui-cell .title_box{
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.weui-cell__hd img{
+    width: 32px;
+    margin-right: 20px;
+}
+.weui-cell__bd p{
+    font-size: 30px;
+}
+.weui-cell__bd .desc{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    background: #fff;
+    color: #333;
+    padding: 25px;
+    font-size: 24px;
+}
+.weui-cell__bd .desc p{
+    color: #333 !important;
+    line-height: 28px !important;
+    font-size: 28px !important;
+    margin-bottom: 18px !important;
+    white-space: normal !important;
+}
+.weui-cell__bd .desc p font{
+    font-size: 28px !important;
+    margin-bottom: 18px !important;
+    color: #333 !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+.weui-cell__bd .desc strong{
+    font-size: 28px !important;
+    margin-bottom: 18px !important;
+    color: #333 !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+.weui-cell__bd .desc :last-child{
+    margin-bottom: 0 !important;
+}
+
+.weui-cell__ft{
+    font-size: 30px;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    flex: 1;
+    -webkit-flex: 1;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    /*overflow: visible;*/
+}
+.weui-cell__ft p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*顶部电子券信息 e*/
+
+/*兑换详情 s*/
+.weui-cell.title{
+    color:#d64242 ;
+    text-align: center;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+/*兑换详情 e*/
+
+/*确认兑换 s*/
+#exchange_btn{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    height: 110px;
+    line-height: 110px;
+    background: #fff;
+    border-top: 1px solid #dbdbdb;
+}
+#exchange_btn .change_btn{
+    background:#D6403F;
+    border-radius: 50px;
+    font-size: 32px;
+    color: #fff;
+    width: 530px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    box-shadow: 5px 8px 10px rgba(0,0,0,0.3);
+    margin: 0;
+    padding: 0;
+}
+/*确认兑换 e*/
+
+/*确认兑换 s*/
+#submit_mask{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 40%;
+    background: rgba(0,0,0,0.5);
+    z-index: 400;
+}
+#submit_mask .pop_container{
+    width: 72%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+#submit_mask .pop_container .title_line{
+    text-align: left;
+    background: url("/default/Index/img/bg_tittle_large.png") no-repeat;
+    background-size: 100% 100%;
+    font-size: 26px;
+    color: #fff;
+    line-height: 40px;
+    padding: 50px 50px 60px 30px;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+#submit_mask .pop_container .tips_container{
+    padding: 40px 20px 25px 35px;
+    font-size: 28px;
+    color: #333;
+    line-height: 40px;
+    text-align: center;
+}
+#submit_mask .pop_container a{
+    color: #c90000;
+}
+#submit_mask .pop_container .submit_btn{
+    display: inline-block;
+    height: 55px;
+    line-height: 55px;
+    font-size: 24px;
+    background: #dd4a53;
+    color: #fff;
+    width: 235px;
+    margin: 0;
+    border-radius: 50px;
+    padding: 0;
+    border: none;
+}
+#submit_mask .close_mask_btn{
+    width: 100%;
+    text-align: center;
+    font-size: 38px;
+    color: #fff;
+    margin-top: 60px;
+}
+/*确认兑换弹框 e*/
+
+/*提示2遮罩 s*/
+#submit_mask2{
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 50%;
+    background: rgba(0,0,0,0.5);
+    z-index: 300;
+}
+#submit_mask2 .pop_container2{
+    width: 72%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+    text-align: center;
+    padding-bottom:50px;
+}
+#submit_mask2 .pop_container2 .title_line2{
+    text-align: left;
+    background: url("/default/Index/img/bg_tittle.png") no-repeat;
+    background-size: 100% 100%;
+    font-size: 30px;
+    color: #fff;
+    height:145px;
+    line-height: 145px;
+    padding-left:35px;
+}
+#submit_mask2 .pop_container2 .tips_container2{
+    padding: 20px 30px 25px 30px;
+    font-size:28px;
+    color: #333;
+    line-height: 32px;
+    text-align: center;
+}
+#submit_mask2 .pop_container2 .submit_btn2{
+    display: inline-block;
+    height:56px;
+    line-height: 56px;
+    font-size: 28px;
+    background: #db4a45;
+    color: #fff;
+    width: 50%;
+    margin: 0;
+    border-radius: 50px;
+    padding: 0;
+    border: none;
+}
+#submit_mask2 .close_mask_btn{
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-top:30px;
+}
+/*提示2遮罩  e*/
+
+/*提示3遮罩 s*/
+#submit_mask3{
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 50%;
+    background: rgba(0,0,0,0.5);
+    z-index: 300;
+}
+#submit_mask3 .pop_container3{
+    width: 72%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+    text-align: center;
+    padding-bottom:50px;
+}
+#submit_mask3 .pop_container3 .title_line3{
+    text-align: left;
+    background: url("/default/Index/img/bg_tittle.png") no-repeat;
+    background-size: 100% 100%;
+    font-size: 30px;
+    color: #fff;
+    height:145px;
+    line-height: 145px;
+    padding-left:35px;
+}
+#submit_mask3 .pop_container3 .tips_container3{
+    padding: 20px 30px 25px 30px;
+    font-size:28px;
+    color: #333;
+    line-height: 32px;
+    text-align: center;
+}
+#submit_mask3 .pop_container3 .submit_btn3{
+    display: inline-block;
+    height:56px;
+    line-height: 56px;
+    font-size: 28px;
+    background: #db4a45;
+    color: #fff;
+    width: 50%;
+    margin: 0;
+    border-radius: 50px;
+    padding: 0;
+    border: none;
+}
+#submit_mask3 .close_mask_btn{
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-top:30px;
+}
+/*提示3遮罩  e*/

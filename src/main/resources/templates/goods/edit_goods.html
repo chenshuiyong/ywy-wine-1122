@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta th:include="common/header :: header('新增商品')"></meta>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/common/js/weui-1.1.2/dist/style/weui.css" th:href="@{/common/js/weui-1.1.2/dist/style/weui.css}">
+    <link rel="stylesheet" type="text/css" href="/default/goods/css/edit_goods.css" th:href="@{/default/goods/css/edit_goods.css}">
+    <script type="text/javascript" src="/default/goods/js/edit_goods.js" th:src="@{/default/goods/js/edit_goods.js}"></script>
+</head>
+<body>
+<div class="page__bd" id="dataInfo">
+    <input class="weui-input" id="goodsId"  th:value="${goods.goodsId}"  type="hidden" >
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd" style="font-size:12px;color: #333">
+            <p>商品名称</p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="goodsName" th:value="${goods.goodsName}"  type="text" placeholder="请输入商品名称">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd" style="font-size:12px;color: #333">
+            <p>商品编号</p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="goodsNo" th:value="${goods.goodsNo}"  type="text" placeholder="请输入商品编号">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd" style="font-size:12px;color: #333">
+            <p>商品进价</p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="bid" th:value="${goods.bid}"  type="text" placeholder="请输入商品进价">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd" style="font-size:12px;color: #333">
+            <p>商品售价</p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="price"th:value="${goods.price}"   type="text" placeholder="请输入商品售价">
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd" style="font-size:12px;color: #333">
+            <p>商品售价</p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <select  class="weui-input"  id ="categoryType" th:value="${goods.categoryType}">
+                <option value ="1">红酒</option>
+                <option value ="2">洋酒</option>
+                <option value="3">白酒</option>
+                <option value="4">啤酒</option>
+                <option value="5">包装盒</option>
+            </select>
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="javascript:;" style="height: 50px;padding: 0;line-height: 50px;">
+        <div class="weui-cell__bd" style="font-size:12px;color: #333">
+            <p>商品库存</p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <input class="weui-input" id="inventory" th:value="${goods.inventory}"  type="text" placeholder="请输入商品库存">
+        </div>
+    </a>
+
+    <div class="add_complain" id="add_complain">
+        <div class="add_ident_btn" onclick="submit()">
+            <a href="javascript:;" id="submit" style="color: #ffffff;" >新增</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+
+<script th:inline="javascript">
+    (function(){
+        var currClientWidth, fontValue, originWidth;originWidth = 750;//ui设计稿的宽度，一般750或640
+        __resize();
+        window.addEventListener('resize', __resize, false);
+        function __resize() {
+            currClientWidth = document.documentElement.clientWidth;
+            if (currClientWidth > 768){
+                currClientWidth = 768;
+            }
+            if (currClientWidth < 320){
+                currClientWidth = 320;
+            }
+            fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+            document.documentElement.style.fontSize = fontValue + '%';
+        }
+
+    })();
+</script>
+</html>
