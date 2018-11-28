@@ -218,11 +218,7 @@ function commonAjax(url, postData, successHandle, dataType, contentType, async, 
         data : postData,
         async : typeof (async) === "boolean" ? async : true,// 默认为true
         traditional : true,
-        beforeSend: function () {
-            $('#loading_gif').show();
-        },
         success : function(result) {
-            $('#loading_gif').hide();
             try {
                 var json = result;
                 if (json == null) {

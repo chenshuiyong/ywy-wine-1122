@@ -1,0 +1,143 @@
+.pageone{
+  padding:1.5rem 1.5rem;
+  box-sizing: border-box;
+}
+.inputinfo p{
+  color: #848484;
+  font-size: 15px;
+  margin-bottom: 0.2rem;
+}
+.inputinfo input{
+  width: 100%;
+  /* height: 1.5rem; */
+  /* line-height: 1.5rem; */
+  /* border:1px solid #ccc; */
+  outline: none;
+  padding:0.5rem 0;
+  padding-left: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.inputinfo{
+  margin-bottom: 0.5rem;
+}
+.savebtn{
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #fff;
+  background: #f00;
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+}
+.pagetwo .topinfo{
+  font-size: 15px;
+  color: #848484;
+  margin-bottom: 1.2rem;
+}
+.pagethree .title{
+  border-top: 1px #ccc dashed;
+  border-bottom: 1px #ccc dashed;
+  margin-top: 0.3rem;
+  font-size: 14px;
+  color: #848484;
+  padding:0.3rem 0;
+}
+.pagethree .title div{
+  text-align: center;
+  display: inline-block;
+}
+.pagethree .title div:first-child{
+  width: 30%;
+}
+.pagethree .title div:last-child{
+  width: 70%;
+}
+.pagethree ul.infoul li{
+  border-bottom: 1px #ccc dashed;
+}
+.pagethree ul.infoul li div{
+  display: inline-block;
+  vertical-align: top;
+}
+.pagethree ul.infoul li div:first-child{
+  width: 30%;
+  text-align: center;
+  height: 3.6rem;
+}
+.pagethree ul.infoul li div:first-child p{
+  font-size: 13px;
+  color: #848484;
+  line-height: 1.2rem;
+  height: 1.2rem;
+}
+.pagethree ul.infoul li div:first-child span{
+  display: inline-block;
+  border:1px solid #f00;
+  color: #f00;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-top: 0.6rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  width: 2.5rem;
+}
+.pagethree ul.infoul li div:last-child{
+  width: 70%;
+}
+.pagethree ul.infoul li div:last-child p{
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: 13px;
+  color: #848484;
+}
+.pagethree ul.infoul li div:last-child p.borderp{
+  border-top:1px #ccc dashed;
+}
+.pagethree{
+  padding-bottom: 3.5rem;
+}
+.food{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom:0;
+  border-top: 1px solid #f00;
+  background: #ccc;
+  padding:0.2rem;
+  box-sizing: border-box;
+}
+.food li{
+  width: 33.333%;
+  display: inline-block;
+  text-align: center;
+  font-size: 0;
+}
+.food li img{
+  width: 1.5rem;
+  height:1.5rem;
+}
+.food li p{
+  margin-top: 0.1rem;
+  font-size: 15px;
+  color: #848484;
+}
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

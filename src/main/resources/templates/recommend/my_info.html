@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>个人信息</title>
+    <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+    <script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
+    <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+    <link rel="stylesheet" href="/default/recommend/css/common.css" th:href="@{/default/recommend/css/common.css}">
+    <link rel="stylesheet" href="/default/recommend/css/page.css" th:href="@{/default/recommend/css/page.css}">
+</head>
+<body>
+  <div class="pageone">
+    <div class="inputinfo">
+      <p>姓名称呼</p>
+      <input type="text" name="" value="" placeholder="您的姓名或称呼">
+    </div>
+    <div class="inputinfo">
+      <p>联系电话</p>
+      <input type="text" name="" value="" placeholder="联系电话">
+    </div>
+    <div class="inputinfo">
+      <p>微信号</p>
+      <input type="text" name="" value="" placeholder="可选填">
+    </div>
+    <button class="savebtn" type="button" name="button">保存</button>
+    <div th:replace="common/footer :: footer('myInfo')"></div>
+  </div>
+</body>
+<script type="text/javascript" src="/common/js/big_index.js" th:src="@{/common/js/big_index.js}"></script>
+</html>

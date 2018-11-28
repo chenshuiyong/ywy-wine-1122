@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywy.mapper.OrdRecMapper" >
+    <resultMap id="BaseResultMap" type="com.ywy.domain.OrdRec" >
+        <id column="rec_id" property="recId" jdbcType="INTEGER" />
+        <result column="be_rec_name" property="beRecName" jdbcType="VARCHAR" />
+        <result column="be_rec_phone" property="beRecPhone" jdbcType="VARCHAR" />
+        <result column="rec_phone" property="recPhone" jdbcType="VARCHAR" />
+        <result column="remake" property="remake" jdbcType="VARCHAR" />
+        <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
+        <result column="state" property="state" jdbcType="TINYINT" />
+        <result column="create_time" property="createTime" jdbcType="DATE" />
+        <result column="update_time" property="updateTime" jdbcType="DATE" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    rec_id, be_rec_name, be_rec_phone, rec_phone,is_delete,state,remake,create_time,update_time
+  </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from ord_rec
+        where rec_id = #{recId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ord_rec
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ord_rec
+    where  rec_id = #{recId,jdbcType=INTEGER}
+  </delete>
+
+    <insert id="insert" parameterType="com.ywy.domain.OrdRec" >
+    insert into ord_rec (
+    rec_id,
+    be_rec_name,
+    be_rec_phone,
+    rec_phone,
+    is_delete,
+    remake,
+    state,
+    create_time,
+    update_time
+    )values (
+     #{recId,jdbcType=INTEGER},
+     #{beRecName,jdbcType=VARCHAR},
+     #{beRecPhone,jdbcType=VARCHAR},
+     #{recPhone,jdbcType=VARCHAR},
+     #{isDelete,jdbcType=TINYINT},
+     #{remake,jdbcType=VARCHAR},
+     #{state,jdbcType=TINYINT},
+      now(),
+      now())
+  </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.ywy.domain.OrdRec" >
+    update ord_rec
+    set
+    be_rec_name = #{beRecName,jdbcType=VARCHAR},
+    be_rec_phone = #{beRecPhone,jdbcType=VARCHAR},
+    remake  = #{remake,jdbcType=VARCHAR},
+    rec_phone  = #{recPhone,jdbcType=VARCHAR},
+    is_delete  = #{isDelete,jdbcType=TINYINT},
+    state = #{state,jdbcType=TINYINT},
+    update_time = now()
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </update>
+</mapper>

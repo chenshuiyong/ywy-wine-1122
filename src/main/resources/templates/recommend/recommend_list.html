@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>我的推荐</title>
+  <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+  <script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
+  <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+  <link rel="stylesheet" href="/default/recommend/css/common.css" th:href="@{/default/recommend/css/common.css}">
+  <link rel="stylesheet" href="/default/recommend/css/page.css" th:href="@{/default/recommend/css/page.css}">
+</head>
+<body>
+  <div class="pagethree">
+    <div class="title">
+      <div>No.</div><div>推荐信息/处理情况</div>
+    </div>
+    <ul class="infoul">
+      <li>
+        <div>
+          <p>1</p>
+          <span>删除</span>
+        </div><div>
+          <p>242423424</p>
+          <p>234234</p>
+          <p class="borderp">234234</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p>1</p>
+          <span>删除</span>
+        </div><div>
+          <p>242423424</p>
+          <p>234234</p>
+          <p class="borderp">234234</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p>1</p>
+          <span>删除</span>
+        </div><div>
+          <p>242423424</p>
+          <p>234234</p>
+          <p class="borderp">234234</p>
+        </div>
+      </li>
+    </ul>
+    <div th:replace="common/footer :: footer('rec')"></div>
+  </div>
+</body>
+<script type="text/javascript" src="/common/js/big_index.js" th:src="@{/common/js/big_index.js}"></script>
+</html>

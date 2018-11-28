@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywy.mapper.UsrCustomerMapper" >
+    <resultMap id="BaseResultMap" type="com.ywy.domain.UsrCustomer" >
+        <id column="customer_id" property="customerId" jdbcType="INTEGER" />
+        <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+        <result column="customer_phone" property="customerPhone" jdbcType="VARCHAR" />
+        <result column="contacts" property="contacts" jdbcType="VARCHAR" />
+        <result column="wx_no" property="wxNo" jdbcType="VARCHAR" />
+        <result column="rec_phone" property="recPhone" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="DATE" />
+        <result column="update_time" property="updateTime" jdbcType="DATE" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    customer_id, customer_name, customer_phone, contacts,wx_no,rec_phone,create_time,update_time
+  </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from usr_customer
+        where customer_id = #{customerId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectByCustomerPhone" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from usr_customer
+        where customer_phone = #{customerPhone,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from usr_customer
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from usr_customer
+    where  customer_id = #{customerId,jdbcType=INTEGER}
+  </delete>
+
+    <insert id="insert" parameterType="com.ywy.domain.UsrCustomer" >
+    insert into usr_customer (
+    customer_id,
+    customer_name,
+    customer_phone,
+    contacts,
+    wx_no,
+    rec_phone,
+    create_time,
+    update_time
+    )values (
+     #{customerId,jdbcType=INTEGER},
+     #{customerName,jdbcType=VARCHAR},
+     #{customerPhone,jdbcType=VARCHAR},
+     #{contacts,jdbcType=VARCHAR},
+     #{wxNo,jdbcType=VARCHAR},
+     #{recPhone,jdbcType=VARCHAR},
+      now(),
+      now())
+  </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.ywy.domain.UsrCustomer" >
+    update usr_customer
+    set
+    customer_name = #{customerName,jdbcType=VARCHAR},
+    customer_phone = #{customerPhone,jdbcType=VARCHAR},
+    contacts  = #{contacts,jdbcType=VARCHAR},
+    wx_no  = #{wxNo,jdbcType=VARCHAR},
+    rec_phone = #{recPhone,jdbcType=VARCHAR},
+    update_time = now()
+    where customer_id = #{customerId,jdbcType=INTEGER}
+  </update>
+</mapper>

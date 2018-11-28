@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>我要推荐</title>
+  <link rel="stylesheet" href="/default/recommend/css/common.css" th:href="@{/default/recommend/css/common.css}">
+  <link rel="stylesheet" href="/default/recommend/css/page.css" th:href="@{/default/recommend/css/page.css}">
+  <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+  <script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
+  <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+</head>
+<body>
+  <div class="pageone pagetwo"  id="dataForm">
+    <div class="topinfo">&nbsp;&nbsp;&nbsp;&nbsp;欢迎推荐"工商注册、代理记账"等相关业务给我们，推荐并成交您将获得100元茶水费鼓励！<br>&nbsp;&nbsp;&nbsp;&nbsp;请正确输入您的联系电话（以确保奖励准确发送到您手上）</div>
+    <div class="inputinfo">
+      <p>您要推荐的联系人（如：张三或张先生）</p>
+      <input type="text" name="" id="beRecName" MAXLENGTH="255" placeholder="您要推荐的联系人">
+    </div>
+    <div class="inputinfo">
+      <p>您要推荐的联系人联系电话</p>
+      <input type="text" name="" id="beRecPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="您要推荐的联系人电话">
+    </div>
+    <div class="inputinfo">
+      <p>请正确输入您的联系电话</p>
+      <input type="text" name="" id="recPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="您的联系电话">
+    </div>
+    <div class="inputinfo">
+      <p>其他说明</p>
+      <input type="text" name="" MAXLENGTH="500"  id="remake" placeholder="可选填">
+    </div>
+    <button class="savebtn" type="button" name="button">提交</button>
+
+    <div th:replace="common/footer :: footer('goto_rec')"></div>
+
+  </div>
+  <!--确认提交投诉遮罩-->
+  <div id="submit_mask">
+    <div class="pop_container">
+      <div class="title_line">温馨提示</div>
+      <div class="tips_container">
+        <p style="text-align:center;"></p>
+      </div>
+      <div class="submit_btn">确定</div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="/common/js/big_index.js" th:src="@{/common/js/big_index.js}"></script>
+<script type="text/javascript" src="/default/recommend/js/want_recommend.js" th:src="@{/default/recommend/js/want_recommend.js}"></script>
+</html>
