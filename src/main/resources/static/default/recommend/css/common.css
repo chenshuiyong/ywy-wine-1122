@@ -182,9 +182,9 @@ html,body{overflow-x:hidden;overflow-y:auto;}
 }
 #submit_mask .pop_container .title_line{
     text-align: left;
-    background: url("/default/Index/img/bg_tittle.png") no-repeat;
+  /*  background: url("/default/Index/img/bg_tittle.png") no-repeat;*/
     background-size: 100% 100%;
-    font-size: 0.3rem;
+    font-size: 1.3rem;
     color: #fff;
     height:1.45rem;
     line-height: 1.45rem;
@@ -192,7 +192,7 @@ html,body{overflow-x:hidden;overflow-y:auto;}
 }
 #submit_mask .pop_container .tips_container{
     padding: 0.2rem 0.3rem 0.24rem 0.3rem;
-    font-size:0.28rem;
+    font-size:1.28rem;
     color: #333;
     line-height: 0.32rem;
     text-align: center;
@@ -201,7 +201,7 @@ html,body{overflow-x:hidden;overflow-y:auto;}
     display: inline-block;
     height: 0.56rem;
     line-height: 0.56rem;
-    font-size: 0.28rem;
+    font-size: 1.28rem;
     background: #db4a45;
     color: #fff;
     width: 50%;
@@ -213,7 +213,7 @@ html,body{overflow-x:hidden;overflow-y:auto;}
 #submit_mask .close_mask_btn{
     width: 100%;
     text-align: center;
-    font-size: 0.4rem;
+    font-size: 1.4rem;
     color: #fff;
     margin-top:0.3rem;
 }
