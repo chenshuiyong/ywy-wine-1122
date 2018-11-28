@@ -1,4 +1,7 @@
 // want_recommend.js
+if ($("#recPhone").val()){
+    $("#recPhone").attr("disabled",true);
+}
 
 $(".savebtn").click(function(){
     var data = getFormValues("dataForm");
@@ -20,11 +23,12 @@ $(".savebtn").click(function(){
                 commonMsg(result.msg);
                 location.href = '/rec/list';
             }else{
-                $('.tips_container p').html(result.msg);
+                commonAlert(result.msg);
+              /*  $('.tips_container p').html(result.msg);
                 $('#submit_mask').show();
                 $('.submit_btn').click(function () {
                     $('#submit_mask').hide();
-                });
+                });*/
                 return false;
             }
         }

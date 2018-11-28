@@ -64,6 +64,8 @@ public class Constant {
      * 用户名
      */
     public static final String USER_BY_USERNAME = "user_by_username";
+
+    public static final String REC_BY_PHONE = "rec_by_phone";
     /**
      * 用户名
      */

@@ -39,6 +39,12 @@ public class OrdRecServiceImpl implements OrdRecService {
       customer.setRecPhone(rec.getRecPhone());
       usrCustomerMapper.insert(customer);
     }
+    UsrCustomer recCustomer = usrCustomerMapper.selectByCustomerPhone(rec.getRecPhone());
+    if (recCustomer == null){
+      customer = new UsrCustomer();
+      customer.setCustomerPhone(rec.getRecPhone());
+      usrCustomerMapper.insert(customer);
+    }
   }
 
   /**

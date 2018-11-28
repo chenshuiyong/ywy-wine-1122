@@ -1,8 +1,6 @@
 package com.ywy.controller;
 
-import com.ywy.domain.Message;
-import com.ywy.domain.OrdRec;
-import com.ywy.domain.UsrCustomer;
+import com.ywy.domain.*;
 import com.ywy.exception.WorkException;
 import com.ywy.service.OrdRecService;
 import com.ywy.service.UsrCustomerService;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /** 推荐 */
 @Controller
@@ -24,21 +23,25 @@ import javax.servlet.http.HttpServletRequest;
 public class OrdRecController {
   @Autowired
   private OrdRecService ordRecService;
+  @Autowired
   private UsrCustomerService usrCustomerService;
 
 
   /** 日志 */
   private static final Logger LOG = LoggerFactory.getLogger(OrdRecController.class);
 
-  @Autowired private UsrUserService userService;
 
   @RequestMapping(value = "/recommend")
   public String register(HttpServletRequest request, Model model) {
+    Object phone =  request.getSession().getAttribute(Constant.REC_BY_PHONE);
+    model.addAttribute("phone",phone);
     return "/recommend/want_recommend";
   }
 
   @RequestMapping(value = "/list")
   public String more(HttpServletRequest request, Model model) {
+    List<OrdRec> list = ordRecService.findAll(1,1000);
+    model.addAttribute("list",list);
     return "/recommend/recommend_list";
   }
 
@@ -73,6 +76,7 @@ public class OrdRecController {
         msg = "您推荐的手机号为："+rec.getBeRecPhone()+"的联系人已经被推荐过了，或者是我们的客户。不能重复推荐！";
       }
       ordRecService.add(rec);
+      request.getSession().setAttribute(Constant.REC_BY_PHONE, rec.getRecPhone());
       return Message.message(code,msg);
     } catch (WorkException e) {
       return Message.failure(e.getMessage());

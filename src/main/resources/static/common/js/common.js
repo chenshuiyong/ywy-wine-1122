@@ -269,6 +269,11 @@ function commonMsg(msg){
     tipsInfo+="<samp style='font-size: 16px'>"+msg+"</samp>";
     layer.msg(tipsInfo);
 }
+function commonAlert(msg){
+    var tipsInfo="";
+    tipsInfo+="<samp style='font-size: 15px'>"+msg+"</samp>";
+    layer.alert(tipsInfo);
+}
 function getVipLevel(vipName){
 	var ret="会员专享";
 	if(vipName!=''&&vipName!='null'){

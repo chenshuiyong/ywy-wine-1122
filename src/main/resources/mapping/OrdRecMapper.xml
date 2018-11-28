@@ -9,8 +9,8 @@
         <result column="remake" property="remake" jdbcType="VARCHAR" />
         <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
         <result column="state" property="state" jdbcType="TINYINT" />
-        <result column="create_time" property="createTime" jdbcType="DATE" />
-        <result column="update_time" property="updateTime" jdbcType="DATE" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     </resultMap>
     <sql id="Base_Column_List" >
     rec_id, be_rec_name, be_rec_phone, rec_phone,is_delete,state,remake,create_time,update_time
