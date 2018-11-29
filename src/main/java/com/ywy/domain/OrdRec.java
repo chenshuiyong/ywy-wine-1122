@@ -26,6 +26,8 @@ public class OrdRec implements Serializable {
     private String recPhone;
     // 备注
     private String remake;
+    // 验证码
+    private String code;
     private Byte isDelete;
     private Byte state;
     private String stateStr;
@@ -111,6 +113,14 @@ public class OrdRec implements Serializable {
 
     public void setCreateTimeStr(String createTimeStr) {
         this.createTimeStr = createTimeStr;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getStateStr() {

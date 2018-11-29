@@ -26,6 +26,10 @@
       <p>请正确输入您的联系电话</p>
       <input type="text" style="font-size: 14px;"  th:value="${phone}"   id="recPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="您的联系电话">
     </div>
+    <div th:if="${phone == null }" class="inputinfo">
+      <p>验证码</p>
+      <input class="code"   type="text" style="font-size: 14px;" id="code"  MAXLENGTH="6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="验证码"><button onclick="sendCode()" class="getcode">获取验证码</button>
+    </div>
     <div class="inputinfo">
       <p>其他说明</p>
       <input type="text" style="font-size: 14px;" MAXLENGTH="500"  id="remake" placeholder="可选填">
@@ -33,7 +37,10 @@
     <button class="savebtn" type="button" name="button">提交</button>
 
     <div th:replace="common/footer :: footer('goto_rec')"></div>
-
+    <div style="height: 50px;margin-bottom: 30px;"></div>
+<!--    <div id="loading" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; width: 100%; height: 100%; display: flex;">
+      <div style="display: inline-block; margin: auto; width: 20px; height: 20px; border-width: 2px; border-style: solid; border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.4) rgb(255, 255, 255); border-radius: 50%; border-image: initial; animation: load 1s linear 0s infinite normal none running;">
+      </div>-->
   </div>
   <!--确认提交投诉遮罩-->
   <div id="submit_mask">

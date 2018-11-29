@@ -11,12 +11,38 @@
   width: 100%;
   /* height: 1.5rem; */
   /* line-height: 1.5rem; */
-  /* border:1px solid #ccc; */
+  border:1px solid #ccc;
   outline: none;
   padding:0.5rem 0;
   padding-left: 0.5rem;
   box-sizing: border-box;
   border-radius: 5px;
+  height: 2rem;
+  line-height: 2rem;
+}
+.inputinfo input:hover{
+  border:1px solid #f00;
+}
+.inputinfo input.code{
+  width: 70%;
+  border-radius: 5px 0 0 5px;
+  vertical-align: top;
+  border-right: none;
+}
+.inputinfo .getcode{
+  width: 30%;
+  background: #f00;
+  padding:0.5rem 0;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  vertical-align: top;
+  height: 2rem;
+}
+.inputinfo .getcode[disabled=disabled]{
+  background: #ccc;
+}
+.inputinfo .getcode:active{
+  background: #d20202;
 }
 .inputinfo{
   margin-bottom: 0.5rem;
@@ -123,6 +149,66 @@
   margin-top: 0.1rem;
   font-size: 15px;
   color: #848484;
+}
+.goto_rec{
+  display: inline-block;
+  border:1px solid #f00;
+  color: #f00;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-top: 0.6rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  width: 2.5rem;
+  margin-left: 20px;
+}
+.loading{
+  display: inline-block;
+  width: 50px;
+  height:50px;
+  border:1px solid #ccc;
+  border-top: 1px solid #000;
+}
+.loading {
+  display: none;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 5px solid rgba(0, 0, 0, 0.4);
+  border-left: 5px solid #fff;
+  animation: load 1s linear infinite;
+  -moz-animation: load 1s linear infinite;
+  -webkit-animation: load 1s linear infinite;
+  -o-animation: load 1s linear infinite;
+}
+
+@-webkit-keyframes load {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes load {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes load {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+  }
 }
 {
 

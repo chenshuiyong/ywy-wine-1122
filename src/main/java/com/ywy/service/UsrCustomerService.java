@@ -13,4 +13,5 @@ public interface UsrCustomerService {
 
     public List<UsrCustomer> findAll(int pageNum, int pageSize) ;
 
+    UsrCustomer doLogin(String phone);
 }

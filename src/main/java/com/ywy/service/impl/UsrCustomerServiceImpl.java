@@ -29,4 +29,22 @@ public class UsrCustomerServiceImpl implements UsrCustomerService {
   public List<UsrCustomer> findAll(int pageNum, int pageSize) {
     return null;
   }
+
+  /**
+   * 会员登录注册
+   * @param phone
+   * @return
+   */
+  @Override
+  public UsrCustomer doLogin(String phone) {
+    UsrCustomer customer = customerMapper.selectByCustomerPhone(phone);
+    if (customer != null ){
+      return  customer;
+    }
+    customer = new UsrCustomer();
+    customer.setCustomerPhone(phone);
+    customerMapper.insert(customer);
+    customer = customerMapper.selectByCustomerPhone(phone);
+    return customer;
+  }
 }

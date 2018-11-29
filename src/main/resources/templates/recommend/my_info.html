@@ -15,15 +15,15 @@
   <div class="pageone">
     <div class="inputinfo">
       <p>姓名称呼</p>
-      <input type="text" name="" value="" placeholder="您的姓名或称呼">
+      <input type="text" name=""  th:value="${customer.customerName}"  placeholder="您的姓名或称呼">
     </div>
     <div class="inputinfo">
       <p>联系电话</p>
-      <input type="text" name="" value="" placeholder="联系电话">
+      <input type="text" name="" th:value="${customer.customerPhone}"  placeholder="联系电话">
     </div>
     <div class="inputinfo">
       <p>微信号</p>
-      <input type="text" name="" value="" placeholder="可选填">
+      <input type="text" name="" th:value="${customer.wxNo}"  placeholder="可选填">
     </div>
     <button class="savebtn" type="button" name="button">保存</button>
     <div th:replace="common/footer :: footer('myInfo')"></div>

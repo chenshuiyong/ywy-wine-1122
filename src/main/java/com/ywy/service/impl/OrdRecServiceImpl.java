@@ -47,6 +47,16 @@ public class OrdRecServiceImpl implements OrdRecService {
     }
   }
 
+  @Override
+  public void update(OrdRec rec) throws WorkException {
+    recMapper.updateByPrimaryKey(rec);
+  }
+
+  @Override
+  public OrdRec selectByPrimaryKey(Integer recId) {
+    return  recMapper.selectByPrimaryKey(recId);
+  }
+
   /**
    * 查找全部
    * @param pageNum

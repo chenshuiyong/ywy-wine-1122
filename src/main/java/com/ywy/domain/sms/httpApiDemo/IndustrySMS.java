@@ -2,6 +2,8 @@ package com.ywy.domain.sms.httpApiDemo;
 
 import com.ywy.config.sms.Config;
 import com.ywy.config.sms.HttpUtil;
+import com.ywy.exception.WorkException;
+
 import java.net.URLEncoder;
 
 
@@ -17,13 +19,13 @@ public class IndustrySMS
 	private static String operation = "/industrySMS/sendSMS";
 
 	private static String accountSid = Config.ACCOUNT_SID;
-	private static String to = "15860778366";
-	private static String smsContent = "【钇旺亿财务】尊敬的用户，您的验证码为123456";
+//	private static String to = "15860778366";
+	// static String smsContent = "【钇旺亿财务】尊敬的用户，您的验证码为123456";
 
 	/**
 	 * 验证码通知短信
 	 */
-	public static void execute()
+	public static void execute(String phone, String smsContent) throws WorkException
 	{
 		String tmpSmsContent = null;
 	    try{
@@ -32,11 +34,15 @@ public class IndustrySMS
 	      
 	    }
 	    String url = Config.BASE_URL + operation;
-	    String body = "accountSid=" + accountSid + "&to=" + to + "&smsContent=" + tmpSmsContent
+	    String body = "accountSid=" + accountSid + "&to=" + phone + "&smsContent=" + tmpSmsContent
 	        + HttpUtil.createCommonParam();
 
 	    // 提交请求
-	    String result = HttpUtil.post(url, body);
-	    System.out.println("result:" + System.lineSeparator() + result);
+	//     String result = HttpUtil.post(url, body);
+		String result = "00000";
+		System.out.println("result:" + System.lineSeparator() + result);
+	    if (!result.contains("00000")){
+	    	throw new WorkException("发送失败");
+		}
 	}
 }

@@ -13,17 +13,17 @@
 </head>
 <body>
   <div class="pagethree">
-    <div class="title">
+    <div  th:if="${list.total > 0 }" class="title">
       <div>No.</div><div>推荐信息/处理情况</div>
     </div>
-    <div class="title">
-      <div>去推荐</div>
+    <div th:if="${list.total == 0 }" class="title">
+      <div>尚无推荐信息<span class="goto_rec">去推荐</span> </div>
     </div>
     <ul class="infoul">
       <li th:each="vo ,iterStat: ${list}">
         <div>
-          <p th:text="${iterStat.index +1 }">1</p>
-          <span>删除</span>
+          <p th:text="${iterStat.index +1 }"></p>
+          <span th:onclick="'javascript:deleteById('+${vo.recId}+')'">删除</span>
         </div><div>
         <p style="color: black;" th:text="${vo.beRecName}+'&nbsp;'+${vo.beRecPhone}"></p>
         <p th:text="${vo.createTimeStr}"></p>
@@ -36,4 +36,5 @@
   </div>
 </body>
 <script type="text/javascript" src="/common/js/big_index.js" th:src="@{/common/js/big_index.js}"></script>
+<script type="text/javascript" src="/default/recommend/js/recommend_list.js" th:src="@{/default/recommend/js/recommend_list.js}"></script>
 </html>
