@@ -1,10 +1,12 @@
 package com.ywy.controller;
 
-import com.ywy.domain.*;
+import com.ywy.domain.Constant;
+import com.ywy.domain.Message;
+import com.ywy.domain.OrdRec;
+import com.ywy.domain.UsrCustomer;
 import com.ywy.exception.WorkException;
 import com.ywy.service.OrdRecService;
 import com.ywy.service.UsrCustomerService;
-import com.ywy.service.UsrUserService;
 import com.ywy.utils.VateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +42,15 @@ public class OrdRecController {
 
   @RequestMapping(value = "/list")
   public String more(HttpServletRequest request, Model model) {
-    List<OrdRec> list = ordRecService.findAll(1,1000);
+    Object phone =  request.getSession().getAttribute(Constant.REC_BY_PHONE);
+    String recPhone = "0";
+    if (phone !=null ){
+      recPhone = phone.toString();
+    }
+    OrdRec record = new OrdRec();
+    record.setRecPhone(recPhone);
+    record.setIsDelete(Constant.DEFULT_YES);
+    List<OrdRec> list = ordRecService.findAll(1,1000,record);
     model.addAttribute("list",list);
     return "/recommend/recommend_list";
   }

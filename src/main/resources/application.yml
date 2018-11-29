@@ -19,6 +19,7 @@ server:
   session:
     cookie:
       path: /
+    timeout: 720000
 
 
 spring:

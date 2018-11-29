@@ -10,6 +10,6 @@ public interface OrdRecService {
 
     public void add(OrdRec rec) throws WorkException;
 
-    public List<OrdRec> findAll(int pageNum, int pageSize) ;
+    public List<OrdRec> findAll(int pageNum, int pageSize,OrdRec record) ;
 
 }

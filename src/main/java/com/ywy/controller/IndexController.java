@@ -109,7 +109,11 @@ public class IndexController {
     //  会员信息
     UsrUser user = (UsrUser) request.getSession().getAttribute(Constant.USER_BY_USERNAME);
     model.addAttribute("user", user);
-    return "/user/index";
+    if (user == null){
+      return "/user/user_login";
+    }else{
+      return "/user/index";
+    }
   }
   /**
    * 退出登录

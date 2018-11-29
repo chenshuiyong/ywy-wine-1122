@@ -23,10 +23,13 @@
         where rec_id = #{recId,jdbcType=INTEGER}
     </select>
 
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="com.ywy.domain.OrdRec" >
         select
         <include refid="Base_Column_List" />
         from ord_rec
+        WHERE 1=1
+        <if test="recPhone !=null and recPhone !=''"> AND rec_phone=#{recPhone}</if>
+        <if test="isDelete !=null and isDelete !=''"> AND is_delete=#{isDelete}</if>
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

@@ -54,8 +54,8 @@ public class OrdRecServiceImpl implements OrdRecService {
    * @return
    */
   @Override
-  public List<OrdRec> findAll(int pageNum, int pageSize) {
+  public List<OrdRec> findAll(int pageNum, int pageSize,OrdRec record) {
     PageHelper.startPage(pageNum, pageSize);
-    return recMapper.selectAll();
+    return recMapper.selectAll(record);
   }
 }

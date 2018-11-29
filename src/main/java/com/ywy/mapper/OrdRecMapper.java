@@ -9,10 +9,10 @@ public interface OrdRecMapper {
 
   int insert(OrdRec record);
 
-  OrdRec selectByPrimaryKey(Integer userId);
+  OrdRec selectByPrimaryKey(Integer recId);
 
   int updateByPrimaryKey(OrdRec record);
 
   // 这个方式我自己加的
-  List<OrdRec> selectAll();
+  List<OrdRec> selectAll(OrdRec record);
 }
