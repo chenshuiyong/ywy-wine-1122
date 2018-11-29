@@ -304,3 +304,24 @@ function addWMaineixinId(url){
     }
     return thisUrl;
 }
+// 录入成功
+function successComfirm(msg,data){
+    // 确认框
+    var index = layer.confirm(setMsg(msg), {
+        btn : [ '确认' ]
+        // 按钮
+    }, function() {
+        // 重载
+        //  window.location.reload();
+        gotoPoint(data.orgunitCode,data.shopsCode,data.shopName)
+    }, function() {
+
+    });
+}
+
+// 弹窗内容
+function setMsg(msg){
+    var tipsInfo="";
+    tipsInfo+="<samp style='font-size: 15px'>"+msg+"</samp>";
+    return tipsInfo;
+}
