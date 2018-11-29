@@ -305,15 +305,16 @@ function addWMaineixinId(url){
     return thisUrl;
 }
 // 录入成功
-function successComfirm(msg,data){
+function successComfirm(msg,data,callback){
     // 确认框
     var index = layer.confirm(setMsg(msg), {
         btn : [ '确认' ]
         // 按钮
     }, function() {
         // 重载
-        //  window.location.reload();
-        gotoPoint(data.orgunitCode,data.shopsCode,data.shopName)
+        if(callback!=null){
+            callback(data);
+        }
     }, function() {
 
     });
