@@ -10,10 +10,15 @@ $(".goto_rec").click(function(){
 
 function changeOther() {
     layer.open({
+        title:'更换手机',
         type: 1,
         skin: 'layui-layer-demo', //加上边框
         area: ['300px', '240px'], //宽高
-        content: htmlInfo()
+        content: htmlInfo(),
+        btn: ['提交'],
+        yes: function(index, layero){
+            alert(1);
+        }
     });
 }
 
@@ -26,7 +31,7 @@ function htmlInfo(){
     htmlInfo+= " <div class=\"inputinfo\">"
    // htmlInfo+= " <div class=\"inputinfo\"><p>验证码</p>"
     htmlInfo+= " <input class=\"code\"  type=\"text\" style=\"font-size: 14px;\" id=\"code\"  MAXLENGTH=\"6\" onkeyup=\"this.value=this.value.replace(/[^0-9]/g,'')\" onafterpaste=\"this.value=this.value.replace(/[^0-9]/g,'')\" placeholder=\"验证码\"><button onclick=\"sendCode()\" class=\"getcode\">获取验证码</button></div>"
-    htmlInfo+= " <button class=\"savebtn\" type=\"button\" name=\"button\">提交</button>";
+   // htmlInfo+= " <button class=\"savebtn\" type=\"button\" name=\"button\">提交</button>";
     return htmlInfo;
 }
 
