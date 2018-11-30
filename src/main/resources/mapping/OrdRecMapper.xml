@@ -72,4 +72,81 @@
     update_time = now()
     where rec_id = #{recId,jdbcType=INTEGER}
   </update>
+    <insert id="insertSelective" parameterType="com.ywy.domain.OrdRec" >
+        insert into ord_rec
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="recId != null" >
+                rec_id,
+            </if>
+            <if test="beRecName != null" >
+                be_rec_name,
+            </if>
+            <if test="beRecPhone != null" >
+                be_rec_phone,
+            </if>
+            <if test="recPhone != null" >
+                rec_phone,
+            </if>
+            <if test="isDelete != null" >
+                is_delete,
+            </if>
+            <if test="state != null" >
+                state,
+            </if>
+            <if test="remake != null" >
+                remake,
+            </if>
+                create_time, update_time
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="recId != null" >
+                #{recId,jdbcType=INTEGER},
+            </if>
+            <if test="beRecName != null" >
+                #{beRecName,jdbcType=VARCHAR},
+            </if>
+            <if test="beRecPhone != null" >
+                #{beRecPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="recPhone != null" >
+                #{recPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null" >
+                #{isDelete,jdbcType=TINYINT},
+            </if>
+            <if test="state != null" >
+                #{state,jdbcType=TINYINT},
+            </if>
+            <if test="remake != null" >
+                #{remake,jdbcType=VARCHAR},
+            </if>
+            now(),now()
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ywy.domain.OrdRec" >
+        update ord_rec
+        <set >
+            <if test="beRecName != null" >
+                be_rec_name = #{beRecName,jdbcType=VARCHAR},
+            </if>
+            <if test="beRecPhone != null" >
+                be_rec_phone = #{beRecPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="recPhone != null" >
+                rec_phone = #{recPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null" >
+                is_delete = #{isDelete,jdbcType=TINYINT},
+            </if>
+            <if test="state != null" >
+                state = #{state,jdbcType=TINYINT},
+            </if>
+            <if test="remake != null" >
+                remake = #{remake,jdbcType=VARCHAR},
+            </if>
+                update_time = now()
+        </set>
+        where rec_id = #{recId,jdbcType=INTEGER}
+    </update>
 </mapper>

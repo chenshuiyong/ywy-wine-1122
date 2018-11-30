@@ -12,12 +12,19 @@ function deleteById(id) {
     var data={};
     data.recId = id;
     data.isDelete = 0;
+    commonComfirm("确认删除",deleteAjax,data);
+
+
+}
+
+function deleteAjax(data){
     commonAjax("/rec/updateStateOrDelete", data, function (result) {
         if(result){
-            commonMsg(result.msg);
             if(result.code==1){
                 window.location.reload();
+                commonMsg(result.msg);
             }else{
+                commonMsg(result.msg);
                 return false;
             }
         }

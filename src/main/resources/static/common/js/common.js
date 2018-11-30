@@ -305,14 +305,14 @@ function addWMaineixinId(url){
     return thisUrl;
 }
 // 录入成功
-function successComfirm(msg,data,callback){
+function commonComfirm(msg,callback,data){
     // 确认框
     var index = layer.confirm(setMsg(msg), {
         btn : [ '确认' ]
         // 按钮
     }, function() {
         // 重载
-        if(callback!=null){
+        if(callback){
             callback(data);
         }
     }, function() {

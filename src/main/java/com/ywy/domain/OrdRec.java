@@ -126,11 +126,11 @@ public class OrdRec implements Serializable {
     public String getStateStr() {
         if (state ==1 ){
             stateStr ="收到推荐";
-        }else if (state ==1 ){
+        }else if (state ==2 ){
             stateStr ="处理中";
-        }else if (state ==1 ){
+        }else if (state ==3 ){
             stateStr ="推荐失败";
-        }else if (state ==1 ){
+        }else if (state ==4 ){
             stateStr ="推荐成功";
         }
         stateStr = "处理状态："+ stateStr;

@@ -248,14 +248,20 @@ public class OrdRecController {
       produces = {"application/json;charset=UTF-8"})
   public Message delete(HttpServletRequest request, OrdRec rec) {
     try {
-        OrdRec ordRec = ordRecService.selectByPrimaryKey(rec.getRecId());
-        if (rec.getIsDelete() !=null){
-            ordRec.setIsDelete(rec.getIsDelete());
-        }
-        if (rec.getState()  !=null){
-            ordRec.setState(rec.getState());
-        }
-        ordRecService.update(ordRec);
+      OrdRec ordRec = ordRecService.selectByPrimaryKey(rec.getRecId());
+      if (ordRec.getRecId() == null) {
+        throw new WorkException("id不能为空");
+      }
+      if(rec.getIsDelete() ==null && rec.getState() == null){
+        throw new WorkException("参数错误");
+      }
+      if (rec.getIsDelete() != null) {
+        ordRec.setIsDelete(rec.getIsDelete());
+      }
+      if (rec.getState() != null) {
+        ordRec.setState(rec.getState());
+      }
+      ordRecService.update(ordRec);
       return Message.success("删除成功！");
     } catch (WorkException e) {
       return Message.failure(e.getMessage());
