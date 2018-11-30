@@ -97,7 +97,7 @@ public class OrdRecController {
    */
   @RequestMapping("/doLogin")
   @ResponseBody
-  public Message doLogin(HttpServletRequest request, String phone, String code, String url)
+  public Message doLogin(HttpServletRequest request, String phone, String code)
       throws WorkException {
     try {
       if (!VateUtils.isPhoneValid(phone)) {
@@ -107,10 +107,14 @@ public class OrdRecController {
       UsrCustomer customer = usrCustomerService.doLogin(phone);
       request.getSession().setAttribute(Constant.CUSTOMER_BY_PHONE, customer);
       request.getSession().setAttribute(Constant.REC_BY_PHONE, phone);
-      return Message.success(url);
+      return Message.success();
     } catch (WorkException e) {
+      LOG.error(e.getMessage());
+      e.printStackTrace();
       return Message.failure(e.getMessage());
     } catch (Exception e) {
+      LOG.error(e.getMessage());
+      e.printStackTrace();
       return Message.exception();
     }
   }
@@ -187,14 +191,13 @@ public class OrdRecController {
    */
   @RequestMapping(value = "/myInfo")
   public String myInfo(HttpServletRequest request, Model model) {
-    Object customer = request.getSession().getAttribute(Constant.CUSTOMER_BY_PHONE);
+/*    Object customer = request.getSession().getAttribute(Constant.CUSTOMER_BY_PHONE);
     if (customer == null) {
-      model.addAttribute("url", "/rec/list");
+      model.addAttribute("url", "/rec/myInfo");
       return "/recommend/rec_login";
     }
-/*    UsrCustomer customer =
-        (UsrCustomer) request.getSession().getAttribute(Constant.CUSTOMER_BY_PHONE);*/
-    model.addAttribute("customer", customer);
+    model.addAttribute("customer", customer);*/
+    model.addAttribute("customer", new UsrCustomer());
     return "/recommend/my_info";
   }
 

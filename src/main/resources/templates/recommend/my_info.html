@@ -19,7 +19,9 @@
     </div>
     <div class="inputinfo">
       <p>联系电话</p>
-      <input type="text" name="" th:value="${customer.customerPhone}"  placeholder="联系电话">
+        <input class="code"   type="text"  th:value="${customer.customerPhone}"  style="font-size: 14px;" id="recPhone"  MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="联系电话"><button onclick="changeOther()" class="getcode">换一个</button>
+<!--      <input type="code" id="recPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')"  th:value="${customer.customerPhone}"  placeholder="联系电话">
+        <button onclick="changeOther()" class="getcode">换一个</button>-->
     </div>
     <div class="inputinfo">
       <p>微信号</p>
@@ -30,4 +32,5 @@
   </div>
 </body>
 <script type="text/javascript" src="/common/js/big_index.js" th:src="@{/common/js/big_index.js}"></script>
+<script type="text/javascript" src="/default/recommend/js/my_info.js" th:src="@{/default/recommend/js/my_info.js}"></script>
 </html>

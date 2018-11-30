@@ -26,6 +26,8 @@ public class OrdRec implements Serializable {
     private String recPhone;
     // 备注
     private String remake;
+    // 备注
+    private String failReason;
     // 验证码
     private String code;
     private Byte isDelete;
@@ -123,6 +125,14 @@ public class OrdRec implements Serializable {
         this.code = code;
     }
 
+    public String getFailReason() {
+        return failReason;
+    }
+
+    public void setFailReason(String failReason) {
+        this.failReason = failReason;
+    }
+
     public String getStateStr() {
         if (state ==1 ){
             stateStr ="收到推荐";
@@ -133,7 +143,6 @@ public class OrdRec implements Serializable {
         }else if (state ==4 ){
             stateStr ="推荐成功";
         }
-        stateStr = "处理状态："+ stateStr;
         return stateStr;
     }
 

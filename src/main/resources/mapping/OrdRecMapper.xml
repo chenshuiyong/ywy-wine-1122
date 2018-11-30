@@ -6,6 +6,7 @@
         <result column="be_rec_name" property="beRecName" jdbcType="VARCHAR" />
         <result column="be_rec_phone" property="beRecPhone" jdbcType="VARCHAR" />
         <result column="rec_phone" property="recPhone" jdbcType="VARCHAR" />
+        <result column="fail_reason" property="failReason" jdbcType="VARCHAR" />
         <result column="remake" property="remake" jdbcType="VARCHAR" />
         <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
         <result column="state" property="state" jdbcType="TINYINT" />
@@ -13,7 +14,7 @@
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     </resultMap>
     <sql id="Base_Column_List" >
-    rec_id, be_rec_name, be_rec_phone, rec_phone,is_delete,state,remake,create_time,update_time
+    rec_id, be_rec_name, be_rec_phone, rec_phone,fail_reason,is_delete,state,remake,create_time,update_time
   </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -43,6 +44,7 @@
     be_rec_name,
     be_rec_phone,
     rec_phone,
+    fail_reason,
     is_delete,
     remake,
     state,
@@ -67,6 +69,7 @@
     be_rec_phone = #{beRecPhone,jdbcType=VARCHAR},
     remake  = #{remake,jdbcType=VARCHAR},
     rec_phone  = #{recPhone,jdbcType=VARCHAR},
+    fail_reason  = #{failReason,jdbcType=VARCHAR},
     is_delete  = #{isDelete,jdbcType=TINYINT},
     state = #{state,jdbcType=TINYINT},
     update_time = now()
@@ -86,6 +89,9 @@
             </if>
             <if test="recPhone != null" >
                 rec_phone,
+            </if>
+            <if test="failReason != null" >
+                fail_reason,
             </if>
             <if test="isDelete != null" >
                 is_delete,
@@ -112,6 +118,9 @@
             <if test="recPhone != null" >
                 #{recPhone,jdbcType=VARCHAR},
             </if>
+            <if test="failReason != null" >
+                #{failReason,jdbcType=VARCHAR},
+            </if>
             <if test="isDelete != null" >
                 #{isDelete,jdbcType=TINYINT},
             </if>
@@ -135,6 +144,9 @@
             </if>
             <if test="recPhone != null" >
                 rec_phone = #{recPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="failReason != null" >
+                fail_reason = #{failReason,jdbcType=VARCHAR},
             </if>
             <if test="isDelete != null" >
                 is_delete = #{isDelete,jdbcType=TINYINT},

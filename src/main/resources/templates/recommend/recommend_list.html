@@ -27,8 +27,8 @@
         </div><div>
         <p style="color: black;" th:text="${vo.beRecName}+'&nbsp;'+${vo.beRecPhone}"></p>
         <p th:text="${vo.createTimeStr}"></p>
-        <p class="borderp" th:text="${vo.stateStr}"></p>
-        <p class="borderp">"联系不到人"</p>
+        <p class="borderp" style="color: #EC8B2F;"  th:text="${vo.stateStr}"></p>
+        <p class="borderp" style="color: red" th:if="${vo.failReason != null }" th:text="'失败原因：'+${vo.failReason}"></p>
       </div>
       </li>
 

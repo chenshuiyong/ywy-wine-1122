@@ -331,8 +331,8 @@ body,html{
     width: 100%;
     padding: 0.6rem 0 0.5rem;
     text-align: center;
-    font-size: 0.6rem;
-    color: #000;
+    font-size: 0.5rem;
+    color: white;
 }
 .top_logo_section img{
     width: 2.0rem;
@@ -406,7 +406,7 @@ body,html{
 .input_section input{
     border: none;
     font-size: 0.28rem;
-    color: #797979;
+    color: white;
     outline: none;
     height: 1.07rem;
     padding: 0.35rem 0;
@@ -431,13 +431,13 @@ body,html{
     text-align: center;
     flex-shrink: 0;
     -webkit-flex-shrink: 0;
-    border: 1px solid #ca544b;
+    border: 1px solid #EC8B2F;
     border-radius: 0.05rem;
     text-align: center;
     height: 0.6rem;
     line-height: 0.6rem;
     padding: 0 0.3rem;
-    background-color: #ca544b;
+    background-color: #EC8B2F;
 }
 .sign_btn{
     margin-top: 0.8rem;
@@ -469,8 +469,8 @@ body,html{
 }
 
 .agree_section span{
-    font-size: 0.26rem;
-    color: #ea4744;
+    font-size: 0.35rem;
+    color: white;
 }
 .bottom_zs{
 /*    background: url("/default/user/img/personCenter/bottom_logo.png") no-repeat center;*/
@@ -480,10 +480,10 @@ body,html{
 }
 .savebtn{
     margin-top: 0.5rem;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 15px;
     color: #fff;
-    background: #ca544b;
+    background: #EC8B2F;
     width: 100%;
     height: 1rem;
 }
