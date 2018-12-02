@@ -15,10 +15,24 @@ function back() {
     history.go(-1);
 }
 
-function more() {
+/*function more() {
     location.href = '/more';
-}
+}*/
 $("#product").click(function(){
     location.href = '/goods/goods_list';
+
+});
+
+function recList(state) {
+    if (state){
+        location.href = '/recList?state='+state;
+    } else {
+        location.href = '/recList';
+    }
+
+}
+
+$("#recList").click(function(){
+    location.href = '/recList';
 
 });

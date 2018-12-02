@@ -1,6 +1,7 @@
 package com.ywy.service.impl;
 
 import com.ywy.domain.UsrCustomer;
+import com.ywy.exception.WorkException;
 import com.ywy.mapper.UsrCustomerMapper;
 import com.ywy.service.UsrCustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,20 @@ public class UsrCustomerServiceImpl implements UsrCustomerService {
   @Override
   public List<UsrCustomer> findAll(int pageNum, int pageSize) {
     return null;
+  }
+
+  @Override
+  public int insertSelective(UsrCustomer record) {
+    return customerMapper.insertSelective(record);
+  }
+
+  @Override
+  public int updateByPrimaryKeySelective(UsrCustomer record) throws WorkException
+  {
+    if (record.getCustomerId() == null){
+      throw  new WorkException("id不能为空");
+    }
+    return customerMapper.updateByPrimaryKeySelective(record);
   }
 
   /**

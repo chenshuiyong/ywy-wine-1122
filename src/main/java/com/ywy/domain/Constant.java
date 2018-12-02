@@ -64,14 +64,14 @@ public class Constant {
      * 用户名
      */
     public static final String USER_BY_USERNAME = "user_by_username";
-    public static final String LOGIN_VCODE = "login_vcode";
-    public static final String LAST_VCODE_TIME = "last_vcode_time";
 
     /**
      * 用户名
      */
     public static final String USERNAME_SESSION = "username_session";
-    public static final String CUSTOMER_BY_PHONE = "customer_by_phone";
-    public static final String REC_BY_PHONE = "rec_by_phone";
-    public final static String FIRST_TOKEN = "chensy27";
+
+    public static final String LOGIN_VCODE = "login_vcode_";
+    public static final String LAST_VCODE_TIME = "last_vcode_time_";
+    public static final String CUSTOMER_BY_PHONE = "customer_by_phone_";
+    public static final String REC_BY_PHONE = "rec_by_phone_";
 }

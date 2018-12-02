@@ -13,18 +13,18 @@
 </head>
 <body>
   <div class="pageone pagetwo"  id="dataForm">
-    <div class="topinfo">&nbsp;&nbsp;&nbsp;&nbsp;欢迎推荐"工商注册、代理记账"等相关业务给我们，推荐并成交您将获得100元茶水费鼓励！<br>&nbsp;&nbsp;&nbsp;&nbsp;请正确输入您的联系电话（以确保奖励准确发送到您手上）</div>
+    <div class="topinfo">&nbsp;&nbsp;&nbsp;&nbsp;欢迎推荐"工商注册、代理记账"等相关业务给我们，推荐并成交您将获得100元茶水费鼓励！<br>&nbsp;&nbsp;&nbsp;&nbsp;请正确输入您的联系手机（以确保奖励准确发送到您手上）</div>
     <div class="inputinfo">
       <p>您要推荐的联系人（如：张三或张先生）</p>
       <input type="text" style="font-size: 14px;" id="beRecName" MAXLENGTH="255" placeholder="您要推荐的联系人">
     </div>
     <div class="inputinfo">
-      <p>您要推荐的联系人联系电话</p>
-      <input type="text" style="font-size: 14px;" id="beRecPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="您要推荐的联系人电话">
+      <p>您要推荐的联系人联系手机</p>
+      <input type="text" style="font-size: 14px;" id="beRecPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="您要推荐的联系人手机">
     </div>
     <div class="inputinfo">
-      <p>请正确输入您的联系电话</p>
-      <input type="text" style="font-size: 14px;"  th:value="${phone}"   id="recPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="您的联系电话">
+      <p>请正确输入您的联系手机</p>
+      <input type="text" style="font-size: 14px;"  th:value="${phone}"   id="recPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="您的联系手机">
     </div>
     <div th:if="${phone == null }" class="inputinfo">
       <p>验证码</p>
@@ -33,6 +33,7 @@
     <div class="inputinfo">
       <p>其他说明</p>
       <input type="text" style="font-size: 14px;" MAXLENGTH="500"  id="remake" placeholder="可选填">
+      <input type="hidden"  id="isLogin" >
     </div>
     <button class="savebtn" type="button" name="button">提交</button>
 

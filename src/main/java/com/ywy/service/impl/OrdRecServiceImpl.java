@@ -53,6 +53,11 @@ public class OrdRecServiceImpl implements OrdRecService {
   }
 
   @Override
+  public void updateByPrimaryKeySelective(OrdRec rec) throws WorkException {
+    recMapper.updateByPrimaryKeySelective(rec);
+  }
+
+  @Override
   public OrdRec selectByPrimaryKey(Integer recId) {
     return  recMapper.selectByPrimaryKey(recId);
   }
@@ -67,5 +72,28 @@ public class OrdRecServiceImpl implements OrdRecService {
   public List<OrdRec> findAll(int pageNum, int pageSize,OrdRec record) {
     PageHelper.startPage(pageNum, pageSize);
     return recMapper.selectAll(record);
+  }
+
+  @Override
+  public void updatePhone(String oldPhone,String customerPhone) {
+    // 修改推荐人手机
+    OrdRec record = new OrdRec();
+    record.setRecPhone(oldPhone);
+    List<OrdRec> recs =  recMapper.selectAll(record);
+    if (recs !=null && !recs.isEmpty()){
+      for (OrdRec rec: recs) {
+        rec.setRecPhone(customerPhone);
+        recMapper.updateByPrimaryKey(rec);
+      }
+    }
+    UsrCustomer customer = new UsrCustomer();
+    customer.setRecPhone(oldPhone);
+    List<UsrCustomer> usrCustomers =  usrCustomerMapper.selectAll(customer);
+    if (usrCustomers !=null && !usrCustomers.isEmpty()){
+      for (UsrCustomer usrCustomer: usrCustomers) {
+        usrCustomer.setRecPhone(customerPhone);
+        usrCustomerMapper.updateByPrimaryKey(usrCustomer);
+      }
+    }
   }
 }

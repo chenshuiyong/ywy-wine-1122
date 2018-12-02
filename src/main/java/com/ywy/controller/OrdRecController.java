@@ -10,6 +10,7 @@ import com.ywy.service.OrdRecService;
 import com.ywy.service.UsrCustomerService;
 import com.ywy.utils.RandomStringUtils;
 import com.ywy.utils.VateUtils;
+import org.aspectj.weaver.ast.Or;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,16 +60,28 @@ public class OrdRecController {
    */
   @RequestMapping("/sendSms")
   @ResponseBody
-  public Message sendSms(HttpServletRequest request, String phone) {
+  public Message sendSms(HttpServletRequest request, String phone,Byte type) {
     try { // 校验手机号是否合法
       if (!VateUtils.isPhoneValid(phone)) {
-        return Message.failure("请输入11位手机号码");
+        return Message.failure("您的联系手机格式错误");
+      }
+      // 如果是更改手机号
+      if (OrdRec.TYPE_CHANGE.equals(type)){
+        UsrCustomer customer = usrCustomerService.selectByCustomerPhone(phone);
+        if (customer != null){
+          UsrCustomer customerByPhone = (UsrCustomer) request.getSession().getAttribute(Constant.CUSTOMER_BY_PHONE);
+          if (customer.getCustomerId().equals(customerByPhone.getCustomerId())){
+            return Message.failure("您所输入的手机与之前的相同");
+          }else{
+            return Message.failure("该手机号已经被注册，请重新输入");
+          }
+        }
       }
       // 旧的验证码
-      Object oldCode = request.getSession().getAttribute(Constant.LOGIN_VCODE);
+      Object oldCode = request.getSession().getAttribute(Constant.LOGIN_VCODE+phone);
       if (oldCode != null) {
         // 旧验证码的时间
-        Date oldTime = (Date) request.getSession().getAttribute(Constant.LAST_VCODE_TIME);
+        Date oldTime = (Date) request.getSession().getAttribute(Constant.LAST_VCODE_TIME+phone);
         Long lTime = oldTime.getTime();
         Long nTime = new Date().getTime();
         if ((nTime - lTime) <= 120 * 1000) {
@@ -79,12 +92,16 @@ public class OrdRecController {
       String smsContent = "【钇旺亿财务】尊敬的用户，您的验证码为" + code;
       System.out.println(smsContent);
       IndustrySMS.execute(phone, smsContent);
-      request.getSession().setAttribute(Constant.LOGIN_VCODE, code);
-      request.getSession().setAttribute(Constant.LAST_VCODE_TIME, new Date());
+      request.getSession().setAttribute(Constant.LOGIN_VCODE+phone, code);
+      request.getSession().setAttribute(Constant.LAST_VCODE_TIME+phone, new Date());
       return Message.success("发送成功");
     } catch (WorkException e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
       return Message.failure(e.getMessage());
     } catch (Exception e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
       return Message.exception();
     }
   }
@@ -101,7 +118,7 @@ public class OrdRecController {
       throws WorkException {
     try {
       if (!VateUtils.isPhoneValid(phone)) {
-        throw new WorkException("您的联系电话格式错误");
+        throw new WorkException("您的联系手机格式错误");
       }
       this.validateCode(request, phone, code);
       UsrCustomer customer = usrCustomerService.doLogin(phone);
@@ -109,11 +126,11 @@ public class OrdRecController {
       request.getSession().setAttribute(Constant.REC_BY_PHONE, phone);
       return Message.success();
     } catch (WorkException e) {
-      LOG.error(e.getMessage());
+      LOG.warn(e.toString());
       e.printStackTrace();
       return Message.failure(e.getMessage());
     } catch (Exception e) {
-      LOG.error(e.getMessage());
+      LOG.warn(e.toString());
       e.printStackTrace();
       return Message.exception();
     }
@@ -130,12 +147,12 @@ public class OrdRecController {
   private void validateCode(HttpServletRequest request, String phone, String code)
       throws WorkException {
     // 旧的验证码
-    Object oldCode = request.getSession().getAttribute(Constant.LOGIN_VCODE);
+    Object oldCode = request.getSession().getAttribute(Constant.LOGIN_VCODE+phone);
     if (oldCode != null) {
       if (!oldCode.toString().equals(code)) {
         throw new WorkException("验证码错误");
       }
-      Date oldTime = (Date) request.getSession().getAttribute(Constant.LAST_VCODE_TIME);
+      Date oldTime = (Date) request.getSession().getAttribute(Constant.LAST_VCODE_TIME+phone);
       Long lTime = oldTime.getTime();
       Long nTime = new Date().getTime();
       if ((nTime - lTime) >= 1200 * 1000) {
@@ -168,7 +185,7 @@ public class OrdRecController {
    * @return
    */
   @RequestMapping(value = "/list")
-  public String more(HttpServletRequest request, Model model) {
+  public String list(HttpServletRequest request, Model model) {
     Object phone = request.getSession().getAttribute(Constant.REC_BY_PHONE);
     if (phone == null) {
       model.addAttribute("url", "/rec/list");
@@ -191,14 +208,40 @@ public class OrdRecController {
    */
   @RequestMapping(value = "/myInfo")
   public String myInfo(HttpServletRequest request, Model model) {
-/*    Object customer = request.getSession().getAttribute(Constant.CUSTOMER_BY_PHONE);
+    Object customer = request.getSession().getAttribute(Constant.CUSTOMER_BY_PHONE);
     if (customer == null) {
       model.addAttribute("url", "/rec/myInfo");
       return "/recommend/rec_login";
     }
-    model.addAttribute("customer", customer);*/
-    model.addAttribute("customer", new UsrCustomer());
+    model.addAttribute("customer", customer);
     return "/recommend/my_info";
+  }
+  /**
+   * 验证手机
+   *
+   * @param request
+   * @return
+   */
+  @ResponseBody
+  @RequestMapping(value = "/validateCode")
+  public Message validateCode(HttpServletRequest request, OrdRec rec) {
+    try {
+      if (!VateUtils.isPhoneValid(rec.getRecPhone())) {
+        throw new WorkException("您的联系手机格式错误");
+      }
+      this.validateCode(request, rec.getRecPhone(), rec.getCode());
+/*      request.getSession().setAttribute(Constant.REC_BY_PHONE, rec.getRecPhone());
+      request.getSession().setAttribute(Constant.CUSTOMER_BY_PHONE, recCustomer);*/
+      return Message.success();
+    } catch (WorkException e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
+      return Message.failure(e.getMessage());
+    } catch (Exception e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
+      return Message.exception();
+    }
   }
 
   /**
@@ -214,10 +257,10 @@ public class OrdRecController {
   public Message add(HttpServletRequest request, OrdRec rec) {
     try {
       if (!VateUtils.isPhoneValid(rec.getBeRecPhone())) {
-        throw new WorkException("您要推荐的联系人电话格式错误");
+        throw new WorkException("您要推荐的联系人手机格式错误");
       }
       if (!VateUtils.isPhoneValid(rec.getRecPhone())) {
-        throw new WorkException("您的联系电话格式错误");
+        throw new WorkException("您的联系手机格式错误");
       }
       this.validateCode(request, rec.getRecPhone(), rec.getCode());
       String msg = "成功";
@@ -233,8 +276,12 @@ public class OrdRecController {
       request.getSession().setAttribute(Constant.CUSTOMER_BY_PHONE, recCustomer);
       return Message.message(code, msg);
     } catch (WorkException e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
       return Message.failure(e.getMessage());
     } catch (Exception e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
       return Message.exception();
     }
   }
@@ -265,10 +312,78 @@ public class OrdRecController {
         ordRec.setState(rec.getState());
       }
       ordRecService.update(ordRec);
-      return Message.success("删除成功！");
+      return Message.success("操作成功");
     } catch (WorkException e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
       return Message.failure(e.getMessage());
     } catch (Exception e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
+      return Message.exception();
+    }
+  }
+
+  /**
+   * 删除
+   *
+   * @param request
+   * @return
+   */
+  @ResponseBody
+  @RequestMapping(
+      value = "/update")
+  public Message update(HttpServletRequest request, OrdRec rec) {
+    try {
+      OrdRec ordRec = ordRecService.selectByPrimaryKey(rec.getRecId());
+      if (ordRec.getRecId() == null) {
+        throw new WorkException("id不能为空");
+      }
+      rec.setState(OrdRec.REC_STATE_FAIL);
+      ordRecService.updateByPrimaryKeySelective(rec);
+      return Message.success("操作成功");
+    } catch (WorkException e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
+      return Message.failure(e.getMessage());
+    } catch (Exception e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
+      return Message.exception();
+    }
+  }
+
+  /**
+   * 删除
+   *
+   * @param request
+   * @return
+   */
+  @ResponseBody
+  @RequestMapping(value = "/updateInfo")
+  public Message updateInfo(HttpServletRequest request, UsrCustomer usrCustomer) {
+    try {
+      UsrCustomer customer = (UsrCustomer) request.getSession().getAttribute(Constant.CUSTOMER_BY_PHONE);
+      // 如果变更手机号
+      if (!customer.getCustomerPhone().equals(usrCustomer.getCustomerPhone())){
+        // 变更手机，跟着变更推荐手机号
+        ordRecService.updatePhone(customer.getCustomerPhone(),usrCustomer.getCustomerPhone());
+        customer.setCustomerPhone(usrCustomer.getCustomerPhone());
+      }
+      customer.setWxNo(usrCustomer.getWxNo());
+      customer.setContacts(usrCustomer.getCustomerName());
+      customer.setCustomerName(usrCustomer.getCustomerName());
+      usrCustomerService.updateByPrimaryKeySelective(customer);
+      request.getSession().setAttribute(Constant.REC_BY_PHONE, usrCustomer.getCustomerPhone());
+      request.getSession().setAttribute(Constant.CUSTOMER_BY_PHONE, customer);
+      return Message.success("成功");
+    } catch (WorkException e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
+      return Message.failure(e.getMessage());
+    } catch (Exception e) {
+      LOG.warn(e.toString());
+      e.printStackTrace();
       return Message.exception();
     }
   }

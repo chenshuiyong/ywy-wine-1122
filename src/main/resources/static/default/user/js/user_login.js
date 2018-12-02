@@ -22,9 +22,11 @@ function user_login(){
     });
 }
 
+/*
 function gotoRegister() {
     location.href = '/register';
 }
+*/
 
 function forgetPsd() {
     commonMsg("请联系管理员重置密码");

@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="/default/recommend/css/page.css" th:href="@{/default/recommend/css/page.css}">
 </head>
 <body>
-  <div class="pageone">
+  <div class="pageone" id="dataForm">
     <div class="inputinfo">
       <p>姓名称呼</p>
-      <input type="text" name=""  th:value="${customer.customerName}"  placeholder="您的姓名或称呼">
+      <input type="text" style="font-size: 14px;" th:value="${customer.customerName}" id="customerName" placeholder="您的姓名或称呼">
     </div>
     <div class="inputinfo">
-      <p>联系电话</p>
-        <input class="code"   type="text"  th:value="${customer.customerPhone}"  style="font-size: 14px;" id="recPhone"  MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="联系电话"><button onclick="changeOther()" class="getcode">换一个</button>
+      <p>联系手机</p>
+        <input class="code"   type="text"  th:value="${customer.customerPhone}"  style="font-size: 14px;" id="customerPhone"  MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="联系手机"><button onclick="changeOther()" class="getcode">换一个</button>
 <!--      <input type="code" id="recPhone" MAXLENGTH="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')"  th:value="${customer.customerPhone}"  placeholder="联系电话">
         <button onclick="changeOther()" class="getcode">换一个</button>-->
     </div>
     <div class="inputinfo">
       <p>微信号</p>
-      <input type="text" name="" th:value="${customer.wxNo}"  placeholder="可选填">
+      <input type="text" id="wxNo" th:value="${customer.wxNo}"  placeholder="可选填">
     </div>
     <button class="savebtn" type="button" name="button">保存</button>
     <div th:replace="common/footer :: footer('myInfo')"></div>

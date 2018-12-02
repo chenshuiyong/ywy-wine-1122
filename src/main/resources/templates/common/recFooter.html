@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="footer(activeId)">
+<div>
+    <ul class="food">
+        <li onclick="recList()">
+            <img class="right" th:src="@{ (${activeId == 'rec' ? '/default/user/img/new/rec_1.png' : '/default/user/img/new/rec.png'}) }"  alt="">
+            <p>推荐</p>
+        </li><li onclick="index()">
+        <img class="right" th:src="@{ (${activeId == 'index' ? '/default/user/img/new/index_1.png' : '/default/user/img/new/index.png'}) }"alt="">
+        <p>首页</p>
+    </li><li onclick="customerList()">
+        <img class="right" th:src="@{ (${activeId == 'customer' ? '/default/user/img/new/cus_1.png' : '/default/user/img/new/cus.png'}) }" alt="">
+        <p>客户</p>
+    </li>
+    </ul>
+</div>
+<script>
+
+    function recList() {
+        location.href = '/recList';
+    }
+    function index() {
+        location.href = '/index';
+    }
+    function customerList() {
+        location.href = '/customerList';
+    }
+
+</script>
+</html>

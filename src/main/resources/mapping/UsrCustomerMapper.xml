@@ -29,10 +29,12 @@
         where customer_phone = #{customerPhone,jdbcType=VARCHAR}
     </select>
 
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="com.ywy.domain.UsrCustomer">
         select
         <include refid="Base_Column_List" />
         from usr_customer
+        WHERE 1=1
+        <if test="recPhone !=null and recPhone !=''"> AND rec_phone=#{recPhone}</if>
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -72,4 +74,88 @@
     update_time = now()
     where customer_id = #{customerId,jdbcType=INTEGER}
   </update>
+
+
+    <insert id="insertSelective" parameterType="com.ywy.domain.UsrCustomer" >
+        insert into usr_customer
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="customerId != null" >
+                customer_id,
+            </if>
+            <if test="customerName != null" >
+                customer_name,
+            </if>
+            <if test="customerPhone != null" >
+                customer_phone,
+            </if>
+            <if test="contacts != null" >
+                contacts,
+            </if>
+            <if test="wxNo != null" >
+                wx_no,
+            </if>
+            <if test="recPhone != null" >
+                rec_phone,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+            <if test="updateTime != null" >
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="customerId != null" >
+                #{customerId,jdbcType=INTEGER},
+            </if>
+            <if test="customerName != null" >
+                #{customerName,jdbcType=VARCHAR},
+            </if>
+            <if test="customerPhone != null" >
+                #{customerPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="contacts != null" >
+                #{contacts,jdbcType=VARCHAR},
+            </if>
+            <if test="wxNo != null" >
+                #{wxNo,jdbcType=VARCHAR},
+            </if>
+            <if test="recPhone != null" >
+                #{recPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null" >
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ywy.domain.UsrCustomer" >
+        update usr_customer
+        <set >
+            <if test="customerName != null" >
+                customer_name = #{customerName,jdbcType=VARCHAR},
+            </if>
+            <if test="customerPhone != null" >
+                customer_phone = #{customerPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="contacts != null" >
+                contacts = #{contacts,jdbcType=VARCHAR},
+            </if>
+            <if test="wxNo != null" >
+                wx_no = #{wxNo,jdbcType=VARCHAR},
+            </if>
+            <if test="recPhone != null" >
+                rec_phone = #{recPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null" >
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where customer_id = #{customerId,jdbcType=INTEGER}
+    </update>
 </mapper>

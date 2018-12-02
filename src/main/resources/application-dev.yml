@@ -11,5 +11,5 @@ common:
 
    security:
     includeUrl: '/*,/**'
-    excludeUrl: '**/*.js,**/*css,/error,/login,/register'
+    excludeUrl: '**/*.js,**/*css,/error,/login'
 

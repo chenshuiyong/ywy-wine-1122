@@ -28,7 +28,7 @@ function user_login() {
 
 function sendCode() {
     if (!$("#recPhone").val()) {
-        commonMsg("您的联系电话不能为空");
+        commonMsg("您的联系手机不能为空");
         return false;
     }
     $(".get_verify_btn").attr('disabled', "true");

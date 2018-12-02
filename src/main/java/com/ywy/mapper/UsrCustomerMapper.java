@@ -14,7 +14,10 @@ public interface UsrCustomerMapper {
   UsrCustomer selectByCustomerPhone(String customerPhone);
 
   int updateByPrimaryKey(UsrCustomer record);
+  int insertSelective(UsrCustomer record);
 
+
+  int updateByPrimaryKeySelective(UsrCustomer record);
   // 这个方式我自己加的
-  List<UsrCustomer> selectAll();
+  List<UsrCustomer> selectAll(UsrCustomer record);
 }

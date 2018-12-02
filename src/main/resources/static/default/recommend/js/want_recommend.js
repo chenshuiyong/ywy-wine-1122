@@ -1,6 +1,7 @@
 // want_recommend.js
 if ($("#recPhone").val()){
     $("#recPhone").attr("disabled",true);
+    $("#isLogin").val("1");
 }
 
 $(".savebtn").click(function(){
@@ -10,11 +11,15 @@ $(".savebtn").click(function(){
         return false;
     }
     if(!data.beRecPhone){
-        commonMsg("您要推荐的联系人电话不能为空");
+        commonMsg("您要推荐的联系人手机不能为空");
         return false;
     }
     if(!data.recPhone){
-        commonMsg("您的联系电话不能为空");
+        commonMsg("您的联系手机不能为空");
+        return false;
+    }
+    if(!data.isLogin && !data.code){
+        commonMsg("请输入验证码");
         return false;
     }
     commonAjax("/rec/add", data, function (result) {
@@ -58,7 +63,7 @@ function getcode(){
 
 function sendCode(){
     if(!$("#recPhone").val()){
-        commonMsg("您的联系电话不能为空");
+        commonMsg("您的联系手机不能为空");
         return false;
     }
     $(".getcode").attr('disabled',"true");

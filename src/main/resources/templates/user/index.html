@@ -7,6 +7,7 @@
     <title>个人中心</title>
     <link rel="stylesheet" href="/default/user/css/index.css" th:href="@{/default/user/css/index.css}">
     <link rel="stylesheet" href="/default/user/css/common.css" th:href="@{/default/user/css/common.css}">
+    <link rel="stylesheet" href="/default/recommend/css/page.css" th:href="@{/default/recommend/css/page.css}">
 </head>
 <body>
 <div class="box">
@@ -14,10 +15,10 @@
         <img class="left" onclick="back()" src="/default/user/img/new/back.png" alt="">
         <img class="right" onclick="more()" src="/default/user/img/new/menu.png" alt="">
     </div>
-    <div class="tab"><div><span>今日销售</span> <span>123.23</span></div><div><img class="" src="/default/user/img/new/header.png" alt=""></div>
+    <div class="tab"><div><span>今日推荐：</span> <span th:text="${todayCount}+'&nbsp;单'" ></span></div><div><img class="" src="/default/user/img/new/header.png" alt=""></div>
     </div>
     <ul class="content">
-        <li id="product">
+<!--        <li id="product">
             <img style="margin-left: 1px;" class="right" src="/default/user/img/new/product.png" alt="">
             <p>商品</p>
         </li><li>
@@ -35,8 +36,28 @@
         </li><li>
             <img class="right" src="/default/user/img/new/data.png" alt="">
             <p>报表</p>
+        </li>-->
+        <li id="product">
+            <img style="margin-left: 1px;" class="right" src="/default/user/img/new/customer.png" alt="">
+            <p>客户</p>
+        </li><li onclick="recList()">
+            <img class="right" src="/default/user/img/new/rec_2.png" alt="">
+            <p>全部推荐</p>
+        </li><li onclick="recList(1)">
+            <img class="right" src="/default/user/img/new/recive_1.png" alt="">
+            <p>收到推荐</p>
+        </li><li onclick="recList(2)">
+            <img class="right" src="/default/user/img/new/handle_2.png" alt="">
+            <p>跟进中</p>
+        </li><li onclick="recList(3)">
+            <img class="right" src="/default/user/img/new/unpay_1.png" alt="">
+            <p>已合作未付款</p>
+        </li><li onclick="recList(4)">
+            <img class="right" src="/default/user/img/new/success_2.png" alt="">
+            <p>已付款-推荐成功</p>
         </li>
     </ul>
+    <div th:replace="common/recFooter :: footer('index')"></div>
 </div>
 <!-- <script src=""></script> -->
 </body>

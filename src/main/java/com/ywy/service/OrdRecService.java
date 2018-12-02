@@ -8,9 +8,11 @@ import java.util.List;
 
 public interface OrdRecService {
 
-    public void add(OrdRec rec) throws WorkException;
-    public void update(OrdRec rec) throws WorkException;
+     void add(OrdRec rec) throws WorkException;
+     void update(OrdRec rec) throws WorkException;
+     void updateByPrimaryKeySelective(OrdRec rec) throws WorkException;
     OrdRec selectByPrimaryKey(Integer recId);
-    public List<OrdRec> findAll(int pageNum, int pageSize,OrdRec record) ;
+     List<OrdRec> findAll(int pageNum, int pageSize,OrdRec record) ;
 
+    void updatePhone(String oldPhone,String customerPhone);
 }

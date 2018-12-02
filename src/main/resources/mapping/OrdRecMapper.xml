@@ -31,6 +31,8 @@
         WHERE 1=1
         <if test="recPhone !=null and recPhone !=''"> AND rec_phone=#{recPhone}</if>
         <if test="isDelete !=null and isDelete !=''"> AND is_delete=#{isDelete}</if>
+        <if test="isToday !=null and isToday !=''"> AND MONTH(create_time) = MONTH(NOW()) and DAY(create_time) = DAY(NOW())</if>
+        <if test="state !=null and state !=''"> AND state=#{state}</if>
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -55,6 +57,7 @@
      #{beRecName,jdbcType=VARCHAR},
      #{beRecPhone,jdbcType=VARCHAR},
      #{recPhone,jdbcType=VARCHAR},
+     #{failReason,jdbcType=VARCHAR},
      #{isDelete,jdbcType=TINYINT},
      #{remake,jdbcType=VARCHAR},
      #{state,jdbcType=TINYINT},

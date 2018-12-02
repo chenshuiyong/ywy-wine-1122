@@ -10,12 +10,16 @@ import java.util.Date;
 public class OrdRec implements Serializable {
 
     /**
-     * 状态：1收到推荐2处理中3推荐失败4推荐成功
+     *状态：1收到推荐2业务员跟进中3已合作未付款4已付款-推荐成功5推荐失败6奖励成功
      */
     public static final Byte REC_STATE_RECIVICE = 1;
     public static final Byte REC_STATE_HANDLE = 2;
-    public static final Byte REC_STATE_FAIL = 3;
+    public static final Byte REC_STATE_UNPAY = 3;
     public static final Byte REC_STATE_SECCESS= 4;
+    public static final Byte REC_STATE_FAIL = 5;
+    public static final Byte REC_REWORD_SECCESS = 6;
+
+    public static final Byte TYPE_CHANGE= 1;
 
     private Integer recId;
     // 被推荐人
@@ -32,6 +36,7 @@ public class OrdRec implements Serializable {
     private String code;
     private Byte isDelete;
     private Byte state;
+    private Byte isToday;
     private String stateStr;
     private String createTimeStr;
     private Date createTime;
@@ -125,6 +130,14 @@ public class OrdRec implements Serializable {
         this.code = code;
     }
 
+    public Byte getIsToday() {
+        return isToday;
+    }
+
+    public void setIsToday(Byte isToday) {
+        this.isToday = isToday;
+    }
+
     public String getFailReason() {
         return failReason;
     }
@@ -132,16 +145,20 @@ public class OrdRec implements Serializable {
     public void setFailReason(String failReason) {
         this.failReason = failReason;
     }
-
+    //状态：1收到推荐2业务员跟进中3已合作未付款4已付款-推荐成功5推荐失败
     public String getStateStr() {
         if (state ==1 ){
             stateStr ="收到推荐";
         }else if (state ==2 ){
-            stateStr ="处理中";
+            stateStr ="业务员跟进中";
         }else if (state ==3 ){
-            stateStr ="推荐失败";
+            stateStr ="已合作未付款";
         }else if (state ==4 ){
-            stateStr ="推荐成功";
+            stateStr ="已付款-推荐成功";
+        }else if (state ==5 ){
+            stateStr ="推荐失败";
+        }else if (state ==6 ){
+            stateStr ="奖励成功";
         }
         return stateStr;
     }
