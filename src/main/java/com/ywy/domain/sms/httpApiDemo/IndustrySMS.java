@@ -36,7 +36,7 @@ public class IndustrySMS
 	        + HttpUtil.createCommonParam();
 
 	    // 提交请求
-	//     String result = HttpUtil.post(url, body);
+		//String result = HttpUtil.post(url, body);
 		String result = "00000";
 		System.out.println("result:" + System.lineSeparator() + result);
 	    if (!result.contains("00000")){

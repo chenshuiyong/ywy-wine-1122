@@ -4,7 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.ywy.domain.Constant;
 import com.ywy.domain.OrdRec;
 import com.ywy.domain.UsrCustomer;
-import com.ywy.domain.sms.httpApiDemo.AffMarkSMS;
+import com.ywy.domain.sms.httpApiDemo.IndustrySMS;
 import com.ywy.exception.WorkException;
 import com.ywy.mapper.OrdRecMapper;
 import com.ywy.mapper.UsrCustomerMapper;
@@ -55,12 +55,12 @@ public class OrdRecServiceImpl implements OrdRecService {
   /**
    * 有新增推荐，通知业务员
    */
-  private void sendMessage() {
-    String smsContent = "【钇旺亿财务】有新的推信息，请登录运营系统查看，并及时处理。";
+  private void sendMessage() throws WorkException {
+    String smsContent = "【钇旺亿财务】尊敬的用户，您的验证码为000000";
     System.out.println(smsContent);
     String[] mobiles = StringUtils.split(mangerMobile, ",");
     for(String mobile: mobiles){
-      AffMarkSMS.execute(mobile, smsContent);
+      IndustrySMS.execute(mobile, smsContent);
     }
 
   }
