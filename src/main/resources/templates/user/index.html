@@ -13,30 +13,12 @@
 <div class="box">
     <div class="title">
         <img class="left" onclick="back()" src="/default/user/img/new/back.png" alt="">
-        <img class="right" onclick="more()" src="/default/user/img/new/menu.png" alt="">
+    <!--    <img class="right" onclick="more()" src="/default/user/img/new/menu.png" alt="">-->
+        <img class="right" onclick="logout()" src="/default/user/img/new/out_1.png" alt="">
     </div>
     <div class="tab"><div><span>今日推荐：</span> <span th:text="${todayCount}+'&nbsp;单'" ></span></div><div><img class="" src="/default/user/img/new/header.png" alt=""></div>
     </div>
     <ul class="content">
-<!--        <li id="product">
-            <img style="margin-left: 1px;" class="right" src="/default/user/img/new/product.png" alt="">
-            <p>商品</p>
-        </li><li>
-            <img class="right" src="/default/user/img/new/customer.png" alt="">
-            <p>客户</p>
-        </li><li>
-            <img class="right" src="/default/user/img/new/camaro.png" alt="">
-            <p>拍照下单</p>
-        </li><li>
-            <img class="right" src="/default/user/img/new/order.png" alt="">
-            <p>销售单</p>
-        </li><li>
-            <img class="right" src="/default/user/img/new/purchase.png" alt="">
-            <p>采购单</p>
-        </li><li>
-            <img class="right" src="/default/user/img/new/data.png" alt="">
-            <p>报表</p>
-        </li>-->
         <li id="product">
             <img style="margin-left: 1px;" class="right" src="/default/user/img/new/customer.png" alt="">
             <p>客户</p>
@@ -62,5 +44,7 @@
 <!-- <script src=""></script> -->
 </body>
 <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
+<script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
+<script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
 <script type="text/javascript" src="/default/user/js/index.js" th:src="@{/default/user/js/index.js}"></script>
 </html>

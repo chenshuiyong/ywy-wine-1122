@@ -16,7 +16,7 @@ public class WineApplication {
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer(){
         return container -> {
-               container.setSessionTimeout(72000);/*单位为S*/
+               container.setSessionTimeout(604800);/*单位为S*/
          };
     }
 }

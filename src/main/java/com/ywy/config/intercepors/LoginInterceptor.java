@@ -10,8 +10,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 登录验证拦截
@@ -28,9 +26,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             throws Exception {
         String basePath = request.getContextPath();
         String path = request.getRequestURI();
-        if(!doLoginInterceptor(path, basePath) ){//是否进行登陆拦截
-            return true;
-        }
+        LOG.info("进入是否登录拦截，请求的uri:"+path);
         //判断是否已有该用户登录的session
         if(request.getSession().getAttribute(Constant.USER_BY_USERNAME) !=null){
             return  true;
@@ -40,21 +36,5 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         return true;
     }
 
-    /**
-     * 是否进行登陆过滤
-     * @param path
-     * @param basePath
-     * @return
-     */
-    private boolean doLoginInterceptor(String path,String basePath){
-        path = path.substring(basePath.length());
-        Set<String> notLoginPaths = new HashSet<>();
-        //设置不进行登录拦截的路径：登录注册和验证码
-        notLoginPaths.add("/login");
-        notLoginPaths.add("/register");
-        if(notLoginPaths.contains(path)) {
-            return false;
-        }
-        return true;
-    }
+
 }

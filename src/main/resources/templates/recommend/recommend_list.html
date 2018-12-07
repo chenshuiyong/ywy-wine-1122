@@ -23,12 +23,12 @@
       <li th:each="vo ,iterStat: ${list}">
         <div>
           <p th:text="${iterStat.index +1 }"></p>
-          <span th:onclick="'javascript:deleteById('+${vo.recId}+')'">删除</span>
+          <span th:if="${vo.state == 1 }" th:onclick="'javascript:deleteById('+${vo.recId}+')'">删除</span>
         </div><div>
         <p style="color: black;" th:text="${vo.beRecName}+'&nbsp;'+${vo.beRecPhone}"></p>
         <p th:text="${vo.createTimeStr}"></p>
         <p class="borderp" style="color: #EC8B2F;"  th:text="${vo.stateStr}"></p>
-        <p class="borderp" style="color: red" th:if="${vo.failReason != null }" th:text="'失败原因：'+${vo.failReason}"></p>
+        <p class="borderp" style="color: red" th:if="${vo.state == 5 }"th:text="'失败原因：'+${vo.failReason}"></p>
       </div>
       </li>
 

@@ -19,8 +19,6 @@ public class IndustrySMS
 	private static String operation = "/industrySMS/sendSMS";
 
 	private static String accountSid = Config.ACCOUNT_SID;
-//	private static String to = "15860778366";
-	// static String smsContent = "【钇旺亿财务】尊敬的用户，您的验证码为123456";
 
 	/**
 	 * 验证码通知短信

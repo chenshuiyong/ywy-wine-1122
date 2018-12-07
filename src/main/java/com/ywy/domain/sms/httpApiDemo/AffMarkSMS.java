@@ -16,13 +16,11 @@ public class AffMarkSMS
 	private static String operation = "/affMarkSMS/sendSMS";
 
 	private static String accountSid = Config.ACCOUNT_SID;
-	private static String to = "1361305****";
-	private static String smsContent = "【秒嘀科技】您的优惠券就快过期啦！不想白白浪费，就快来使用吧！戳： m.miaodiyun.com 使用！回TD退订。";
 
 	/**
 	 * 会员营销短信
 	 */
-	public static void execute()
+	public static void execute(String phone, String smsContent)
 	{
 		String tmpSmsContent = null;
 	    try{
@@ -31,7 +29,7 @@ public class AffMarkSMS
 	      
 	    }
 	    String url = Config.BASE_URL + operation;
-	    String body = "accountSid=" + accountSid + "&to=" + to + "&smsContent=" + tmpSmsContent
+	    String body = "accountSid=" + accountSid + "&to=" + phone + "&smsContent=" + tmpSmsContent
 	        + HttpUtil.createCommonParam();
 
 	    // 提交请求

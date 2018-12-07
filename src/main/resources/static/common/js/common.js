@@ -308,7 +308,7 @@ function addWMaineixinId(url){
 function commonComfirm(msg,callback,data){
     // 确认框
     var index = layer.confirm(setMsg(msg), {
-        btn : [ '确认' ]
+        btn : [ '确认','取消' ]
         // 按钮
     }, function() {
         // 重载
@@ -316,7 +316,7 @@ function commonComfirm(msg,callback,data){
             callback(data);
         }
     }, function() {
-
+        layer.close(index);
     });
 }
 

@@ -10,7 +10,7 @@ import com.ywy.service.OrdRecService;
 import com.ywy.service.UsrCustomerService;
 import com.ywy.utils.RandomStringUtils;
 import com.ywy.utils.VateUtils;
-import org.aspectj.weaver.ast.Or;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -262,7 +262,9 @@ public class OrdRecController {
       if (!VateUtils.isPhoneValid(rec.getRecPhone())) {
         throw new WorkException("您的联系手机格式错误");
       }
-      this.validateCode(request, rec.getRecPhone(), rec.getCode());
+      if (StringUtils.isNotBlank(rec.getCode())){
+        this.validateCode(request, rec.getRecPhone(), rec.getCode());
+      }
       String msg = "成功";
       Integer code = Message.CODE_SUCCESS;
       UsrCustomer customer = usrCustomerService.selectByCustomerPhone(rec.getBeRecPhone());

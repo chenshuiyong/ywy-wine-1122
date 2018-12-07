@@ -36,7 +36,7 @@ public class IndexController {
     @Autowired
     private OrdRecService ordRecService;
 
-/*  @RequestMapping(value = "/register")
+  @RequestMapping(value = "/registerAdminer")
   public String register(HttpServletRequest request, Model model) {
     UsrUser user = (UsrUser) request.getSession().getAttribute(Constant.USER_BY_USERNAME);
     model.addAttribute("user", user);
@@ -45,7 +45,7 @@ public class IndexController {
     }else{
       return "/user/index";
     }
-  }*/
+  }
 
     @RequestMapping(value = "/more")
     public String more(HttpServletRequest request, Model model) {
@@ -131,11 +131,7 @@ public class IndexController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (user == null) {
-            return "/user/user_login";
-        } else {
-            return "/user/index";
-        }
+        return "/user/index";
     }
 
     /**

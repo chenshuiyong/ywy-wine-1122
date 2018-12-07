@@ -21,8 +21,11 @@ function deleteAjax(data){
     commonAjax("/rec/updateStateOrDelete", data, function (result) {
         if(result){
             if(result.code==1){
-                window.location.reload();
-                commonMsg(result.msg);
+                layer.alert(result.msg, {
+                    closeBtn: 0
+                }, function(){
+                    window.location.reload();
+                });
             }else{
                 commonMsg(result.msg);
                 return false;

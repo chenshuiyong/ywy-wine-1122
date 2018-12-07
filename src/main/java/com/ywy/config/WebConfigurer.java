@@ -1,4 +1,4 @@
-package com.cndrealty.config;
+package com.ywy.config;
 
 import com.ywy.config.intercepors.LoginInterceptor;
 import org.apache.commons.lang3.StringUtils;

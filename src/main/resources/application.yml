@@ -19,7 +19,7 @@ server:
   session:
     cookie:
       path: /
-    timeout: 720000
+    timeout: 604800
 
 
 spring:
@@ -43,3 +43,20 @@ pagehelper:
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   typeAliasesPackage: com.ywy.domain
+
+common:
+  configs:
+    httpConnectTimeOut: 30000
+    httpReadTimeOut: 30000
+    httpSocketTimeOut: 30000
+    httpRequestTimeOut: 50000
+    httpMaxTotal: 20
+    httpMaxPerRote: 20
+
+  security:
+    includeUrl: '/*,/**'
+    excludeUrl: '**/*.js,**/*css,/error,/login,/registerAdminer,/rec/**'
+
+#mangerMobile: '15860778366,13459114296,18950135041'
+mangerMobile: '15860778366'
+

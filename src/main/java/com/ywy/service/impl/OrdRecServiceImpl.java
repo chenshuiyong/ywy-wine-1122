@@ -4,11 +4,14 @@ import com.github.pagehelper.PageHelper;
 import com.ywy.domain.Constant;
 import com.ywy.domain.OrdRec;
 import com.ywy.domain.UsrCustomer;
+import com.ywy.domain.sms.httpApiDemo.AffMarkSMS;
 import com.ywy.exception.WorkException;
 import com.ywy.mapper.OrdRecMapper;
 import com.ywy.mapper.UsrCustomerMapper;
 import com.ywy.service.OrdRecService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +22,8 @@ public class OrdRecServiceImpl implements OrdRecService {
 
   @Autowired private OrdRecMapper recMapper; // 这里会报错，但是并不会影响
   @Autowired private UsrCustomerMapper usrCustomerMapper; // 这里会报错，但是并不会影响
-
+  @Value("${mangerMobile}")
+  private String mangerMobile;
   /**
    * 新增
    * @param rec
@@ -45,6 +49,20 @@ public class OrdRecServiceImpl implements OrdRecService {
       customer.setCustomerPhone(rec.getRecPhone());
       usrCustomerMapper.insert(customer);
     }
+    this.sendMessage();
+  }
+
+  /**
+   * 有新增推荐，通知业务员
+   */
+  private void sendMessage() {
+    String smsContent = "【钇旺亿财务】有新的推信息，请登录运营系统查看，并及时处理。";
+    System.out.println(smsContent);
+    String[] mobiles = StringUtils.split(mangerMobile, ",");
+    for(String mobile: mobiles){
+      AffMarkSMS.execute(mobile, smsContent);
+    }
+
   }
 
   @Override

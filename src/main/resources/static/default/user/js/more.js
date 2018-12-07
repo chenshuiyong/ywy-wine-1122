@@ -7,6 +7,8 @@ function logout() {
 
 // 弹窗内容
 function logout(){
+    commonComfirm(msg,deleteAjax,data);
+
 /*
     // 确认框
     var index = layer.confirm('确认退出', {
