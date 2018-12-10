@@ -38,6 +38,7 @@ public class IndustrySMS
 	    // 提交请求
 		//String result = HttpUtil.post(url, body);
 		String result = "00000";
+		System.out.println("phone:" + phone+","+smsContent);
 		System.out.println("result:" + System.lineSeparator() + result);
 	    if (!result.contains("00000")){
 	    	throw new WorkException("发送失败");

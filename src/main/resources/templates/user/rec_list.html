@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-    <title>全部推荐</title>
+    <title></title>
   <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}"></script>
   <script type="text/javascript" src="/common/layer/layer.js" th:src="@{/common/layer/layer.js}"></script>
   <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
@@ -13,6 +13,26 @@
 </head>
 <body>
   <div class="pagethree">
+    <div  th:if="${state == '' }"   class="title">
+      <div>
+        <div class="weui-cell__bd">
+          <p>推荐状态</p>
+        </div>
+        <div class="weui-cell__ft"
+             style="height: 25px;line-height: 25px;display: flex; display: -webkit-box;display: -webkit-flex;align-items: center;-webkit-align-items: center;">
+          <select class="weui-select" name="ITEM_SEX" style="height: 25px;line-height:25px;font-size: 15px;direction: rtl;color: #333333">
+            <option value="" style="font-size: 15px" >请选择</option>
+            <option value="1" style="font-size: 15px">收到推荐</option>
+            <option value="2"  style="font-size: 15px">业务员跟进中</option>
+            <option value="3"  style="font-size: 15px">已合作未付款</option>
+            <option value="4"  style="font-size: 15px">推荐成功</option>
+            <option value="5"  style="font-size: 15px">推荐失败</option>
+            <option value="6"  style="font-size: 15px">奖励成功</option>
+          </select>
+        </div>
+      </div>
+      <div><input type="button" id="search"> 搜索</div>
+    </div>
     <div  class="title">
       <div>No.</div><div>推荐信息/处理情况</div>
     </div>
@@ -28,6 +48,7 @@
         </div><div>
         <p style="color: black;" th:text="${vo.beRecName}+'&nbsp;'+${vo.beRecPhone}"></p>
         <p th:text="${vo.createTimeStr}"></p>
+        <input type="hidden" id="stateStr" th:value="${stateStr}">
         <p class="borderp" style="color: #EC8B2F;"  th:text="${vo.stateStr}"></p>
         <p class="borderp" th:if="${vo.state == 5 }"  style="color: red;width: 100%;height: auto; word-wrap:break-word; word-break:break-all; overflow: hidden;" th:text="'失败原因：'+${vo.failReason}"></p>
       </div>
@@ -37,6 +58,9 @@
     <div th:replace="common/recFooter :: footer('rec')"></div>
   </div>
 </body>
+<script th:inline="javascript" >
+    $("title").html($("#stateStr").val());
+</script>
 <script type="text/javascript" src="/common/js/big_index.js" th:src="@{/common/js/big_index.js}"></script>
 <script type="text/javascript" src="/default/user/js/rec_list.js" th:src="@{/default/user/js/rec_list.js}"></script>
 </html>

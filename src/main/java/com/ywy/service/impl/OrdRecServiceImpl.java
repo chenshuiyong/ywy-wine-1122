@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.ywy.domain.Constant;
 import com.ywy.domain.OrdRec;
 import com.ywy.domain.UsrCustomer;
-import com.ywy.domain.sms.httpApiDemo.IndustrySMS;
 import com.ywy.exception.WorkException;
 import com.ywy.mapper.OrdRecMapper;
 import com.ywy.mapper.UsrCustomerMapper;
@@ -60,7 +59,7 @@ public class OrdRecServiceImpl implements OrdRecService {
     System.out.println(smsContent);
     String[] mobiles = StringUtils.split(mangerMobile, ",");
     for(String mobile: mobiles){
-      IndustrySMS.execute(mobile, smsContent);
+     // IndustrySMS.execute(mobile, smsContent);
     }
 
   }

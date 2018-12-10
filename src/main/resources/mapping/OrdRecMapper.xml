@@ -33,6 +33,7 @@
         <if test="isDelete !=null and isDelete !=''"> AND is_delete=#{isDelete}</if>
         <if test="isToday !=null and isToday !=''"> AND MONTH(create_time) = MONTH(NOW()) and DAY(create_time) = DAY(NOW())</if>
         <if test="state !=null and state !=''"> AND state=#{state}</if>
+        ORDER BY create_time desc
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

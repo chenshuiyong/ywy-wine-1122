@@ -159,6 +159,24 @@ public class IndexController {
         List<OrdRec> list = ordRecService.findAll(1, 10000, record);
         model.addAttribute("list", list);
         model.addAttribute("state", record.getState());
+        String stateStr = "全部推荐";
+        if (record.getState() != null){
+            switch(record.getState()){
+                case 1:
+                    stateStr = "收到推荐";
+                    break;
+                case 2:
+                    stateStr = "跟进中";
+                    break;
+                case 3:
+                    stateStr = "已合作未付款";
+                    break;
+                case 4:
+                    stateStr = "推荐成功";
+                    break;
+            }
+        }
+        model.addAttribute("stateStr", stateStr);
         return "/user/rec_list";
     }
 }

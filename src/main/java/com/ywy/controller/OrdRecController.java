@@ -90,7 +90,6 @@ public class OrdRecController {
       }
       String code = RandomStringUtils.randomNumeric(6);
       String smsContent = "【钇旺亿财务】尊敬的用户，您的验证码为" + code;
-      System.out.println(smsContent);
       IndustrySMS.execute(phone, smsContent);
       request.getSession().setAttribute(Constant.LOGIN_VCODE+phone, code);
       request.getSession().setAttribute(Constant.LAST_VCODE_TIME+phone, new Date());
