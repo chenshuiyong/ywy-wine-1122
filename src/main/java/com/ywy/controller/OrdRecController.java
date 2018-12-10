@@ -1,5 +1,6 @@
 package com.ywy.controller;
 
+import com.ywy.config.RequestLimit;
 import com.ywy.domain.Constant;
 import com.ywy.domain.Message;
 import com.ywy.domain.OrdRec;
@@ -60,6 +61,7 @@ public class OrdRecController {
    */
   @RequestMapping("/sendSms")
   @ResponseBody
+  @RequestLimit(count=5,time=60000)
   public Message sendSms(HttpServletRequest request, String phone,Byte type) {
     try { // 校验手机号是否合法
       if (!VateUtils.isPhoneValid(phone)) {
@@ -299,6 +301,10 @@ public class OrdRecController {
       produces = {"application/json;charset=UTF-8"})
   public Message delete(HttpServletRequest request, OrdRec rec) {
     try {
+      Object phone = request.getSession().getAttribute(Constant.REC_BY_PHONE);
+      if (phone == null) {
+        throw new WorkException("手机为空");
+      }
       OrdRec ordRec = ordRecService.selectByPrimaryKey(rec.getRecId());
       if (ordRec.getRecId() == null) {
         throw new WorkException("id不能为空");
