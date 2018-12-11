@@ -13,32 +13,10 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <title>信息提示</title>
-    <script type="text/javascript" src="/common/js/jquery.js" th:src="@{/common/js/jquery.js}" ></script>
-    <script type="text/javascript" src="/common/js/public.js" th:src="@{/common/js/public.js}"></script>
-    <script type="text/javascript" src="/common/js/common.js" th:src="@{/common/js/common.js}"></script>
-    <link rel="stylesheet" type="text/css" href="/common/css/msg.css" th:href="@{/common/css/msg.css}"></link>
+    <title>错误页面</title>
 </head>
 <body>
-
-<!--提示遮罩2-->
-<div id="submit_mask2" style="display: block">
-    <div class="pop_container2">
-        <div class="title_line2">温馨提示</div>
-        <div class="tips_container2">
-            <p style="text-align:center;" >对不起，系统开了小差，请稍候再试</p>
-
-        </div>
-        <div class="submit_btn2" id="btn_back" >确定</div>
-    </div>
-</div>
-
-
-</body>
-<script th:inline="javascript">
-    $("#btn_back").click(function(){
-        history.go(-1);
-    });
-</script>
+    <h1 th:text="${code}"></h1>
+    <h1 th:text="${msg}"></h1>
 </body>
 </html>

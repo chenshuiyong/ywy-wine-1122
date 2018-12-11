@@ -10,6 +10,13 @@ package com.ywy.exception;
  */
 public class WorkException extends Exception {
 
+    private String code;
+    private String msg;
+    public WorkException(String code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
     public WorkException() {
     }
 
@@ -29,4 +36,19 @@ public class WorkException extends Exception {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 }
